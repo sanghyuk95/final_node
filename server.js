@@ -6,7 +6,7 @@ const session = require("express-session");
 
 app.use(session({ secret: "비밀코드", resave: true, saveUninitialized: false }));
 app.use(passport.initialize());
-app.use(passport.session()); 
+app.use(passport.session());
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.static("SVG"));
@@ -48,5 +48,15 @@ app.get("/myPage", function (req, res) {
     }
     console.log("result : ", result);
     res.render("myPage.ejs", { data: result });
+  });
+});
+
+app.get("/board", function (req, res) {
+  connection.query("SELECT * from community", function (err, result, field) {
+    if (err) {
+      console.log(err);
+    }
+    console.log("result : ", result);
+    res.render("board.ejs", { data: result });
   });
 });
