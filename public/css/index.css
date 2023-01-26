@@ -1,0 +1,529 @@
+@font-face {
+  font-family: "Somi";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/naverfont_10@1.0/Somi.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: black;
+  overflow: hidden;
+  backface-visibility: hidden;
+}
+.title {
+  margin-top: 50px;
+  text-align: center;
+  color: transparent;
+}
+.en-title {
+  font-family: "La Belle Aurore";
+}
+.qm {
+  font-family: "La Belle Aurore";
+  font-weight: bold;
+}
+.kr-title {
+  font-family: "Somi";
+}
+.dummy {
+  display: inline-block;
+  width: 90px;
+}
+/* 나타나는/사라지는 효과 */
+span {
+  opacity: 0;
+  font-size: 6vw;
+  color: white;
+  display: inline-block;
+  text-shadow: 0 0 0 whitesmoke;
+  color: transparent;
+}
+span:nth-child(even) {
+  animation-name: smoky-mirror;
+}
+@keyframes fade {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes smoky {
+  60% {
+    text-shadow: 0 0 40px whitesmoke;
+  }
+  to {
+    transform: translate3d(15rem, -8rem, 0) rotate(-40deg) skewX(70deg) scale(1.5);
+    text-shadow: 0 0 20px whitesmoke;
+    opacity: 0;
+  }
+}
+@keyframes smoky-mirror {
+  60% {
+    text-shadow: 0 0 40px whitesmoke;
+  }
+  to {
+    transform: translate3d(18rem, -8rem, 0) rotate(-40deg) skewX(-70deg) scale(2);
+    text-shadow: 0 0 20px whitesmoke;
+    opacity: 0;
+  }
+}
+/* 나타나는/사라지는 효과  끝*/
+
+.characters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.characters img {
+  width: 100px;
+  cursor: pointer;
+  position: absolute;
+}
+.characters div {
+  position: absolute;
+  display: none;
+}
+#happy {
+  animation: happy both;
+  animation-duration: 2s;
+  animation-delay: 3s;
+  animation-timing-function: linear;
+  top: 70%;
+  left: 10%;
+}
+/* @keyframes happy {
+  0% {
+    top: 0;
+    right: -10%;
+  }
+  20% {
+    top: 15%;
+    right: 10%;
+  }
+  25% {
+    top: 5%;
+    right: 15%;
+  }
+  50% {
+    top: 30%;
+    right: 30%;
+  }
+  55% {
+    top: 20%;
+    right: 35%;
+  }
+  70% {
+    top: 50%;
+    right: 50%;
+  }
+  75% {
+    top: 40%;
+    right: 55%;
+  }
+  90% {
+    top: 60%;
+    right: 70%;
+  }
+  95% {
+    top: 50%;
+    right: 70%;
+  }
+  100% {
+    top: 70%;
+    right: 80%;
+  }
+} */
+@keyframes happy {
+  0% {
+    top: 70%;
+    left: -100px;
+    transform: rotate(0);
+  }
+  100% {
+    top: 70%;
+    left: 10%;
+    transform: rotate(360deg);
+  }
+}
+#happy:hover {
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+}
+@keyframes happyHover {
+  0% {
+    top: 72%;
+    left: 10%;
+  }
+  50% {
+    top: 65%;
+    left: 10%;
+  }
+  100% {
+    top: 70%;
+    left: 10%;
+  }
+}
+#happy:hover ~ #happyText {
+  display: block;
+  width: 100px;
+  text-align: center;
+  font-family: "Pretendard";
+  font-weight: bold;
+  color: black;
+  background-color: white;
+  padding: 5px;
+  border-radius: 20px;
+  font-size: 20px;
+  top: 67%;
+  left: 12%;
+}
+
+#bored {
+  animation: bored both;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+}
+@keyframes bored {
+  0% {
+    top: 70%;
+    left: -50px;
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(90deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  40% {
+    transform: rotate(180deg);
+  }
+  45% {
+    transform: rotate(180deg);
+  }
+  60% {
+    transform: rotate(270deg);
+  }
+  65% {
+    transform: rotate(270deg);
+  }
+  80% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    top: 70%;
+    left: 25%;
+  }
+}
+#bored:hover {
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+@keyframes boredHover {
+  0% {
+    top: 70%;
+    left: 25%;
+  }
+  25% {
+    top: 70%;
+    left: 26%;
+  }
+  50% {
+    top: 70%;
+    left: 27%;
+  }
+  75% {
+    top: 70%;
+    left: 26%;
+  }
+  100% {
+    top: 70%;
+    left: 25%;
+  }
+}
+#bored:hover ~ #boredText {
+  display: block;
+  width: 100px;
+  text-align: center;
+  font-family: "Pretendard";
+  font-weight: bold;
+  color: black;
+  background-color: white;
+  padding: 5px;
+  border-radius: 20px;
+  font-size: 20px;
+  top: 67%;
+  left: 27%;
+}
+
+#sad {
+  animation: sad both;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+}
+@keyframes sad {
+  0% {
+    left: -100px;
+    top: 70%;
+    transform: rotate(0);
+  }
+  100% {
+    top: 70%;
+    left: 40%;
+    transform: rotate(360deg);
+  }
+}
+#sad:hover {
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+@keyframes sadHover {
+  0% {
+    top: 70%;
+    left: 40%;
+    transform: rotate(0);
+  }
+  25% {
+    top: 70%;
+    left: 40%;
+    transform: rotate(15deg);
+  }
+  50% {
+    top: 70%;
+    left: 40%;
+    transform: rotate(0);
+  }
+  75% {
+    top: 70%;
+    left: 40%;
+    transform: rotate(-15deg);
+  }
+  100% {
+    top: 70%;
+    left: 40%;
+    transform: rotate(0);
+  }
+}
+#sad:hover ~ #sadText {
+  display: block;
+  width: 100px;
+  text-align: center;
+  font-family: "Pretendard";
+  font-weight: bold;
+  color: black;
+  background-color: white;
+  padding: 5px;
+  border-radius: 20px;
+  font-size: 20px;
+  top: 67%;
+  left: 42%;
+}
+#nervous {
+  animation: nervous both;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  top: 70%;
+  right: 40%;
+}
+@keyframes nervous {
+  0% {
+    top: 70%;
+    right: -100px;
+    transform: rotate(0);
+  }
+  100% {
+    top: 70%;
+    right: 40%;
+    transform: rotate(360deg);
+  }
+}
+#nervous:hover {
+  animation-duration: 0.01s;
+  animation-iteration-count: infinite;
+}
+@keyframes nervousHover {
+  0% {
+    top: 70%;
+    right: 40%;
+  }
+  100% {
+    top: 70%;
+    right: 40.3%;
+  }
+}
+#nervous:hover ~ #nervousText {
+  display: block;
+  width: 100px;
+  text-align: center;
+  font-family: "Pretendard";
+  font-weight: bold;
+  color: black;
+  background-color: white;
+  padding: 5px;
+  border-radius: 20px;
+  font-size: 20px;
+  top: 67%;
+  right: 38%;
+}
+
+#angry {
+  animation: angry both;
+  animation-duration: 2s;
+  animation-delay: 2s;
+  animation-timing-function: linear;
+}
+/* @keyframes angry {
+  0% {
+    top: -100px;
+    right: 30%;
+  }
+  25% {
+    top: 20%;
+    right: 30%;
+    transform: scale(1);
+  }
+  30% {
+    top: 65%;
+    right: 65%;
+    transform: scale(2);
+  }
+  35% {
+    top: 40%;
+    right: 50%;
+    transform: scale(1);
+  }
+  50% {
+    top: 40%;
+    right: 50%;
+    transform: scale(1);
+  }
+  55% {
+    top: 65%;
+    right: 40%;
+    transform: scale(2);
+  }
+  60% {
+    top: 40%;
+    right: 40%;
+    transform: scale(1);
+  }
+  80% {
+    top: 70%;
+    right: 30%;
+  }
+  100% {
+    top: 70%;
+    right: 30%;
+  }
+} */
+@keyframes angry {
+  0% {
+    top: 70%;
+    right: -100px;
+    transform: rotate(0);
+  }
+  100% {
+    top: 70%;
+    right: 25%;
+    transform: rotate(720deg);
+  }
+}
+#angry:hover {
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+}
+@keyframes angryHover {
+  0% {
+    top: 70%;
+    right: 25%;
+    transform: scale(1);
+  }
+  50% {
+    top: 70%;
+    right: 25%;
+    transform: scale(1.5);
+  }
+  100% {
+    top: 70%;
+    right: 25%;
+    transform: scale(1);
+  }
+}
+#angry:hover ~ #angryText {
+  display: block;
+  width: 100px;
+  text-align: center;
+  font-family: "Pretendard";
+  font-weight: bold;
+  color: black;
+  background-color: white;
+  padding: 5px;
+  border-radius: 20px;
+  font-size: 20px;
+  top: 67%;
+  right: 23%;
+}
+
+#lonely {
+  animation: lonely both;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+}
+@keyframes lonely {
+  0% {
+    top: 70%;
+    right: -10%;
+    transform: rotate(0);
+  }
+  100% {
+    top: 70%;
+    right: 10%;
+    transform: rotate(-360deg);
+  }
+}
+#lonely:hover {
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+@keyframes lonelyHover {
+  0% {
+    top: 70%;
+    right: 10%;
+    transform: scale(1);
+  }
+  99% {
+    top: 70%;
+    right: 10%;
+    transform: scale(0.1);
+  }
+  100% {
+    top: 70%;
+    right: 10%;
+    transform: scale(1);
+  }
+}
+#lonely:hover ~ #lonelyText {
+  display: block;
+  width: 100px;
+  text-align: center;
+  font-family: "Pretendard";
+  font-weight: bold;
+  color: black;
+  background-color: white;
+  padding: 5px;
+  border-radius: 20px;
+  font-size: 20px;
+  top: 68%;
+  right: 8%;
+}

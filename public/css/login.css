@@ -1,0 +1,583 @@
+@import url("https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap");
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Pretendard-Regular";
+}
+/* 헤더 */
+body .hidden {
+  display: none;
+}
+header {
+  position: fixed;
+  width: 100%;
+}
+.header-up {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  width: 100%;
+  height: 20px;
+  background-color: white;
+}
+.header-up .fa-xmark {
+  position: absolute;
+  right: 2%;
+}
+.header-container {
+  background-color: #f6f3ee;
+  height: 100px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: fixed;
+}
+.header-container .header-left {
+  position: absolute;
+  left: 3%;
+  font-size: 20px;
+}
+.header-container p {
+  font-family: "Homemade Apple";
+  font-size: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header-container .header-right {
+  position: absolute;
+  right: 3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
+.header-container .header-right a {
+  margin-left: 30px;
+  color: black;
+  text-decoration: none;
+}
+@media (max-width: 836px) {
+  .header-up {
+    display: none;
+  }
+}
+/* 헤더끝 */
+
+/* 햄버거 메뉴 시작 */
+.menu-on {
+  animation-name: slideIn;
+  animation-duration: 1.5s;
+}
+@keyframes slideIn {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0;
+  }
+}
+.menu-off {
+  animation-name: slideOut;
+  animation-duration: 1.5s;
+}
+@keyframes slideOut {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
+}
+@media (max-width: 836px) {
+  .bar-menu {
+    width: 100%;
+    height: 100vh;
+    background-color: #f2f1ee;
+    position: fixed;
+    top: 100px;
+    z-index: 1;
+  }
+  .bar-right {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 30px;
+    margin-left: 10%;
+  }
+  .bar-right a {
+    text-decoration: none;
+    color: black;
+    font-family: "Cormorant SC";
+    font-size: 46px;
+  }
+  .bar-right input {
+    outline: 0;
+    border: 0;
+    border-bottom: 1px solid black;
+    margin-top: 50px;
+    width: 70%;
+    padding: 5px;
+    padding-left: 40px;
+    font-size: 20px;
+    background-color: transparent;
+  }
+  .bar-right input::placeholder {
+    color: black;
+    font-family: "Cormorant SC";
+    font-size: 24px;
+    text-align: center;
+  }
+  .bar-right div {
+    position: relative;
+  }
+  .bar-right div i {
+    position: absolute;
+    bottom: 5px;
+    font-size: 20px;
+  }
+  .bar-left {
+    position: absolute;
+    top: 450px;
+    right: 10%;
+    width: 100%;
+    height: 80vw;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .bar-left .bar-img {
+    background-color: white;
+    width: 70%;
+    height: 50%;
+  }
+}
+
+@media (min-width: 837px) {
+  .bar-menu {
+    width: 100%;
+    height: 100vh;
+    background-color: #f2f1ee;
+    padding-top: 50px;
+    display: flex;
+    position: fixed;
+    top: 100px;
+    left: 0;
+    z-index: 1;
+  }
+  .bar-left {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .bar-left .bar-img {
+    background-color: white;
+    width: 400px;
+    height: 520px;
+    margin-top: 80px;
+    margin-right: 10%;
+  }
+  .bar-right {
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+    margin-left: 5%;
+  }
+  .bar-right a {
+    text-decoration: none;
+    color: black;
+    font-family: "Cormorant SC";
+    font-size: 60px;
+  }
+  .bar-right input {
+    outline: 0;
+    border: 0;
+    border-bottom: 1px solid black;
+    margin-top: 110px;
+    width: 100%;
+    padding: 5px;
+    padding-left: 40px;
+    font-size: 20px;
+    background-color: transparent;
+  }
+  .bar-right input::placeholder {
+    color: black;
+    font-family: "Cormorant SC";
+    font-size: 30px;
+    text-align: center;
+  }
+  .bar-right div {
+    position: relative;
+  }
+  .bar-right div i {
+    position: absolute;
+    bottom: 5px;
+    font-size: 25px;
+  }
+}
+/* 햄버거 메뉴 끝 */
+
+/* 장바구니메뉴 시작 */
+.cart-on {
+  animation-name: cartIn;
+  animation-duration: 1.5s;
+}
+@keyframes cartIn {
+  0% {
+    right: -100%;
+  }
+  100% {
+    right: 0;
+  }
+}
+.cart-off {
+  animation-name: cartOut;
+  animation-duration: 1.5s;
+}
+@keyframes cartOut {
+  0% {
+    right: 0;
+  }
+  100% {
+    right: -100%;
+  }
+}
+@media (max-width: 836px) {
+  .cart-menu {
+    width: 100%;
+    height: 100vh;
+    background-color: #f2f1ee;
+    position: fixed;
+    display: flex;
+    padding: 50px 100px 0 50px;
+    z-index: 1;
+  }
+  .cart-left {
+    display: none;
+  }
+  .cart-right {
+    padding-left: 50px;
+    width: 700px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .cart-right-title {
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    border-bottom: 1px solid #c9c7bb;
+    padding-bottom: 10px;
+    font-family: "Cormorant SC";
+    font-weight: bold;
+    position: relative;
+  }
+  .cart-right-title i {
+    position: absolute;
+    right: 0;
+    font-size: 22px;
+  }
+  .cart-right-box {
+    width: 100%;
+    height: 280px;
+    background-color: white;
+    margin-top: 50px;
+  }
+  .cart-right-continue {
+    background-color: #c9c7bb;
+    width: 350px;
+    height: 50px;
+    margin-top: 50px;
+    padding: 4px;
+  }
+  .cart-right-continue > p {
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    font-family: "Cormorant SC";
+    font-weight: bold;
+  }
+  .cart-right-continue > p > span {
+    font-family: "Cormorant SC";
+    font-weight: bold;
+    font-size: 32px;
+  }
+}
+
+@media (min-width: 837px) {
+  .cart-menu {
+    width: 1200px;
+    height: 100vh;
+    background-color: #f2f1ee;
+    position: fixed;
+    right: 0;
+    display: flex;
+    padding: 50px 100px 0 50px;
+    z-index: 1;
+  }
+  .cart-left {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .cart-left-title {
+    padding: 0 20px 10px;
+    font-size: 20px;
+    border-bottom: 1px solid #c9c7bb;
+    font-family: "Cormorant SC";
+    font-weight: bold;
+  }
+  .cart-left-box {
+    margin-top: 50px;
+  }
+  .cart-left-box:last-child {
+    margin-top: 72px;
+  }
+  .cart-left-box p {
+    text-align: center;
+    margin-top: 10px;
+  }
+  .cart-left-photo {
+    width: 200px;
+    height: 200px;
+    background-color: white;
+  }
+  .cart-right {
+    padding-left: 50px;
+    width: 700px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .cart-right-title {
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    border-bottom: 1px solid #c9c7bb;
+    padding-bottom: 10px;
+    font-family: "Cormorant SC";
+    font-weight: bold;
+    position: relative;
+  }
+  .cart-right-title i {
+    position: absolute;
+    right: 0;
+    font-size: 22px;
+  }
+  .cart-right-box {
+    width: 100%;
+    height: 280px;
+    background-color: white;
+    margin-top: 50px;
+  }
+  .cart-right-continue {
+    background-color: #c9c7bb;
+    width: 350px;
+    height: 50px;
+    margin-top: 50px;
+    padding: 4px;
+  }
+  .cart-right-continue > p {
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    font-family: "Cormorant SC";
+    font-weight: bold;
+  }
+  .cart-right-continue > p > span {
+    font-family: "Cormorant SC";
+    font-weight: bold;
+    font-size: 32px;
+  }
+}
+/* 장바구니메뉴 끝 */
+
+body {
+  background-color: #f6f3ee;
+  width: 100%;
+  height: 100%;
+}
+.login-container {
+  padding: 80px 30%;
+}
+.login-title {
+  margin: 70px 0;
+  font-weight: bold;
+  font-size: 50px;
+  text-align: center;
+}
+.login-inp {
+  width: 100%;
+}
+.login-inp label {
+  display: block;
+  margin-top: 50px;
+  position: relative;
+}
+.login-inp label p {
+  margin: 10px 0;
+  color: #555;
+}
+.login-inp label input {
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid black;
+  width: 100%;
+  padding: 5px;
+  font-size: 20px;
+}
+.login-remember {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  font-size: 20px;
+}
+.login-remember span {
+  margin-left: 10px;
+}
+.login-btn-box {
+  width: 100%;
+  margin: 0 auto;
+}
+.login-btn {
+  margin-top: 50px;
+  width: 100%;
+  padding: 15px;
+  border: 0;
+  outline: 0;
+  border-radius: 50px;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+.login-social {
+  margin-top: 80px;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.login-social button {
+  width: 300px;
+  padding: 12px;
+  border-radius: 50px;
+  border: 1px solid black;
+  outline: 0;
+  background-color: transparent;
+  font-size: 16px;
+  font-weight: bold;
+}
+.fa-eye,
+.fa-eye-slash {
+  position: absolute;
+  right: 20px;
+  cursor: pointer;
+}
+.login-container .login-inp .hide {
+  display: none;
+}
+
+/* 미디어 쿼리 부분 */
+@media (max-width: 834px) {
+  .header-right a {
+    display: none;
+  }
+  body {
+    background-color: #f6f3ee;
+    width: 100%;
+    height: 100%;
+  }
+  .login-container {
+    padding: 80px 5%;
+  }
+  .login-title {
+    margin: 50px 0 70px 0;
+    font-weight: bold;
+    font-size: 42px;
+    text-align: left;
+  }
+  .login-inp {
+    width: 100%;
+  }
+  .login-inp label {
+    display: block;
+    margin-top: 50px;
+  }
+  .login-inp label p {
+    margin: 10px 0;
+    color: #555;
+  }
+  .login-inp label input {
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    border-bottom: 1px solid black;
+    width: 100%;
+    padding: 5px;
+    font-size: 20px;
+  }
+  .login-remember {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    font-size: 20px;
+  }
+  .login-remember span {
+    margin-left: 10px;
+  }
+  .login-btn-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .login-btn {
+    margin-top: 30px;
+    width: 100%;
+    padding: 15px;
+    border: 0;
+    outline: 0;
+    border-radius: 50px;
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .login-social {
+    margin-top: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .login-social button {
+    width: 200px;
+    padding: 12px;
+    border-radius: 50px;
+    border: 1px solid black;
+    outline: 0;
+    background-color: transparent;
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
+
+@media (max-width: 414px) {
+  header .login-right {
+    display: none;
+  }
+}

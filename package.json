@@ -1,0 +1,29 @@
+{
+  "name": "final_nodejs",
+  "version": "1.0.0",
+  "description": "그린학원 파이널 프로젝트\r https://sanghyuk95.github.io/final_project/login.html",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sanghyuk95/final_node.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sanghyuk95/final_node/issues"
+  },
+  "homepage": "https://github.com/sanghyuk95/final_node#readme",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "mysql2": "^3.0.1",
+    "nodemon": "^2.0.20",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0"
+  }
+}
