@@ -4,12 +4,20 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/css/login.css" />
+    <link rel="stylesheet" href="css/login.css" />
     <title>Document</title>
   </head>
   <body>
@@ -80,36 +88,30 @@
     <div class="login-container">
       <h1 class="login-title">Log in</h1>
       <div class="login-inp">
-        <form action="">
+        <form action="/login" method="POST">
           <label>
             <p>your email</p>
-            <input type="email" />
+            <input type="text" class="form-control" name="id" />
           </label>
           <label>
             <p>pass word</p>
-            <input type="password" class="password"/>
+            <input type="password" class="password form-control" name="pw" />
             <i class="fa-solid fa-eye"></i>
             <i class="fa-solid fa-eye-slash hide"></i>
+          </label>
+          <div class="login-remember"><input type="checkbox" /><span>remember</span></div>
+          <div class="login-btn-box">
+            <button type="submit" class="login-btn">Log in</button>
           </div>
-        </label>
-        <div class="login-remember">
-          <input type="checkbox"><span>remember</span>
-        </div>
-        <div class="login-btn-box">
-          <button class="login-btn">Log in</button>
-        </div>
-      </form>
+        </form>
+      </div>
       <div class="login-social">
-        <button>
-          <i class="fa-solid fa-comment"></i> Kakao
-        </button>
-        <button>
-          <i class="fa-solid fa-n"></i> Naver
-        </button>
+        <button><i class="fa-solid fa-comment"></i> Kakao</button>
+        <button><i class="fa-solid fa-n"></i> Naver</button>
       </div>
     </div>
     <!-- 로그인 끝 -->
   </body>
 
-  <script src="/js/login.js"></script>
+  <script src="js/login.js"></script>
 </html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/myPage.css" />
+    <link rel="stylesheet" href="css/myPage.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
@@ -138,8 +138,8 @@
             </div>
           </div>
           <div class="profile-info">
-            <h2><%= data[0].이름%></h2>
-            <p><%= data[0].가격%></p>
+            <h2><%= data.name%></h2>
+            <p><%= data.인사말%></p>
           </div>
           <div class="profile-icon">
             <i class="fa-solid fa-pen"></i>
@@ -322,7 +322,7 @@
     <!-- 푸터시작 -->
     <footer>
       <div class="footer-logo">
-        <img src="logo.svg" />
+        <img src="./SVG/logo.svg" />
       </div>
       <div class="footer-word">
         <div class="footer-info">
@@ -341,5 +341,5 @@
     </footer>
     <!-- 푸터끝 -->
   </body>
-  <script src="/js/myPage.js"></script>
+  <script src="js/myPage.js"></script>
 </html>
