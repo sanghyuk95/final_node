@@ -64,3 +64,15 @@
   });
   //헤더끝
 })();
+
+const $pw = document.querySelector(".pwA");
+const $pwC = document.querySelector(".pwC");
+const $btn = document.querySelector(".login-btn");
+$btn.type = "button";
+$btn.addEventListener("click", () => {
+  if ($pw.value !== $pwC.value) {
+    alert("확인 비밀번호가 다릅니다");
+  } else {
+    $btn.type = "submit";
+  }
+});

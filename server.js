@@ -93,12 +93,11 @@ app.get("/signUp", function (req, res) {
   res.render("signUp.ejs");
 });
 app.post('/signUp', function (req, res) {
-  connection.query(`insert into login (id,password) values ('${req.body.id}','${req.body.pw}')`, function (err, result) {
+  connection.query(`insert into login (id,password,name) values ('${req.body.id}','${req.body.pw}','${req.body.name}')`, function (err, result) {
     if (err) {
       console.log(err)
     }
-    console.log(result)
-    res.redirect("/signUp");
+    res.redirect("/myPage");
   })
 })
 
