@@ -42,6 +42,7 @@ app.get("/", function (req, res) {
 app.get("/login", function (req, res) {
   res.render("login.ejs");
 });
+
 app.post(
   "/login",
   passport.authenticate("local", {
@@ -88,8 +89,20 @@ passport.deserializeUser(function (id, done) {
   })
 });
 
+app.get("/signUp", function (req, res) {
+  res.render("signUp.ejs");
+});
+app.post('/signUp', function (req, res) {
+  connection.query(`insert into login (id,password) values ('${req.body.id}','${req.body.pw}')`, function (err, result) {
+    if (err) {
+      console.log(err)
+    }
+    console.log(result)
+    res.redirect("/signUp");
+  })
+})
+
 app.get("/myPage", 로그인했니, function (req, res) {
-  console.log(req.user)
   res.render("myPage.ejs",{data:req.user});
 });
 
@@ -106,7 +119,6 @@ app.get("/board", function (req, res) {
     if (err) {
       console.log(err);
     }
-    console.log("result : ", result);
     res.render("board.ejs", { data: result });
   });
 });

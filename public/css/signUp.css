@@ -443,17 +443,9 @@ body {
   align-items: center;
   justify-content: start;
   font-size: 20px;
-  position: relative;
 }
 .login-remember span {
   margin-left: 10px;
-}
-.gosignup {
-  color: black;
-  text-decoration: none;
-  position: absolute;
-  right: 0;
-  font-size: 18px;
 }
 .login-btn-box {
   width: 100%;
