@@ -98,7 +98,7 @@ app.post("/signUp", function (req, res) {
       console.log(err);
     }
   });
-  res.redirect('/login.ejs')
+  res.redirect('/login')
 });
 
 app.get("/myPage", loggedIn, function (req, res) {
