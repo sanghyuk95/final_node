@@ -425,6 +425,9 @@ header {
     border-radius: 100%;
     margin: 0 50px 0 40px;
     position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
   .profile-photo-modify {
     width: 25px;
@@ -697,6 +700,9 @@ header {
     background-color: yellow;
     border-radius: 100%;
     position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
   .profile-photo-modify {
     width: 25px;
@@ -850,7 +856,7 @@ header {
   .my-cart-checkAll {
     margin: 0 20px;
   }
-  .my-cart-checkAll span{
+  .my-cart-checkAll span {
     margin: 0 20px;
   }
   .my-cart-box {
@@ -876,6 +882,61 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-around;
+  }
+  .modal {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f6f3ee;
+    position: fixed;
+    top: 200px;
+    left: 40%;
+  }
+  .modal i {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 30px;
+  }
+  .modal h3 {
+    margin: 100px;
+  }
+  .modal form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .modal input {
+    display: block;
+    margin-bottom: 50px;
+  }
+  .modal input[type="file"]::file-selector-button {
+    background-color: black;
+    color: white;
+    border: 0;
+    outline: 0;
+    padding: 5px 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .modal input[type="file"]::file-selector-button:hover {
+    background-color: green;
+  }
+  .modal button {
+    background-color: black;
+    color: white;
+    border: 0;
+    outline: 0;
+    padding: 5px 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
   }
 }
 

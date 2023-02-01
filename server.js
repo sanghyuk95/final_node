@@ -49,7 +49,7 @@ app.post(
     failureRedirect: "/fail",
   }),
   function (req, res) {
-    res.redirect("/");
+    res.redirect("/myPage");
   }
 );
 
@@ -83,26 +83,26 @@ passport.serializeUser(function (user, done) {
   done(null, user.id);
 });
 passport.deserializeUser(function (id, done) {
-  //디비에서 user.id 로 유저를 찾은뒤에 유저 정보를 밑에 중괄호에 넣음 
+  //디비에서 user.id 로 유저를 찾은뒤에 유저 정보를 밑에 중괄호에 넣음
   connection.query(`SELECT * from login where id='${id}'`, function (err, result) {
-    done(null,result[0]);
-  })
+    done(null, result[0]);
+  });
 });
 
 app.get("/signUp", function (req, res) {
   res.render("signUp.ejs");
 });
-app.post('/signUp', function (req, res) {
+app.post("/signUp", function (req, res) {
   connection.query(`insert into login (id,password,name) values ('${req.body.id}','${req.body.pw}','${req.body.name}')`, function (err, result) {
     if (err) {
-      console.log(err)
+      console.log(err);
     }
-    res.redirect("/myPage");
-  })
-})
+  });
+  res.redirect('/login.ejs')
+});
 
 app.get("/myPage", loggedIn, function (req, res) {
-  res.render("myPage.ejs",{data:req.user});
+  res.render("myPage.ejs", { data: req.user });
 });
 
 function loggedIn(req, res, next) {
@@ -120,4 +120,33 @@ app.get("/board", function (req, res) {
     }
     res.render("board.ejs", { data: result });
   });
+});
+
+let multer = require("multer");
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, __dirname + "/public/imageupload");
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  },
+});
+var upload = multer({ storage: storage });
+
+app.post("/upload", upload.single("profile"), function (req, res) {
+  const sql = `
+  update login
+  set profile = '${req.file.originalname}'
+  where id='${req.user.id}'
+  `;
+  connection.query(sql, function (err, result, field) {
+    if (err) {
+      console.log(err);
+    }
+  });
+  res.redirect('/myPage');
+});
+
+app.get("/image/:imageName", function (req, res) {
+  res.sendFile(__dirname + "/public/image/" + req.params.imageName);
 });
