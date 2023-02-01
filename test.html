@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        background-color: wheat;
+        height: 20000px;
+      }
+      .word {
+        margin-top: 300px;
+        text-align: center;
+        position: sticky;
+        top: 300px;
+      }
+      .word span {
+        font-size: 50px;
+        margin: 5px;
+        color: white;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="word">
+      <span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span
+      ><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><br />
+      <span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span
+      ><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span
+      ><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span
+      ><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><br />
+      <span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span
+      ><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span
+      ><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span
+      ><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><br />
+      <span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span
+      ><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span><span>a</span
+      ><span>a</span><span>a</span><span>a</span><span>a</span>
+    </div>
+  </body>
+  <script>
+    const $span = document.querySelectorAll("span");
+    const $body = document.querySelector('body')
+    let a = 0;
+    window.addEventListener("scroll", () => {
+      let value = window.scrollY;
+      let aa =Math.round(value * 0.01) - 1
+      $span[aa].style.color = "black";
+      console.log($body.getComputedStyle())
+    });
+  </script>
+</html>

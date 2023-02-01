@@ -61,15 +61,15 @@ passport.use(
       session: true,
       passReqToCallback: false,
     },
-    function (입력한아이디, 입력한비번, done) {
-      connection.query(`SELECT id,password from login where id='${입력한아이디}'`, function (err, result) {
+    function (id, pw, done) {
+      connection.query(`SELECT id,password from login where id='${id}'`, function (err, result) {
         if (err) {
           return done(err);
         }
         if (!result) {
           return done(null, false, { message: "존재안함" });
         }
-        if (입력한비번 === result[0].password) {
+        if (pw === result[0].password) {
           return done(null, result[0]);
         } else {
           return done(null, false, { message: "비번틀림" });
@@ -101,11 +101,11 @@ app.post('/signUp', function (req, res) {
   })
 })
 
-app.get("/myPage", 로그인했니, function (req, res) {
+app.get("/myPage", loggedIn, function (req, res) {
   res.render("myPage.ejs",{data:req.user});
 });
 
-function 로그인했니(req, res, next) {
+function loggedIn(req, res, next) {
   if (req.user) {
     next();
   } else {
