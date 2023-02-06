@@ -154,4 +154,11 @@ $lonely.addEventListener("animationend", () => {
   });
 });
 
+const $box = document.querySelectorAll('.box')
+$box.forEach((e) => {
+  e.addEventListener('click', () => {
+    location.pathname = "/main";
+  })
+})
+
 

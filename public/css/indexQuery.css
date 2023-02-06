@@ -1,0 +1,284 @@
+@media screen and (max-width: 1240px) {
+    .item_menu {
+        font-size: 5.6452vw !important;
+    }
+    .hyft_img,
+    .goals_img,
+    .package_img {
+        width: 32.2581vw !important;
+        height: 40.3226vw !important;
+    }
+        
+    .hyft_title,
+    .goals_title,
+    .package_title,
+    .left_title {
+        font-size: 4.8387vw;
+    }
+        
+    .hyft_subtitle,
+    .goals_subtitle,
+    .package_subtitle {
+        font-size: 1.9355vw;
+    }
+    
+    .goals_subtitle {
+        padding-left: 2.2581vw;
+    }
+
+    #contentCommunity .commu_text {
+       font-size: 4.8387vw;
+       line-height: 6.4516vw;
+    }
+}
+
+@media screen and (max-width: 1220px) {
+    .hyft_subtitle {
+        padding-left: 85px !important;
+    }
+
+    #contentMood {
+    flex-direction: column;
+    }
+
+    .left_title {
+        margin-bottom: 7.5rem;
+    }
+
+    .left_title span {
+        margin-left: 30px !important;
+    }
+
+    .fixed_img {
+        height: 65.5738vw !important;
+    }
+
+    .mood_box {
+        position: relative;
+        width: 32rem !important;
+      }
+
+    .mood_box img {
+        box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
+        -webkit-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
+        -moz-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
+      }
+
+    #contentMood .mood_box .mood_text {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        display: flex;
+        padding: 1.25rem;
+        align-items: flex-end;
+        box-sizing: border-box;
+      }
+
+    .mood_text h2 {
+        color: transparent !important;
+      }
+
+    #contentMood .mood_box:hover {
+        transform: rotateY(0deg) scale(1.05);
+        z-index: 1;
+        box-shadow: 0 25px 40px rgba(0, 0, 0, 0.5);
+      }
+
+    #contentMood .mood_box:hover .mood_text h2 {
+        color: #fff !important;
+        transition: 0.3s;
+        text-transform: uppercase;
+        margin-bottom: 0.3125rem;
+        font-size: 2.25rem;
+        transform: translateY(-30px);
+        transition-delay: 0.3s;
+        font-weight: 600;
+      }
+
+    .mood_right_container {
+        height: 52.1rem;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    #contentUs {
+        flex-direction: column;
+    }
+
+    .item_menu {
+        font-size: 3.01875rem;
+    }
+    .hyft_img,
+    .goals_img,
+    .package_img {
+        width: 20.125rem !important;
+        height: 25.1875rem !important;
+    }
+        
+    .hyft_title,
+    .goals_title,
+    .package_title,
+    .left_title {
+        font-size: 3.01875rem;
+    }
+
+    .hyft_subtitle,
+    .goals_subtitle {
+        margin-bottom: 6.25rem;
+        padding-left: 0 !important;
+    }
+        
+    .hyft_subtitle,
+    .goals_subtitle,
+    .package_subtitle {
+        font-size: 1.1875rem;
+        text-align: center;
+        line-height: 1.6875rem;
+    }
+
+    #contentEmpty {
+        height: 27.2vw;
+    }
+
+    .fixed_text {
+        font-size: 6.0000vw;
+    }
+}
+
+@media screen and (max-width: 835px) {
+    #contentItem .item_title {
+        font-size: 7.1856vw;
+        line-height: 9.2216vw;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .item_subTitle {
+        font-size: 3.2000vw !important;
+    }
+
+    #contentLine {
+        font-size: 13.3333vw;
+        margin-top: 13.3333vw;
+        margin-bottom: 26.6667vw !important;
+    }
+
+    .commu_text {
+        font-size: 2.5rem !important;
+        line-height: 3rem !important;
+    }
+   .happy_emo, .bored_emo, .sad_emo, .nervous_emo, .angry_emo, .lonely_emo {
+        width: 10.6667vw;
+    }
+}
+
+@media screen and (max-width: 630px) {
+    .item_emo_happy, .item_emo_boring, .item_emo_sad, .item_emo_lonely, .item_emo_angry, .item_emo_nervous {
+    width: 7.9365vw !important;
+}
+    .hyft_title,
+    .goals_title,
+    .package_title,
+    .left_title {
+        font-size: 7.6667vw;
+    }
+
+    .hyft_subtitle,
+    .goals_subtitle,
+    .package_subtitle {
+        font-size: 3.0635vw;
+    }
+
+    .mood_right_container {
+        width: 79.3651vw;
+        height: 132.3159vw;
+    }
+
+    .left_title {
+        margin-bottom: 19.0476vw;
+    }
+
+    .mood_right_container img {
+        width: 79.3651vw;
+    }
+
+    #contentMood .mood_box:hover {
+        transform: rotateY(0deg) scale(1) !important;
+      }
+
+}
+
+@media screen and (max-width: 520px) {
+    #contentItem .item_title {
+        font-size: 2.3125rem;
+        line-height: 3rem;
+    }
+
+    .item_subTitle {
+        font-size: 1rem !important;
+    }
+
+    .emo_happy {
+        width: 15.3846vw;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #contentUs {
+        padding: 1.875rem;
+    }
+
+    .hyft_img,
+    .goals_img,
+    .package_img {
+        width: 64.4000vw !important;
+        height: 80.6000vw !important;
+    }
+
+    .hyft_title,
+    .goals_title,
+    .package_title,
+    .left_title {
+        font-size: 2.39375rem;
+    }
+
+    .hyft_subtitle,
+    .goals_subtitle,
+    .package_subtitle {
+        font-size: 0.95625rem;
+    }
+
+    .commu_text {
+        font-size: 8.0000vw !important;
+        line-height: 9.6000vw !important;
+    }
+
+    .memo_img {
+        width: 56.0000vw;
+    }
+
+    .memo_text {
+        font-size: 9.0000vw;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .emo_happy {
+        width: 3.84375rem;
+    }
+
+    .menu_recommend, .menu_new, .menu_best {
+        font-size: 1.4125rem;
+    }
+
+    #contentUs {
+        padding: 7.5000vw;
+    }
+
+    .left_title {
+        margin: 79px;
+    }
+}

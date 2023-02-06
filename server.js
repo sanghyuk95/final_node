@@ -98,7 +98,7 @@ app.post("/signUp", function (req, res) {
       console.log(err);
     }
   });
-  res.redirect('/login')
+  res.redirect("/login");
 });
 
 app.get("/myPage", loggedIn, function (req, res) {
@@ -112,15 +112,6 @@ function loggedIn(req, res, next) {
     res.send("no");
   }
 }
-
-app.get("/board", function (req, res) {
-  connection.query("SELECT * from community", function (err, result, field) {
-    if (err) {
-      console.log(err);
-    }
-    res.render("board.ejs", { data: result });
-  });
-});
 
 let multer = require("multer");
 var storage = multer.diskStorage({
@@ -144,9 +135,22 @@ app.post("/upload", upload.single("profile"), function (req, res) {
       console.log(err);
     }
   });
-  res.redirect('/myPage');
+  res.redirect("/myPage");
 });
 
 app.get("/image/:imageName", function (req, res) {
   res.sendFile(__dirname + "/public/image/" + req.params.imageName);
+});
+
+app.get("/magazine", function (req, res) {
+  res.sendFile(__dirname + "/views/magazine.html");
+});
+app.get("/magazineDetail", function (req, res) {
+  res.sendFile(__dirname + "/views/magazineDetail.html");
+});
+app.get("/board", function (req, res) {
+  res.sendFile(__dirname + "/views/boardreal.html");
+});
+app.get("/main", function (req, res) {
+  res.sendFile(__dirname + "/views/main.html");
 });

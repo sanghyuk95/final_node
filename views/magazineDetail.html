@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/magazineDetail.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--헤더 시작 -->
+    <header>
+      <div class="header-up">
+        <p>고정 or 사라지게? 아무튼 텍스트를 쓰고 싶다</p>
+        <i class="fa-solid fa-xmark"></i>
+      </div>
+      <div class="header-container">
+        <div class="header-left">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+        <p>How You Feel Today?</p>
+        <div class="header-right">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <a href="/login">
+            <i class="fa-solid fa-user"></i>
+          </a>
+        </div>
+      </div>
+    </header>
+    <div class="bar-menu hidden">
+      <div class="bar-left">
+        <div class="bar-img"></div>
+      </div>
+      <div class="bar-right">
+        <a href="">Shop</a>
+        <a href="">Community</a>
+        <a href="">Brand Story</a>
+        <a href="">Review</a>
+        <a href="">Q & A</a>
+        <div>
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Search" />
+        </div>
+      </div>
+    </div>
+    <div class="cart-menu hidden">
+      <div class="cart-left">
+        <div class="cart-left-title">YOU MAY LIKE</div>
+        <div class="cart-left-box">
+          <div class="cart-left-photo"></div>
+          <p>상품이름</p>
+          <p>가격</p>
+        </div>
+        <div class="cart-left-box">
+          <div class="cart-left-photo"></div>
+          <p>상품이름</p>
+          <p>가격</p>
+        </div>
+      </div>
+      <div class="cart-right">
+        <div class="cart-right-title">
+          CART
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="cart-right-box"></div>
+        <div class="cart-right-box"></div>
+        <div class="cart-right-continue">
+          <p><span>C</span>ONTINUE YOUR ORDER</p>
+        </div>
+      </div>
+    </div>
+    <!-- 헤더 끝 -->
+
+    <div class="container">
+      <div class="sidebar">
+        <h1>magazine</h1>
+        <div class="link">
+          <a href="">#Happy</a>
+          <a href="">#Bored</a>
+          <a href="">#Sad</a>
+          <a href="">#Nervous</a>
+          <a href="">#Angry</a>
+          <a href="">#Lonely</a>
+        </div>
+      </div>
+      <div class="main">
+        <h1>글 제목</h1>
+        <div class="main-photo"></div>
+        <div class="main-word">
+          <p>
+            글쓰는 공간이다 글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는
+            공간이다글쓰는공간이다글쓰는글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는
+            공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다 글쓰는 공간이다 글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는
+            공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는공간이다글쓰는글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는
+            공간이다 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는
+            공간이다글쓰는 공간이다 글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는
+            공간이다글쓰는공간이다글쓰는글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는
+            공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다
+          </p>
+          <div class="main-box">
+            <div class="box-photo">사진자리</div>
+            <div class="box-word">
+              <p>
+                글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는
+                공간이다글쓰는 공간이다글쓰는 공간이다
+              </p>
+            </div>
+          </div>
+          <p>
+            글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는
+            공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는
+            공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는
+            공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다글쓰는 공간이다
+          </p>
+          <!-- Slider main container -->
+        </div>
+        <h2>지금 감정과 어울리는 제품</h2>
+        <div class="swiper">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">Slide 1</div>
+            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>
+            <div class="swiper-slide">Slide 3</div>
+            <div class="swiper-slide">Slide 3</div>
+            <div class="swiper-slide">Slide 3</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 푸터시작 -->
+    <footer>
+      <div class="footer-logo">
+        <img src="./SVG/logo.svg" />
+      </div>
+      <div class="footer-word">
+        <div class="footer-info">
+          <p>studio@hyft.com</p>
+          <br />
+          <p>394, Jungang-daero, Jung-gu, Daegu, Republic of Korea</p>
+          <p>+82 0507-1414-1018a</p>
+        </div>
+        <div class="footer-social">
+          <p>Twitter</p>
+          <p>Facebook</p>
+          <p>Instagram</p>
+          <p>Contact Us</p>
+        </div>
+      </div>
+    </footer>
+    <!-- 푸터끝 -->
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script src="js/magazineDetail.js"></script>
+</html>
