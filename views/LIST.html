@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- css 연결 -->
+    <link rel="stylesheet" href="css/list.css">
+
+
+
+    <!-- 애니메이션 -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- 이모티콘 연결 -->
+    <link rel='stylesheet'
+        href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css'>
+
+
+
+    <!-- 노토산스링크 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&family=Noto+Sans:ital,wght@0,200;0,300;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+
+    <title>HYFT_List_Page</title>
+</head>
+
+<body>
+    <!-- 마우스 커서 -->
+    <div class="cursor" id="cursor"></div>
+    <!-- 헤더 -->
+    <header>
+
+    </header>
+
+    <!-- 컨테이너-->
+    <div class="container">
+
+        <!-- top -->
+        <div class="cnt1-1">
+            <!-- Feel List -->
+            <ul class="feelList detail_animation" data-aos="fade-up" data-aos-offset="200" data-aos-mirror="true"
+                data-aos-once="false" data-aos-easing="ease-out-cubic" data-aos-duration="1200" data-aos-delay="50">
+                <li class="clickE"> #HAPPY </li>
+                <li class="clickE">#BORED</li>
+                <li class="clickE">#SAD</li>
+                <li class="clickE">#NERVOUS</li>
+                <li class="clickE">#ANGRY</li>
+                <li class="clickE">#LONLEY</li>
+
+            </ul>
+
+            <!-- New Arrival -->
+            <div class="newArr">
+
+
+                <a href="">
+                    <div class="newImg"></div>
+                </a>
+                <div class="description">
+                    <div class="animation" data-aos="fade-right" data-aos-easing="ease-out-cubic"
+                        data-aos-duration="1000">
+                        <h2>NEW ARRIVAL</h2>
+                        <span>오늘, 어떤 기분이 들었나요? <br>
+                            당신의 감정에 맞춰,<br> 새로나온 상품을 만나보세요. </span>
+                    </div>
+                    <!-- <button>더보기</button> -->
+                </div>
+
+
+            </div>
+        </div>
+
+
+        <!-- Best -->
+        <div class="cnt1-2">
+
+            <h2>BEST</h2>
+            <ul class="bestList">
+            </ul>
+        </div>
+
+        <!-- Product List -->
+        <div class="cnt1-3">
+            <h2>LIST</h2>
+            <ul class="productList">
+            </ul>
+        </div>
+
+        <!-- Top 탑 버튼 & 감정 버튼 imoticon 픽스드 -->
+        <div id="btnScroll">
+            <div id="btnScrollToImotion">
+                <img src="./img/SVG/HAPPY.svg" alt="#HAPPY" class="im">
+                <img src="./img/SVG/BORED.svg" alt="#BORED" class="im">
+                <img src="./img/SVG/SAD.svg" alt="#SAD" class="im">
+                <img src="./img/SVG/NERVOUS.svg" alt="#NERVOUS" class="im">
+                <img src="./img/SVG/ANGRY.svg" alt="#ANGRY" class="im">
+                <img src="./img/SVG/LONELY.svg" alt="#ANGRY" class="im">
+
+            </div>
+            <button id="btnScrollToTop">
+                <i class="fi fi-rr-arrow-small-up"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- 푸터 -->
+    <div class="footer"></div>
+</body>
+<script src="js/list.js"></script>
+<script> AOS.init();</script>
+
+</html>

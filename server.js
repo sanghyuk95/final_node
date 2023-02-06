@@ -154,3 +154,9 @@ app.get("/board", function (req, res) {
 app.get("/main", function (req, res) {
   res.sendFile(__dirname + "/views/main.html");
 });
+app.get('/product', function (req, res) {
+  res.sendFile(__dirname + "/views/LIST.html");
+})
+app.get('/productDetail', function (req, res) {
+  res.sendFile(__dirname + "/views/detailEnd.html");
+})

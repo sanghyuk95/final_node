@@ -1,0 +1,38 @@
+[
+    {
+        "img_picture": "./img/best1.jpg",
+        "img_overEffect": "./img/hover/hover-best1.png",
+        "product_number": "circus boy band_013",
+        "product_feel": "lonley",
+        "product_name": "Bear Hug Boy",
+        "price": "25,000",
+        "href": "list.html"
+    },
+    {
+        "img_picture": "./img/best2.jpg",
+        "img_overEffect": "./img/hover/hover-best2.png",
+        "product_number": "Made by ME_no.03",
+        "product_feel": "lonley",
+        "product_name": "hand made by Me",
+        "price": "10,000",
+        "href": "list.html"
+    },
+    {
+        "img_picture": "./img/best3.jpg",
+        "img_overEffect": "./img/hover/hover-best3.png",
+        "product_number": "circus boy band_004",
+        "product_feel": "lonley",
+        "product_name": "sunrise cup",
+        "price": "12,000",
+        "href": "list.html"
+    },
+    {
+        "img_picture": "./img/best4.jpg",
+        "img_overEffect": "./img/hover/hover-best4.png",
+        "product_number": "circus boy band_015",
+        "product_feel": "lonley",
+        "product_name": "Cbb Duck figure",
+        "price": "25,000",
+        "href": "list.html"
+    }
+]

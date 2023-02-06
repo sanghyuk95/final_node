@@ -1,0 +1,657 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+    text-decoration: none;
+    scroll-behavior: smooth;
+    /* 드래그 방지 */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+a {
+    list-style: none;
+    color: #000;
+}
+
+/* 
+button {
+    cursor: pointer;
+} */
+
+.thumbnail>div,
+img {
+    cursor: pointer;
+
+}
+
+header {
+    height: 120px;
+}
+
+.cursor {
+    width: 3rem;
+    height: 3rem;
+    background: url('../img/SVG/LONELY.svg');
+    position: absolute;
+    z-index: 1000;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    transition: all 0.3s ease;
+    transition-property: transform;
+    transform-origin: 100% 100%;
+    backdrop-filter: sepia(20%);
+    background-size: cover;
+    background-color: none;
+    border-radius: 100%;
+}
+
+/* .cursor:first-child {
+
+    box-shadow: 10px 0px rgba(197, 194, 194, 0.25);
+} */
+
+/* 프리텐다드 폰트 */
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'KIMM_Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KIMM_Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SBAggroB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MonoplexKR-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_Monoplex-kr@1.0/MonoplexKR-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+html,
+body {
+    scroll-behavior: smooth;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+
+
+h2 {
+    font-family: 'Pretendard-Regular';
+    font-size: 2vw;
+    font-weight: 900;
+    text-align: start;
+    line-height: 5vw;
+}
+
+h3 {
+    font-family: 'MonoplexKR-Regular';
+    font-size: 1.2vw;
+    text-align: start;
+    line-height: 3vw;
+}
+
+h4 {
+    font-family: 'Pretendard-Regular';
+    font-size: 1.2vw;
+    text-align: start;
+    line-height: 2.5vw;
+}
+
+span {
+    font-family: 'Pretendard-Regular';
+    text-align: center;
+    line-height: 1.6vw;
+    font-size: 1vw;
+}
+
+p {
+    font-family: 'Pretendard-Regular';
+    text-align: start;
+    line-height: 2vw;
+    font-size: 1vw;
+}
+
+.selected {
+    transition: 0.1s ease-out;
+    transform: scale(1.1);
+    color: #000;
+}
+
+.lonleyImt {
+    width: 1.2vw;
+    height: 1.2vw;
+}
+
+/* 컨테이너 */
+/* 감정리스트 */
+
+.cnt1-2,
+.cnt1-3 {
+    margin: 4vw 12vw;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+
+
+.cnt1-1 {
+    margin: 5vw 14vw;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+
+}
+
+.feelList li {
+    font-size: 3vw;
+    color: #E9DDD4;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 900;
+    font-style: italic;
+}
+
+.selected {
+    color: #000;
+}
+
+/*  New Arrival */
+
+
+.newArr {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    left: 4vw;
+
+}
+
+.newArr>a {
+    background: url(../img/cat1-5.jpg) no-repeat;
+    position: absolute;
+    background-size: contain;
+    align-self: center;
+    width: 20vw;
+    height: 20vw;
+    overflow: hidden;
+    transition: 0.3s ease-in-out;
+}
+
+.newArr>a:hover {
+    background: url(../img/hovers/hover-new.png);
+    /* position: absolute; */
+    align-self: center;
+    background-size: contain;
+    width: 20vw;
+    height: 20vw;
+    overflow: hidden;
+    transition: 0.3s ease-in-out;
+}
+
+.newArr>.description>div {
+    left: 22vw;
+    top: 4vw;
+    position: absolute;
+    text-align: start;
+    justify-self: start;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    width: 40%;
+    height: 15vw;
+    padding: 1vw;
+}
+
+/* .newArr>div>button {
+    left: 31vw;
+    top: 22vw;
+    position: absolute;
+    border-radius: 4vw;
+    padding: 1vw 6vw;
+    border: none;
+    background-color: #E9DDD4;
+    width: 18vw;
+    font-size: 1vw;
+    font-family: 'Pretendard-Regular';
+} */
+
+
+.bestList li {
+    display: flex;
+    justify-content: space-evenly;
+    cursor: pointer;
+}
+
+.bestList li img {
+    display: flex;
+    width: 18vw;
+    height: 18vw;
+    overflow: hidden;
+    margin-top: 2vw;
+}
+
+.bestList .imti {
+    display: flex;
+    align-items: flex-end;
+    justify-content: end;
+    margin-right: 6px;
+    width: 18vw;
+    height: 4vw;
+
+}
+
+.bestList {
+    width: 100%;
+    border-top: 1px solid black;
+    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(23%, auto));
+    gap: 0.8vw;
+    align-items: center;
+}
+
+.productList {
+    width: 100%;
+    border-top: 1px solid black;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(23%, auto));
+    gap: 0.8vw;
+    /* margin-top: 2vw; */
+    justify-content: space-evenly;
+}
+
+.productList li {
+    justify-content: space-evenly;
+    display: flex;
+    cursor: pointer;
+}
+
+.productList li img {
+    display: flex;
+    width: 18vw;
+    height: 18vw;
+    overflow: hidden;
+    margin-top: 2vw;
+}
+
+.productList .imti {
+    display: flex;
+    align-items: flex-end;
+    justify-content: end;
+    margin-right: 6px;
+    width: 18vw;
+    height: 4vw;
+}
+
+.imti li {
+    /* font-size: 1.6vw; */
+    width: 2vw;
+    height: 2vw;
+}
+
+.imti>li:first-child {
+
+    color: red;
+}
+
+.imti>li:nth-child(2) {
+    color: black;
+}
+
+
+/* Top 탑 버튼 & 감정 버튼 imoticon 픽스드 */
+#btnScrollToTop {
+    overflow: hidden;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #524b4b;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    color: #ffffff;
+    font-size: 30px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+
+
+#btnScrollToImotion img {
+    overflow: hidden;
+    width: 40px;
+    height: 40px;
+    margin: 1px;
+    background: none;
+    box-sizing: border-box;
+
+}
+
+#btnScroll>div:first-child {
+    background-color: #fff;
+    position: fixed;
+    right: 20px;
+    bottom: 90px;
+    width: 50px;
+    height: 300px;
+    border-radius: 30px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#btnScroll:active {
+    background: rgba(233, 229, 229, 0.76);
+}
+
+#btnScrollToTop:active {
+    background: #756e6f;
+}
+
+
+
+/* 태블릿 사이즈 */
+
+@media screen and (max-width: 834px) {
+
+    .cnt1-2,
+    .cnt1-3 {
+        margin: 2vw 10vw;
+    }
+
+    .cnt1-1 {
+
+        height: 40vw;
+        margin: 0;
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        justify-content: center;
+    }
+
+    .feelList {
+        justify-content: center;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        background-color: #e9ddd486;
+        position: absolute;
+    }
+
+    .feelList li {
+        justify-content: space-evenly;
+        text-align: center;
+        padding: 1vw;
+        color: #c2b1a5;
+        font-size: 2.4vw;
+        align-items: center;
+    }
+
+    .newArr {
+        position: relative;
+        display: inline;
+        justify-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 30vw;
+        left: 23vw;
+        top: 10vw;
+    }
+
+
+    .newArr>.description>div {
+        text-align: center;
+        justify-self: start;
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+        width: 30%;
+        height: 14vw;
+        padding: 1vw;
+        line-height: 1vw;
+    }
+
+    .detail_animation {
+        animation: none;
+    }
+
+    .bestList {
+        border-top: 1px solid black;
+        justify-content: space-evenly;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+
+    }
+
+    .bestList li img {
+        width: 24vw;
+        height: 24vw;
+    }
+
+    .bestList>li:nth-child(4) {
+        display: none;
+    }
+
+    .bestList .imti {
+
+        width: 22vw;
+        height: 2vw;
+
+    }
+
+    .productList .imti {
+
+        width: 22vw;
+        height: 2vw;
+    }
+
+    .imti li i {
+        font-size: 16px;
+        padding: 1.4vw;
+        width: 1vw;
+        height: 1vw;
+    }
+
+
+
+    .thumbnail>img {
+        margin: 0;
+        width: 24vw;
+        height: 24vw;
+        overflow: hidden;
+        justify-self: center;
+        align-self: center;
+
+    }
+
+    .productList {
+        border-top: 1px solid black;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .productList li img {
+        width: 24vw;
+        height: 24vw;
+    }
+
+    .productList>li:nth-child(4),
+    li:nth-child(8) {
+        display: none;
+    }
+
+    #btnScrollToTop {
+        right: 6vw;
+        bottom: 2vw;
+        width: 6vw;
+        height: 6vw;
+        border-radius: 50%;
+        background: #524b4b;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+        color: #ffffff;
+        font-size: 5vw;
+        align-items: center;
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+
+    #btnScrollToImotion img {
+        overflow: hidden;
+        width: 5vw;
+        height: 5vw;
+        margin: 0.2vw;
+        background: none;
+        box-sizing: border-box;
+    }
+
+    #btnScroll>div:first-child {
+        background-color: #fff;
+        position: fixed;
+        right: 6vw;
+        bottom: 9vw;
+        width: 6vw;
+        height: 38vw;
+    }
+
+}
+
+
+/* 모바일 사이즈 */
+@media screen and (max-width: 414px) {
+    span {
+        font-size: 8px;
+    }
+
+    .imti li i {
+        font-size: 12px;
+        padding: 1.8vw;
+        width: 2vw;
+        height: 2vw;
+    }
+
+    .cnt1-2,
+    .cnt1-3 {
+        margin: 4vw 8vw;
+    }
+
+    .cnt1-2>h2 {
+        text-align: center;
+    }
+
+    .cnt1-3>h2 {
+        text-align: center;
+    }
+
+    .cnt1-1 {
+        margin: 0;
+        justify-content: center;
+    }
+
+    .newArr>a {
+
+        width: 24vw;
+        height: 24vw;
+    }
+
+    .newArr>a:hover {
+
+        width: 24vw;
+        height: 24vw;
+
+    }
+
+
+    .newArr>.description>div {
+        top: 2vw;
+        height: 18vw;
+        line-height: 1vw;
+    }
+
+
+
+    /* .newArr>.description>div {
+        text-align: center;
+        justify-self: start;
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+        width: 30%;
+        height: 14vw;
+        padding: 1vw;
+        line-height: 1vw;
+    } */
+
+    .newArr>.description h2 {
+        text-align: center;
+        align-items: center;
+        line-height: 4vw;
+
+    }
+
+    .newArr>.description>div span {
+        line-height: 3vw;
+    }
+
+
+
+    /* .bestList {
+        border-top: 1px solid #c2b1a5;
+        justify-content: space-evenly;
+        display: flex;
+        grid-template-columns: repeat(2, 1fr); 
+}*/
+
+    /* .productList {
+        border-top: 1px solid #c2b1a5;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    } */
+
+    /* .bestList>li:nth-child(3) {
+        display: none;
+    } */
+
+    /* .thumbnail>img {
+        width: 36vw;
+        height: 36vw;
+        overflow: hidden;
+        justify-self: center;
+        align-self: center;
+        margin: 1vw 0;
+    } */
+    /* 
+    .productList>li:nth-child(3),
+    :nth-child(7) {
+        display: none;
+    } */
+
+    /* .thumbnail {
+        margin: 2vw -4vw;
+    } */
+
+}

@@ -124,7 +124,14 @@ function makeList(data) {
       </div>
     </div>`;
     $swiperWrapper.appendChild($div);
+    const $itemLink = document.querySelectorAll(".swiper-slide");
 
+    $itemLink.forEach((e) => {
+      e.addEventListener("click", () => {
+        location.pathname = "/productDetail";
+      });
+    });
+    
     //img hover 시 이름, 가격, 어둡게
     const $imgHover = document.querySelectorAll(".itemPic");
     const $imgExplain = document.querySelectorAll(".pic_explain");
