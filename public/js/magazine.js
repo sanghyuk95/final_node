@@ -10,9 +10,6 @@
   const $cartMenu = document.querySelector(".cart-menu");
   const $cartX = document.querySelector(".cart-right-title .fa-xmark");
 
-  $upX.addEventListener("click", () => {
-    $up.style.display = "none";
-  });
   $barIcon.addEventListener("click", () => {
     if ($barMenu.classList.contains("hidden")) {
       $barMenu.classList.toggle("hidden");
@@ -69,13 +66,13 @@
 
     const percentage = (mouseDelta / maxDelta) * -50;
     const nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage;
-    const nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
+    const nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -80);
 
     track.dataset.percentage = nextPercentage;
 
     track.animate(
       {
-        transform: `translate(${nextPercentage}%, -50%)`,
+        transform: `translate(${nextPercentage-20}%, -50%)`,
       },
       { duration: 1200, fill: "forwards" }
     );

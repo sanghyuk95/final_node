@@ -7,9 +7,7 @@ const $cartIcon = document.querySelector(".fa-cart-shopping");
 const $cartMenu = document.querySelector(".cart-menu");
 const $cartX = document.querySelector(".cart-right-title .fa-xmark");
 
-$upX.addEventListener("click", () => {
-  $up.style.display = "none";
-});
+
 $barIcon.addEventListener("click", () => {
   if ($barMenu.classList.contains("hidden")) {
     $barMenu.classList.toggle("hidden");

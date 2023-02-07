@@ -266,15 +266,14 @@ header {
     background-color: #f2f1ee;
     position: fixed;
     display: flex;
-    padding: 50px 100px 0 50px;
+    padding: 50px;
     z-index: 100;
   }
   .cart-left {
     display: none;
   }
   .cart-right {
-    padding-left: 50px;
-    width: 700px;
+    width: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -429,7 +428,7 @@ body {
   position: fixed;
   left: 50%;
   top: 55%;
-  transform: translate(0%, -50%);
+  transform: translate(-20%, -50%);
   transition: all 2s;
   z-index: 3;
 }
@@ -448,7 +447,7 @@ body {
   display: flex;
 }
 .box {
-  background-color: #FBF9F7;
+  background-color: #fbf9f7;
   width: 400px;
   height: 600px;
   display: flex;

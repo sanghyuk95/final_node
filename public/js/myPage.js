@@ -1,15 +1,10 @@
 // 헤더전체 시작
-const $up = document.querySelector(".header-up");
-const $upX = document.querySelector(".header-up .fa-xmark");
 const $barIcon = document.querySelector(".fa-bars");
 const $barMenu = document.querySelector(".bar-menu");
 const $cartIcon = document.querySelector(".fa-cart-shopping");
 const $cartMenu = document.querySelector(".cart-menu");
 const $cartX = document.querySelector(".cart-right-title .fa-xmark");
 
-$upX.addEventListener("click", () => {
-  $up.style.display = "none";
-});
 $barIcon.addEventListener("click", () => {
   if ($barMenu.classList.contains("hidden")) {
     $barMenu.classList.toggle("hidden");
@@ -64,3 +59,15 @@ $camera.addEventListener("click", () => {
 $modalX.addEventListener("click", () => {
   $modal.classList.add("hidden");
 });
+
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      document.getElementById("preview").src = e.target.result;
+    };
+    reader.readAsDataURL(input.files[0]);
+  } else {
+    document.getElementById("preview").src = "";
+  }
+}

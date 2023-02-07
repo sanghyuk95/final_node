@@ -4,14 +4,134 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1" />
     <link rel="stylesheet" href="css/boardreal2.css" />
-    <title>board1</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- 파비콘 -->
+    <link rel="icon" href="./icon/pavi.ico" />
+    <title>HYFT ˘◡˘</title>
   </head>
   <body>
+    <!--헤더 시작 -->
+    <header>
+      <div class="header-container">
+        <div class="header-left">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+        <p>How You Feel Today?</p>
+        <div class="header-right">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <a href="login">
+            <i class="fa-solid fa-user"></i>
+          </a>
+        </div>
+      </div>
+    </header>
+    <div class="bar-menu hidden">
+      <div class="bar-left">
+        <div class="bar-img"></div>
+      </div>
+      <div class="bar-right">
+        <a href="">Shop</a>
+        <a href="">Community</a>
+        <a href="">Brand Story</a>
+        <a href="">Review</a>
+        <a href="">Q & A</a>
+        <div>
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Search" />
+        </div>
+      </div>
+    </div>
+    <div class="cart-menu hidden">
+      <div class="cart-left">
+        <div class="cart-left-title">YOU MAY LIKE</div>
+        <div class="cart-left-box">
+          <div class="cart-left-photo"></div>
+          <p>상품이름</p>
+          <p>가격</p>
+        </div>
+        <div class="cart-left-box">
+          <div class="cart-left-photo"></div>
+          <p>상품이름</p>
+          <p>가격</p>
+        </div>
+      </div>
+      <div class="cart-right">
+        <div class="cart-right-title">
+          CART
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="cart-right-box"></div>
+        <div class="cart-right-box"></div>
+        <div class="cart-right-continue">
+          <p><span>C</span>ONTINUE YOUR ORDER</p>
+        </div>
+      </div>
+    </div>
+    <!-- 헤더 끝 -->
+    <!-- 새글쓰기 -->
+    <div class="modalAll new displayNone">
+      <div class="bg new"></div>
+      <div id="modal">
+        <div class="close"></div>
+        <div class="modalSection1 new">
+          <div class="modalTitleBox new">
+            <input type="text" class="m-title new" placeholder="제목을 입력하세요." />
+            <div class="m-emoji new" style="background-image: url('image/happy.png')"></div>
+          </div>
+          <div class="modalContentBox new">
+            <img class="modalMainImg upload new" src="image/addImg.png" />
+            <input type="file" class="real-upload new" accept="image/*" style="display: none" />
+            <div class="m-content new">
+              <textarea name="" id="" cols="30" rows="10" placeholder="내용을 입력하세요."></textarea>
+              <!-- <input type="text" placeholder="내용을 입력하세요." /> -->
+              <div>
+                <div class="m-hashtag new">
+                  <ul class="menu new">
+                    <li class="zigzag dropdown dropdown-1 new">
+                      #HAPPY
+                      <ul class="dropdown_menu dropdown_menu-1 new">
+                        <li class="zigzag dropdown_item-1 new">#HAPPY</li>
+                        <li class="zigzag dropdown_item-1 new">#BORED</li>
+                        <li class="zigzag dropdown_item-1 new">#NERVOUS</li>
+                        <li class="zigzag dropdown_item-1 new">#LONELY</li>
+                        <li class="zigzag dropdown_item-1 new">#SAD</li>
+                        <li class="zigzag dropdown_item-1 new">#ANGRY</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="m-Section3 new">
+          <p class="section3-title new">오늘의 기분은 어떤가요?</p>
+          <div>
+            <img src="image/happy.png" alt="" />
+            <img src="image/bored.png" alt="" />
+            <img src="image/nervous.png" alt="" />
+            <img src="image/lonely.png" alt="" />
+            <img src="image/sad.png" alt="" />
+            <img src="image/angry.png" alt="" />
+          </div>
+        </div>
+        <input type="button" name="save" value="저장하기" id="save" />
+      </div>
+    </div>
+    <!-- 새글끝 -->
+    <!-- 포스트잇 모달 -->
     <div class="modalAll displayNone">
       <div class="bg"></div>
       <div id="modal">
@@ -158,6 +278,7 @@
         </div> -->
       </div>
     </div>
+    <!-- 포스트잇 모달 끝-->
     <div id="wrapper">
       <div id="top-bar">topbar</div>
       <div id="header">header</div>
@@ -165,9 +286,7 @@
         <div id="cardBox">
           <div class="swiper">
             <div id="category" class="swiper-wrapper">
-              <div class="hashtag tagClick swiper-slide" tag="happy">
-                #HAPPY
-              </div>
+              <div class="hashtag tagClick swiper-slide" tag="happy">#HAPPY</div>
               <div class="hashtag swiper-slide" tag="bored">#BORED</div>
               <div class="hashtag swiper-slide" tag="nervous">#NERVOUS</div>
               <div class="hashtag swiper-slide" tag="lonely">#LONELY</div>
@@ -403,9 +522,29 @@
         </div>
         <div id="paging"></div>
       </div>
-      <div id="footer">footer</div>
+      <!-- 푸터시작 -->
+      <footer>
+        <div class="footer-logo">
+          <img src="./SVG/logo.svg" />
+        </div>
+        <div class="footer-word">
+          <div class="footer-info">
+            <p>studio@hyft.com</p>
+            <br />
+            <p>394, Jungang-daero, Jung-gu, Daegu, Republic of Korea</p>
+            <p>+82 0507-1414-1018a</p>
+          </div>
+          <div class="footer-social">
+            <p>Twitter</p>
+            <p>Facebook</p>
+            <p>Instagram</p>
+            <p>Contact Us</p>
+          </div>
+        </div>
+      </footer>
+      <!-- 푸터끝 -->
     </div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-    <script src="js/board.js"></script>
+    <script src="./js/board.js"></script>
   </body>
 </html>

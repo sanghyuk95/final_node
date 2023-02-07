@@ -31,8 +31,8 @@ header {
   align-items: center;
   font-size: 12px;
   width: 100%;
-  height: 20px;
-  background-color: white;
+  height: 30px;
+  background-color: #c9c7bb;
 }
 .header-up .fa-xmark {
   position: absolute;
@@ -264,15 +264,14 @@ header {
     background-color: #f2f1ee;
     position: fixed;
     display: flex;
-    padding: 50px 100px 0 50px;
+    padding: 50px;
     z-index: 10000;
   }
   .cart-left {
     display: none;
   }
   .cart-right {
-    padding-left: 50px;
-    width: 700px;
+    width: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
