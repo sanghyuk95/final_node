@@ -39,9 +39,17 @@ connection.connect(function (err) {
 app.get("/", function (req, res) {
   res.sendFile(__dirname + "/views/index.html");
 });
-app.get("/login", function (req, res) {
+app.get("/login", goMyPage, function (req, res) {
   res.render("login.ejs");
 });
+
+function goMyPage(req, res, next) {
+  if (req.user) {
+    res.redirect("/myPage");
+  } else {
+    next();
+  }
+}
 
 app.post(
   "/login",
@@ -52,6 +60,10 @@ app.post(
     res.redirect("/myPage");
   }
 );
+
+app.get("/fail", function (req, res) {
+  res.redirect("/login");
+});
 
 passport.use(
   new LocalStrategy(
@@ -109,7 +121,7 @@ function loggedIn(req, res, next) {
   if (req.user) {
     next();
   } else {
-    res.send("no");
+    res.redirect('/login')
   }
 }
 
@@ -138,8 +150,8 @@ app.post("/upload", upload.single("profile"), function (req, res) {
   res.redirect("/myPage");
 });
 
-app.get("/image/:imageName", function (req, res) {
-  res.sendFile(__dirname + "/public/image/" + req.params.imageName);
+app.get("/imageupload/:imageName", function (req, res) {
+  res.sendFile(__dirname + "/public/imageupload/" + req.params.imageName);
 });
 
 app.get("/magazine", function (req, res) {
@@ -154,9 +166,9 @@ app.get("/board", function (req, res) {
 app.get("/main", function (req, res) {
   res.sendFile(__dirname + "/views/main.html");
 });
-app.get('/product', function (req, res) {
+app.get("/product", function (req, res) {
   res.sendFile(__dirname + "/views/LIST.html");
-})
-app.get('/productDetail', function (req, res) {
+});
+app.get("/productDetail", function (req, res) {
   res.sendFile(__dirname + "/views/detailEnd.html");
-})
+});
