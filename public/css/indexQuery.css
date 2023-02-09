@@ -1,6 +1,6 @@
 @media screen and (max-width: 1240px) {
     .item_menu {
-        font-size: 5.6452vw !important;
+        font-size: 4.4355vw !important;
     }
     .hyft_img,
     .goals_img,
@@ -11,8 +11,7 @@
         
     .hyft_title,
     .goals_title,
-    .package_title,
-    .left_title {
+    .package_title {
         font-size: 4.8387vw;
     }
         
@@ -26,6 +25,10 @@
         padding-left: 2.2581vw;
     }
 
+    .left_title {
+        margin-bottom: 8rem !important;
+    }
+
     #contentCommunity .commu_text {
        font-size: 4.8387vw;
        line-height: 6.4516vw;
@@ -34,7 +37,7 @@
 
 @media screen and (max-width: 1220px) {
     .hyft_subtitle {
-        padding-left: 85px !important;
+        padding-left: 5.3125rem !important;
     }
 
     #contentMood {
@@ -43,14 +46,19 @@
 
     .left_title {
         margin-bottom: 7.5rem;
+        font-size: 4.8361vw;
     }
 
     .left_title span {
-        margin-left: 30px !important;
+        margin-left: -1.2295vw !important;
     }
 
     .fixed_img {
         height: 65.5738vw !important;
+    }
+
+    .mood_right_container {
+        height: 66.5rem !important;
     }
 
     .mood_box {
@@ -62,6 +70,7 @@
         box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
         -webkit-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
         -moz-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
+        width: 40rem !important;
       }
 
     #contentMood .mood_box .mood_text {
@@ -120,8 +129,7 @@
         
     .hyft_title,
     .goals_title,
-    .package_title,
-    .left_title {
+    .package_title {
         font-size: 3.01875rem;
     }
 
@@ -139,7 +147,12 @@
         line-height: 1.6875rem;
     }
 
-    #contentEmpty {
+    .left_title {
+        font-size: 7.2000vw !important;
+        margin-bottom: 12.8000vw !important;
+    }
+
+    #contentEmpty, #contentEmpty2 {
         height: 27.2vw;
     }
 
@@ -152,6 +165,15 @@
     #contentItem .item_title {
         font-size: 7.1856vw;
         line-height: 9.2216vw;
+    }
+
+    .mood_right_container {
+        width: 76.6467vw;
+        height: 127.4251vw !important;
+    }
+
+    .mood_box img {
+        width: 76.6467vw !important;
     }
 }
 
@@ -175,14 +197,19 @@
     }
 }
 
+@media screen and (max-width: 670px) {
+    .right_box_img img{
+        width: 41.5761vw;
+  }
+}
+
 @media screen and (max-width: 630px) {
     .item_emo_happy, .item_emo_boring, .item_emo_sad, .item_emo_lonely, .item_emo_angry, .item_emo_nervous {
     width: 7.9365vw !important;
 }
     .hyft_title,
     .goals_title,
-    .package_title,
-    .left_title {
+    .package_title {
         font-size: 7.6667vw;
     }
 
@@ -190,11 +217,6 @@
     .goals_subtitle,
     .package_subtitle {
         font-size: 3.0635vw;
-    }
-
-    .mood_right_container {
-        width: 79.3651vw;
-        height: 132.3159vw;
     }
 
     .left_title {
@@ -208,8 +230,8 @@
     #contentMood .mood_box:hover {
         transform: rotateY(0deg) scale(1) !important;
       }
+    }
 
-}
 
 @media screen and (max-width: 520px) {
     #contentItem .item_title {
@@ -240,8 +262,7 @@
 
     .hyft_title,
     .goals_title,
-    .package_title,
-    .left_title {
+    .package_title {
         font-size: 2.39375rem;
     }
 
@@ -249,6 +270,11 @@
     .goals_subtitle,
     .package_subtitle {
         font-size: 0.95625rem;
+    }
+
+    .left_title {
+        font-size: 2.25rem !important;
+        margin-bottom: 4rem !important;
     }
 
     .commu_text {
@@ -262,6 +288,20 @@
 
     .memo_text {
         font-size: 9.0000vw;
+    }
+    .right_box_text { 
+        text-align: center;
+        font-size: 3.5200vw;
+        line-height: 2rem;
+  }
+}
+
+@media screen and (max-width: 430px) {
+    .right_box_img img {
+        width: 11.433rem;
+    }
+    .right_box_text {
+        font-size: 0.946rem;
     }
 }
 
@@ -280,5 +320,14 @@
 
     .left_title {
         margin: 79px;
+    }
+
+    .mood_right_container {
+        width: 19.125rem !important;
+        height: 31.7rem !important;
+    }
+
+    .mood_box img {
+        width: 19.125rem !important;
     }
 }

@@ -1,5 +1,4 @@
 "use strict";
-
 // 헤더전체 시작
 const $up = document.querySelector(".header-up");
 const $upX = document.querySelector(".header-up .fa-xmark");
@@ -9,9 +8,9 @@ const $cartIcon = document.querySelector(".fa-cart-shopping");
 const $cartMenu = document.querySelector(".cart-menu");
 const $cartX = document.querySelector(".cart-right-title .fa-xmark");
 
-$upX.addEventListener("click", () => {
-  $up.style.display = "none";
-});
+// $upX.addEventListener('click', () => {
+//   $up.style.display = 'none';
+// });
 $barIcon.addEventListener("click", () => {
   if ($barMenu.classList.contains("hidden")) {
     $barMenu.classList.toggle("hidden");
@@ -46,6 +45,7 @@ $cartX.addEventListener("click", () => {
   }
 });
 //헤더끝
+
 // 마우스 커서 이모티콘 캐릭터로 변경
 const mouseCursor = document.querySelector(".cursor");
 const $btnScrollToImotion = document.querySelectorAll("#btnScrollToImotion");
@@ -69,8 +69,8 @@ function getMousePositionScroll() {
 }
 
 function getMousePosition(e) {
-  mouseX = e.clientX + 20;
-  mouseClientY = e.clientY;
+  mouseX = e.clientX + 90;
+  mouseClientY = e.clientY + 50;
   mousePageY = e.pageY;
 
   getMousePositionScroll();
@@ -90,19 +90,15 @@ setInterval("moveCursor()", 30);
 // 반응형 리사이즈 사이즈 변경 태블릿 사이즈
 
 window.addEventListener("resize", (e) => {
-  if (window.innerWidth > 835) {
-    $cursor.classList("cursor");
-  } else if (window.innerWidth < 834) {
-    //마우스 커서 삭제
-    const $cursor = document.querySelector(".cursor");
-    $cursor.classList.remove("cursor");
-
+  if (window.innerWidth < 834) {
     //움직이는 텍스트 삭제
     const ariaTXT = document.querySelector(".detail_ariaText");
     const $cover = document.querySelectorAll(".cover");
     const $parall = document.querySelectorAll(".parall");
 
     ariaTXT.innerHTML = "";
+    $cover.innerHTML = "";
+    $parall.innerHTML = "";
   }
 });
 
@@ -113,14 +109,14 @@ const $mImg = document.querySelectorAll(".mImg");
 const $detail1 = document.querySelector(".detail1_1");
 const $miniImg = document.querySelectorAll(".miniImg");
 
-$miniImg.forEach((img, idx) => {
+$mImg.forEach((img, idx) => {
   img.addEventListener("mouseover", (e) => {
     $cnt1Img.src = e.target.src;
   });
 });
-$miniImg.forEach((img, idx) => {
+$mImg.forEach((img, idx) => {
   img.addEventListener("mouseout", (e) => {
-    console.log("마우스아웃");
+    // console.log('마우스아웃');
     $cnt1Img.src = "./img/dog1-7.jpg";
   });
 });
@@ -136,33 +132,6 @@ $btnScrollToTop.addEventListener("click", function () {
     behavior: "smooth",
   });
 });
-
-// detail 디테일 / 리뷰 / 커뮤니티 버튼 위치 스크롤 이동
-// const $detailPage = document.querySelector('.detailPage');
-// $detailPage.addEventListener("click", function () {
-//     // window.scrollTo(0,0);
-
-//     window.scrollTo({
-
-//         behavior: "smooth"
-//     });
-// });
-// const $reviewPage = document.querySelector('.reviewPage');
-// $reviewPage.addEventListener("click", function () {
-
-//     window.scrollTo({
-
-//         behavior: "smooth"
-//     });
-// });
-// const $communityPage = document.querySelector('.communityPage');
-// $communityPage.addEventListener("click", function () {
-
-//     window.scrollTo({
-
-//         behavior: "smooth"
-//     });
-// });
 
 //리본 텍스트 스크롤 애니메이션
 

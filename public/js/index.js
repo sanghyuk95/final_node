@@ -7,7 +7,6 @@ window.onload = () => {
   });
 };
 
-
 const $happy = document.querySelector("#happy");
 const $happyS = document.querySelector(".happyS");
 const $happyB = document.querySelector(".happyB");
@@ -49,8 +48,8 @@ $happy.addEventListener("animationend", () => {
     $happyS.style.animationDuration = "0.5s";
     $happyS.style.animationIterationCount = "infinite";
     $happyT.style.display = "block";
-    $happyT.style.top = '15px';
-    $happyT.style.right = '-15px';
+    $happyT.style.top = "15px";
+    $happyT.style.right = "-15px";
   });
   $happyB.addEventListener("mouseout", () => {
     $happy.style.animationName = "none";
@@ -69,7 +68,7 @@ $bored.addEventListener("animationend", () => {
     $boredS.style.animationIterationCount = "infinite";
     $boredT.style.display = "block";
     $boredT.style.top = "35px";
-    $boredT.style.right = '-10px';
+    $boredT.style.right = "-10px";
   });
   $boredB.addEventListener("mouseout", () => {
     $bored.style.animationName = "none";
@@ -153,12 +152,9 @@ $lonely.addEventListener("animationend", () => {
     $lonelyT.style.display = "none";
   });
 });
-
-const $box = document.querySelectorAll('.box')
+const $box = document.querySelectorAll(".box");
 $box.forEach((e) => {
-  e.addEventListener('click', () => {
+  e.addEventListener("click", () => {
     location.pathname = "/main";
-  })
-})
-
-
+  });
+});

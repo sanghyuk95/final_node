@@ -19,6 +19,7 @@ body .hidden {
 header {
   position: fixed;
   width: 100%;
+  z-index: 100;
 }
 .header-up {
   display: flex;
@@ -26,8 +27,8 @@ header {
   align-items: center;
   font-size: 12px;
   width: 100%;
-  height: 20px;
-  background-color: white;
+  height: 30px;
+  background-color: #c9c7bb;
 }
 .header-up .fa-xmark {
   position: absolute;
@@ -67,6 +68,7 @@ header {
   color: black;
   text-decoration: none;
 }
+
 @media (max-width: 836px) {
   .header-up {
     display: none;
@@ -106,7 +108,7 @@ header {
     background-color: #f2f1ee;
     position: fixed;
     top: 100px;
-    z-index: 1;
+    z-index: 10000;
   }
   .bar-right {
     position: absolute;
@@ -156,9 +158,10 @@ header {
     justify-content: flex-end;
   }
   .bar-left .bar-img {
-    background-color: white;
+    background: url("img/listGif.gif") no-repeat;
     width: 70%;
     height: 50%;
+    background-size: cover;
   }
 }
 
@@ -172,7 +175,7 @@ header {
     position: fixed;
     top: 100px;
     left: 0;
-    z-index: 1;
+    z-index: 10000;
   }
   .bar-left {
     width: 50%;
@@ -180,7 +183,7 @@ header {
     justify-content: flex-end;
   }
   .bar-left .bar-img {
-    background-color: white;
+    background: url("../img/listGif.gif") no-repeat;
     width: 400px;
     height: 520px;
     margin-top: 80px;
@@ -251,6 +254,10 @@ header {
     right: -100%;
   }
 }
+.cart-right a {
+  text-decoration: none;
+  color: white;
+}
 @media (max-width: 836px) {
   .cart-menu {
     width: 100%;
@@ -258,14 +265,14 @@ header {
     background-color: #f2f1ee;
     position: fixed;
     display: flex;
-    padding: 50px;
-    z-index: 1;
+    padding: 50px 11.9617vw 0 5.9809vw;
+    z-index: 10000;
   }
   .cart-left {
     display: none;
   }
   .cart-right {
-    width: 100%;
+    width: 700px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -288,8 +295,19 @@ header {
   .cart-right-box {
     width: 100%;
     height: 280px;
-    background-color: white;
     margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+  }
+
+  .right_box_img img {
+    width: 278.56px;
+  }
+  .right_box_text {
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 2rem;
   }
   .cart-right-continue {
     background-color: #c9c7bb;
@@ -321,7 +339,7 @@ header {
     right: 0;
     display: flex;
     padding: 50px 100px 0 50px;
-    z-index: 1;
+    z-index: 10000;
   }
   .cart-left {
     width: 400px;
@@ -346,10 +364,19 @@ header {
     text-align: center;
     margin-top: 10px;
   }
-  .cart-left-photo {
+  .cart-left-photo1 {
     width: 200px;
     height: 200px;
     background-color: white;
+    background: url("../img/item/bestItem10.png");
+    background-size: cover;
+  }
+  .cart-left-photo2 {
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    background: url("../img/item/happyItem9.png");
+    background-size: cover;
   }
   .cart-right {
     padding-left: 50px;
@@ -376,8 +403,18 @@ header {
   .cart-right-box {
     width: 100%;
     height: 280px;
-    background-color: white;
     margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+  }
+  .right_box_img img {
+    width: 90%;
+  }
+  .right_box_text {
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 2rem;
   }
   .cart-right-continue {
     background-color: #c9c7bb;
@@ -400,6 +437,20 @@ header {
   }
 }
 /* 장바구니메뉴 끝 */
+/* 스크롤바 커스텀 */
+body::-webkit-scrollbar {
+  width: 13px;
+}
+
+body::-webkit-scrollbar-thumb {
+  height: 15%;
+  background: #ecccb3e0;
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
 
 body {
   background-color: #f6f3ee;

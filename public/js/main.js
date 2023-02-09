@@ -85,6 +85,8 @@ $newArrivals.addEventListener("click", (e) => {
   $newArrivals.classList.add("menu_line");
   $recommend.classList.remove("menu_line");
   $bestItem.classList.remove("menu_line");
+  $newArrivals.style.color = "black";
+  $recommend.style.color = "#cfcfcf";
   makeList(newarrivalItemList);
 });
 
@@ -93,6 +95,9 @@ $recommend.addEventListener("click", (e) => {
   $recommend.classList.add("menu_line");
   $newArrivals.classList.remove("menu_line");
   $bestItem.classList.remove("menu_line");
+  $recommend.style.color = "black";
+  $newArrivals.style.color = "#cfcfcf";
+  $bestItem.style.color = "#cfcfcf";
   makeList(recommendItemList);
 });
 
@@ -101,6 +106,9 @@ $bestItem.addEventListener("click", (e) => {
   $bestItem.classList.add("menu_line");
   $newArrivals.classList.remove("menu_line");
   $recommend.classList.remove("menu_line");
+  $bestItem.style.color = "black";
+  $newArrivals.style.color = "#cfcfcf";
+  $recommend.style.color = "#cfcfcf";
   makeList(bestItemList);
 });
 
@@ -124,14 +132,7 @@ function makeList(data) {
       </div>
     </div>`;
     $swiperWrapper.appendChild($div);
-    const $itemLink = document.querySelectorAll(".swiper-slide");
 
-    $itemLink.forEach((e) => {
-      e.addEventListener("click", () => {
-        location.pathname = "/productDetail";
-      });
-    });
-    
     //img hover 시 이름, 가격, 어둡게
     const $imgHover = document.querySelectorAll(".itemPic");
     const $imgExplain = document.querySelectorAll(".pic_explain");
@@ -220,29 +221,29 @@ function CommuTextChange() {
   window.addEventListener("load", (e) => {
     if (innerWidth > 750) {
       $CommuText.innerHTML = `
-          <span>#HAPPY</span><span>#EXCITED</span><span>#ANGRY</span><span>#SLEEPY</span>
+          <span>#HAPPY&nbsp;&nbsp;</span><span>#EXCITED&nbsp;&nbsp;</span><span>#ANGRY&nbsp;&nbsp;</span><span>#SLEEPY</span>
           <pre></pre>
-          <span>#SAD</span><span>#PLEASED</span><span>#BORED</span><span>#RELAXED</span>
+          <span>#SAD&nbsp;&nbsp;</span><span>#PLEASED&nbsp;&nbsp;</span><span>#BORED&nbsp;&nbsp;</span><span>#RELAXED</span>
           <pre></pre>
-          <span>#NERVOUS</span><span>#PEACEFUL</span><span>#LONELY</span><span>#CALM</span>
+          <span>#NERVOUS&nbsp;&nbsp;</span><span>#PEACEFUL&nbsp;&nbsp;</span><span>#LONELY&nbsp;&nbsp;</span><span>#CALM</span>
       `;
     } else {
       $CommuText.innerHTML = `
-          <span>#HAPPY</span><span>#EXCITED</span>
+          <span>#HAPPY&nbsp;</span><span>#EXCITED</span>
           <pre></pre>
-          <span>#ANGRY</span><span>#SLEEPY</span>
+          <span>#ANGRY&nbsp;</span><span>#SLEEPY</span>
           <pre></pre>
-          <span>#SAD</span><span>#PLEASED</span>
+          <span>#SAD&nbsp;</span><span>#PLEASED</span>
           <pre></pre>
-          <span>#BORED</span><span>#RELAXED</span>
+          <span>#BORED&nbsp;</span><span>#RELAXED</span>
           <pre></pre>
-          <span>#NERVOUS</span><span>#PEACEFUL</span>
+          <span>#NERVOUS&nbsp;</span><span>#PEACEFUL</span>
           <pre></pre>
-          <span>#LONELY</span><span>#CALM</span>
+          <span>#LONELY&nbsp;</span><span>#CALM</span>
       `;
     }
 
-    //스크롤 글자 배경색 변경--------------------------------------------------
+    /* 스크롤 글자 배경색 변경 */
     const $box = document.querySelector("#contentCommunity");
     const $dummy = document.querySelector("#contentEmpty-choi");
     const $dummy2 = document.querySelector("#contentEmpty2");
@@ -268,15 +269,12 @@ function CommuTextChange() {
         $container.style.backgroundColor = `rgb(${cal251},${cal249},${cal247})`;
         $contentMood.style.backgroundColor = `rgb(${cal251},${cal249},${cal247})`;
         $contentFixedImg.style.backgroundColor = `rgb(${cal251},${cal249},${cal247})`;
-        $span[aa].style.color = `white`;
+        $span[aa].style.color = "white";
       }
     });
   });
-  // ---------------------------------------------------------------------------------------------
 }
 CommuTextChange();
-
-// --------------------------------------------------------
 
 /* 기분별 상품 이동 모양 변경 */
 const moodRightContent = document.querySelector(".mood_right_container");
@@ -287,7 +285,7 @@ function moodRightChange() {
       <ul class="mood_right_content">
         <li class="mood_box">
           <a href="#">
-            <img src="./img/emotion/angry.jpg" />
+            <img src="./img/emotion/angry.jpg" class="box_img_angry" />
           </a>
           <div class="mood_text">
             <div>
@@ -298,7 +296,7 @@ function moodRightChange() {
         </li>
         <li class="mood_box">
           <a href="#">
-            <img src="./img/emotion/nervous.jpg" />
+            <img src="./img/emotion/nervous.jpg" class="box_img_nervous" />
           </a>
           <div class="mood_text">
             <div>
@@ -580,5 +578,3 @@ window.addEventListener("resize", (e) => {
     }
   }
 });
-
-/* ContentMood 타이틀 변경 */

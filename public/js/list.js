@@ -1,9 +1,54 @@
-'use strict';
-// 마우스 커서 이모티콘 캐릭터로 변경
-const mouseCursor = document.querySelector('.cursor');
+"use strict";
 
-window.addEventListener('scroll', getMousePositionScroll);
-window.addEventListener('mousemove', getMousePosition);
+// 헤더전체 시작
+const $barIcon = document.querySelector(".fa-bars");
+const $barMenu = document.querySelector(".bar-menu");
+const $cartIcon = document.querySelector(".fa-cart-shopping");
+const $cartMenu = document.querySelector(".cart-menu");
+const $cartX = document.querySelector(".cart-right-title .fa-xmark");
+
+// $upX.addEventListener('click', () => {
+//   $up.style.display = 'none';
+// });
+$barIcon.addEventListener("click", () => {
+  if ($barMenu.classList.contains("hidden")) {
+    $barMenu.classList.toggle("hidden");
+    $cartMenu.classList.toggle("hidden", true);
+    $barMenu.classList.remove("menu-off");
+    $barMenu.classList.add("menu-on");
+  } else {
+    $barMenu.classList.remove("menu-on");
+    $barMenu.classList.add("menu-off");
+    setTimeout(() => {
+      $barMenu.classList.toggle("hidden");
+      $cartMenu.classList.toggle("hidden", true);
+    }, 1400);
+  }
+});
+$cartIcon.addEventListener("click", () => {
+  if ($cartMenu.classList.contains("hidden")) {
+    $cartMenu.classList.toggle("hidden");
+    $barMenu.classList.toggle("hidden", true);
+    $cartMenu.classList.remove("cart-off");
+    $cartMenu.classList.add("cart-on");
+  }
+});
+$cartX.addEventListener("click", () => {
+  if (!$cartMenu.classList.contains("hidden")) {
+    $cartMenu.classList.remove("cart-on");
+    $cartMenu.classList.add("cart-off");
+    setTimeout(() => {
+      $cartMenu.classList.toggle("hidden");
+      $barMenu.classList.toggle("hidden", true);
+    }, 900);
+  }
+});
+//헤더끝
+// 마우스 커서 이모티콘 캐릭터로 변경
+const mouseCursor = document.querySelector(".cursor");
+
+window.addEventListener("scroll", getMousePositionScroll);
+window.addEventListener("mousemove", getMousePosition);
 
 let mouseX = 0;
 let mouseY = 0;
@@ -14,8 +59,8 @@ function getMousePositionScroll() {
 }
 
 function getMousePosition(e) {
-  mouseX = e.clientX + 30;
-  mouseClientY = e.clientY;
+  mouseX = e.clientX + 50;
+  mouseClientY = e.clientY + 50;
   mousePageY = e.pageY;
 
   getMousePositionScroll();
@@ -24,44 +69,41 @@ function getMousePosition(e) {
 
 function moveCursor() {
   const cursorStyle = getComputedStyle(mouseCursor);
-  let m_x = parseInt(cursorStyle.left.replace('px', ''));
-  let m_y = parseInt(cursorStyle.top.replace('px', ''));
+  let m_x = parseInt(cursorStyle.left.replace("px", ""));
+  let m_y = parseInt(cursorStyle.top.replace("px", ""));
 
-  mouseCursor.style.left = Math.round(m_x + (mouseX - m_x) / 5) + 'px';
-  mouseCursor.style.top = Math.round(m_y + (mouseY - m_y) / 5) + 'px';
+  mouseCursor.style.left = Math.round(m_x + (mouseX - m_x) / 5) + "px";
+  mouseCursor.style.top = Math.round(m_y + (mouseY - m_y) / 5) + "px";
 }
-setInterval('moveCursor()', 30);
+setInterval("moveCursor()", 30);
+
+// fixed 버튼 스크롤 탑으로 이동
+const $btnScrollToTop = document.querySelector("#btnScrollToTop");
+const $totop = document.querySelector(".detailContainer");
+$btnScrollToTop.addEventListener("click", function () {
+  // window.scrollTo(0,0);
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
 
 //감정 feelList clk클릭 이벤트 클릭시 이동하기
 //토글 만들기
-const $iClk = document.querySelectorAll('.clickE');
+const $iClk = document.querySelectorAll(".clickE");
 
-// $iClk.forEach((imot,idx)=> {
+const $btnScrollToImotion = document.querySelectorAll(".im");
 
-//     $btnScrollToImotion.forEach((imo, idx) => {
-//         imo.addEventListener("click", function () {
-//             console.log('감정배열')
-//             click.classList.toggle("selected");
-//             mouseCursor.src = imo.target.src
-//         });
-//     });
+// const imgs = btnScrollToImotion.querySelectorAll('.btnScrollToImotion>img');
 
-// });
-const $btnScrollToImotion = document.querySelectorAll('.im');
-
-const imgs = btnScrollToImotion.querySelectorAll('.btnScrollToImotion>img');
-// console.log($btnScrollToImotion)
-
-const $cursor1 = document.getElementById('cursor');
-console.log($cursor1);
+const $cursor1 = document.getElementById("cursor");
+// console.log($cursor1);
 
 $btnScrollToImotion.forEach((img, idx) => {
-  console.log(img.src);
-  img.addEventListener('click', e => {
-    // console.log(e.target.src)
+  //   console.log(img.src);
+  img.addEventListener("click", (e) => {
     $cursor1.style.backgroundImage = `url(${e.target.src})`;
-
-    // getComputedStyle(mouseCursor).backgroundImage=
   });
 });
 
@@ -81,70 +123,91 @@ $btnScrollToImotion.forEach((img, idx) => {
 
 // 반응형 리사이즈 사이즈 변경 태블릿 사이즈
 function tabResize() {
-  if (matchMedia('screen and (max-width: 834px)').matches) {
+  if (matchMedia("screen and (max-width: 834px)").matches) {
     //마우스 커서 삭제
     // const $cursor = document.querySelector(".cursor");
     // $cursor.classList.remove("cursor");
 
     // 834px 태블릿 사이즈 이하  AOS 애니메이션 삭제
-    const $ul = document.querySelectorAll('ul');
+    const $ul = document.querySelectorAll("ul");
 
     for (let i = 0; i < $ul.length; i++) {
-      $ul[i].removeAttribute('data-aos');
+      $ul[i].removeAttribute("data-aos");
     }
   }
-  window.onresize = function () {
-    document.location.reload();
-  };
+  //   window.onresize = function () {
+  //     document.location.reload();
+  //   };
 }
 tabResize();
 
-// fixed 버튼 스크롤 탑으로 이동
-const $btnScrollToTop = document.querySelector('#btnScrollToTop');
-$btnScrollToTop.addEventListener('click', function () {
-  // window.scrollTo(0,0);
-
-  window.scrollTo({
-    top: 0,
-    left: 0,
-    behavior: 'smooth',
-  });
-});
-
 //BEST , LIST 이미지 마우스 호버 이미지 변경
-const $bestList = document.querySelector('.bestList');
-const $productList = document.querySelector('.productList');
-const $thumImg = document.createElement('IMG');
+const $bestList = document.querySelector(".bestList");
+const $productList = document.querySelector(".productList");
+const $thumImg = document.createElement("IMG");
 
 // jason 페치
-fetch('json/best.json')
-  .then(res => res.json())
-  .then(result => {
+fetch("json/best.json")
+  .then((res) => res.json())
+  .then((result) => {
     makeList(result);
   });
-fetch('json/list1.json')
-  .then(res => res.json())
-  .then(result1 => {
+fetch("json/list.json")
+  .then((res) => res.json())
+  .then((result1) => {
     listList(result1);
   });
-// fetch('imotions.json')
-//   .then(res => res.json())
-//   .then(resultI => {
-//     imotionList(resultI);
-//   });
 
-function imotionList(imotions) {
-  console.log('되나용');
+// BEST LIST
+function makeList(items) {
+  items.forEach((item, idx) => {
+    const $li = document.createElement("li");
+    $li.innerHTML = `
+        <div>
+                <div class="best_img">
+                    <img src="${item.img_picture}" alt=""  transition: all 0.2s; class="ww" cover ;>
+                </div>
+            
+           
+            <div class="best_text">
+                    <ul class="imti">
+                        <li class="heartBtn"><i class="fi fi-rr-heart"></i></li>
+                        <li class="buyBtn"><i class="fi fi-rr-shopping-cart"></i></li>
+                    </ul>
+                <span>${item.product_number}</span>
+                <h4>${item.product_name}</h4>
+                <h4>${item.price}</h4>
+            </div>
+        </div>
+      `;
+    // const wwhover = document.querySelectorAll('.ww');
+    // wwhover.forEach(item => {
+    //   item.style.transition = 'all 0.2s ';
+    // });
+    $bestList.appendChild($li);
+  });
+  // hoverEvent(items);
+  const $ww = document.querySelectorAll(".ww");
+  $ww.forEach((item, idx) => {
+    // setTimeout($ww, 1300);
+    item.addEventListener("mouseover", () => {
+      item.src = `${items[idx].img_overEffect}`;
+    });
+    item.addEventListener("mouseout", () => {
+      item.src = `${items[idx].img_picture}`;
+    });
+  });
 }
 
+// LIST LIST
 function listList(items) {
   items.forEach((item, idx) => {
-    const $li = document.createElement('li');
+    const $li = document.createElement("li");
 
     $li.innerHTML = `
-      <a href="./detailEnd.html">
+      <div>
           <div class="list_img">
-              <img src="${item.img_picture}" alt="" class="ff">
+              <img src="${item.img_picture}" alt="" class="ff" cover;>
           </div>
           <div class="list_text">
                 <ul class="imti">
@@ -155,76 +218,37 @@ function listList(items) {
               <h4>${item.product_name}</h4>
               <h4>${item.price}</h4>
           </div>
-      </a>`;
+      </div>`;
+    // const ffhover = document.querySelectorAll('.ff');
+    // ffhover.forEach(item => {
+    //   item.style.transition = 'all 0.2s ';
+    // });
     $productList.appendChild($li);
   });
 
   // hoverEvent(items);
-  const $ff = document.querySelectorAll('.ff');
+  const $ff = document.querySelectorAll(".ff");
   $ff.forEach((item, idx) => {
-    item.addEventListener('mouseover', () => {
-      console.log('list');
+    item.addEventListener("mouseover", () => {
       item.src = `${items[idx].img_overEffect}`;
     });
-    item.addEventListener('mouseout', () => {
-      item.src = `${items[idx].img_picture}`;
-    });
-  });
-  //heart 좋아요 버튼 클릭 토글 이벤트 하트 버튼 색깔
-  const $heartBtn = document.querySelectorAll('.heartBtn');
-  const $heart = document.querySelectorAll('.heartBtn i');
-  const $buyBtn = document.querySelector('.buyBtn');
-  console.log($heartBtn);
-  $heartBtn.forEach(icon => {
-    icon.addEventListener('click', icon => {
-      icon.target.classList.toggle('fi-rr-heart');
-      icon.target.classList.toggle('fi-ss-heart');
-    });
-  });
-}
-
-function makeList(items) {
-  items.forEach((item, idx) => {
-    const $li = document.createElement('li');
-
-    $li.innerHTML = `
-        <a href="./detailEnd.html">
-          <div class="best_img">
-              <img src="${item.img_picture}" alt="" class="ww">
-          </div>
-          <div class="best_text">
-                <ul class="imti">
-                    <li class="heartBtn flipped"><i class="fi fi-rr-heart"></i></li>
-                    <li class="buyBtn"><i class="fi fi-rr-shopping-cart"></i></li>
-                </ul>
-              <span>${item.product_number}</span>
-              <h4>${item.product_name}</h4>
-              <h4>${item.price}</h4>
-          </div>
-      </a>`;
-
-    $bestList.appendChild($li);
-  });
-  // hoverEvent(items);
-  const $ww = document.querySelectorAll('.ww');
-  $ww.forEach((item, idx) => {
-    item.addEventListener('mouseover', () => {
-      item.src = `${items[idx].img_overEffect}`;
-    });
-    item.addEventListener('mouseout', () => {
+    item.addEventListener("mouseout", () => {
       item.src = `${items[idx].img_picture}`;
     });
   });
 
+  //   function startAnimation() {
+  //     window.setTimeout($ww, 1000);
+  //   }
   //heart 좋아요 버튼 클릭 토글 이벤트 하트 버튼 색깔
-  const $heartBtn = document.querySelectorAll('.heartBtn');
-  const $heart = document.querySelectorAll('.heartBtn i');
-  const $buyBtn = document.querySelector('.buyBtn');
-  console.log($heartBtn);
-  $heartBtn.forEach(icon => {
-    icon.addEventListener('click', icon => {
-      icon.target.classList.toggle('fi-rr-heart');
-      icon.target.classList.toggle('fi-ss-heart');
+  const $heartBtn = document.querySelectorAll(".heartBtn");
+  const $heart = document.querySelectorAll(".heartBtn i");
+  const $buyBtn = document.querySelector(".buyBtn");
+
+  $heartBtn.forEach((icon) => {
+    icon.addEventListener("click", (ico) => {
+      ico.target.classList.toggle("fi-rr-heart");
+      ico.target.classList.toggle("fi-ss-heart");
     });
   });
 }
@@ -315,13 +339,13 @@ function makeList(items) {
 //       <a href="">
 //           <div class="best_img">
 //               <img src="${item.img_picture}" alt="">
-//           </div>
+//           </div></a>
 //           <div class="best_text">
 //               <p>${item.product_number}</p>
 //               <span>${item.product_name}</span>
 //               <p>${item.price}</p>
 //           </div>
-//       </a>`;
+//       `;
 //     $thumbnail.appendChild(div);
 // }
 
