@@ -49,3 +49,10 @@ const swiper = new Swiper(".swiper", {
   spaceBetween: 20,
   centeredSlides: true,
 });
+$link = document.querySelectorAll(".swiper-slide");
+$link.forEach((e) => {
+  e.style.cursor = 'pointer'
+  e.addEventListener('click', () => {
+    location.pathname = "/productDetail";
+  })
+})

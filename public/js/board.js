@@ -8,6 +8,11 @@
   const $cartMenu = document.querySelector(".cart-menu");
   const $cartX = document.querySelector(".cart-right-title .fa-xmark");
 
+  let beforeSelectedIdx = false;
+  window.addEventListener("load", () => {
+    beforeSelectedIdx = localStorage.getItem("num");
+  });
+
   $barIcon.addEventListener("click", () => {
     if ($barMenu.classList.contains("hidden")) {
       $barMenu.classList.toggle("hidden");
@@ -54,10 +59,12 @@
     if (window.innerWidth <= 680) {
       swiper.enable();
     } else if (window.innerWidth > 680) {
-      swiper.slideTo(0, 0);
+      swiper.slideTo(0);
       swiper.disable();
     }
   });
+
+  const $wrapper = document.querySelector("#wrapper");
   // 카테고리 호버
   const $tag = document.querySelectorAll(".hashtag");
   const $cardBox = document.querySelector("#cardBox");
@@ -87,18 +94,30 @@
       clicktag = e.attributes.tag.value;
     }
   });
+  window.addEventListener("onbeforeunload", getData());
 
-  getData();
   function getData() {
     let url = `https://baepippi.github.io/finalProject/${clicktag}.json`;
+    if (localStorage.getItem("cate")) {
+      let $cate = localStorage.getItem("cate");
+      url = `https://baepippi.github.io/finalProject/${$cate}.json`;
+      $tag.forEach((e) => {
+        if ($cate === e.attributes.tag.value) {
+          e.classList.toggle("tagClick", true);
+        } else {
+          e.classList.toggle("tagClick", false);
+        }
+        localStorage.removeItem("cate");
+      });
+    }
     fetch(`${url}`)
       .then((res) => res.json())
       .then((res) => {
         makeDisplay(res);
-        console.log(url);
         getData2(res);
       });
     data = clicktag;
+    console.log(data);
     // makeDisplay(data);
   }
 
@@ -109,6 +128,7 @@
       e.addEventListener("click", (e) => {
         e.target.classList.toggle("tagClick", true);
         clicktag = e.target.attributes.tag.value;
+
         page = 1;
         for (let i = 0; i < $tag.length; i++) {
           if (e.target != $tag[i]) {
@@ -160,7 +180,7 @@
     <div class="box">
     <div class="titleBox">
     <div class="title">${item.title}</div>
-    <img class="cardEmoji" src="image/${item.Emoji}.png" alt="" />
+    <img class="cardEmoji" src="..//image/${item.Emoji}.png" alt="" />
     </div>
     <div class="contentBox">
     <p>
@@ -215,276 +235,291 @@
     const $modalDisplay = document.querySelector(".modalAll");
     $card.addEventListener("click", (e) => {
       if (e.target !== $heart && e.target !== $fillHeart) {
-        localStorage.setItem("list", JSON.stringify(item));
+        // localStorage.setItem("list", JSON.stringify(item));
         $modalDisplay.classList.toggle("displayNone", false);
-        makeModal();
+        $wrapper.classList.toggle("fixed", true);
+        makeModal(item);
       }
     });
+    let modalData = "";
   }
-  let modalData = "";
 
-  function makeModal() {
-    modalData = JSON.parse(localStorage.getItem("list"));
-    const $modal = document.querySelector("#modal");
+  // 새글쓰기
+  const $addCard = document.querySelector(".addCard");
+  const $newModal = document.querySelector(".modalAll2");
+
+  console.log($newModal);
+  $addCard.addEventListener("click", (e) => {
+    openModal2(null);
+    // $newModal.classList.remove("displayNone");
+  });
+
+  function makeModal(item) {
+    modalData = item;
+    // modalData = JSON.parse(localStorage.getItem("list"));
+    const $modal = document.querySelector(".modal");
+    console.log($modal);
     // const change = modalData.Emoji.toUpperCase();
     // console.log(change);
 
     $modal.innerHTML = `
     <div class="close"></div>
-        <div class="modalSection1">
-          <div class="modalTitleBox">
-            <p class="m-title">${modalData.title}</p>
-            <div class="m-emoji" style="
-background-image: URL(image/${modalData.Emoji}.png);"></div>
-          </div>
-          <div class="modalContentBox">
-            <div class="modalMainImg" style="
-background-image: URL(${modalData.img});"></div>
-            <div class="m-content">
-              <p>
-                ${modalData.content}
-              </p>
-              <div>
-                <div class="m-hashtag">
-                  <div class="zigzag">
-                    <p>#${modalData.Emoji}</p>
-                  </div>
-                </div>
-                <img
-                  class="fillHeart m-fillHeart displayNone"
-                  src="image/fillHeart.svg"
-                  alt=""
-                />
-                <img class="heart m-heart" src="image/heart.svg" alt="" />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="m-Section5">
-          <p>수정</p>
+    <div class="modalSection1">
+    <div class="modalTitleBox">
+    <p class="m-title">${modalData.title}</p>
+    <div class="m-emoji" style="
+    background-image: URL(../image/${modalData.Emoji}.png);"></div>
+    </div>
+    <div class="modalContentBox">
+    <div class="modalMainImg" style="
+    background-image: URL(${modalData.img});"></div>
+    <div class="m-content">
+    <p>
+    ${modalData.content}
+    </p>
+    <div>
+    <div class="m-hashtag">
+    <div class="zigzag">
+    <p>#${modalData.Emoji.toUpperCase()}</p>
+    </div>
+    </div>
+    <img
+    class="fillHeart m-fillHeart displayNone"
+    src="image/fillHeart.svg"
+    alt=""
+    />
+    <img class="heart m-heart" src="image/heart.svg" alt="" />
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="m-Section5">
+    <p class="edit">수정</p>
           <p>삭제</p>
-        </div>
-        <div class="m-Section3">
+          </div>
+          <div class="m-Section3">
           <p class="section3-title">RECOMMENDED ITEM</p>
           <ul class="itemList">
-            <li class="item"></li>
-            <li class="item"></li>
-            <li class="item"></li>
-            <li class="item"></li>
+          <li class="item"></li>
+          <li class="item"></li>
+          <li class="item"></li>
+          <li class="item"></li>
           </ul>
-        </div>
-        <div class="m-Section2">
-          <p>댓글 34개</p>
-        </div>
-        <div class="inputClose displayNone"></div>
-
-        <div class="m-Section4 displayNone">
-          <div>
-            <div class="comment">
-              <div class="commentEmoji"></div>
-              <p>잘 했고, 잘 하고 있고, 잘 할거야.</p>
-              <p class="re-comment">답글쓰기</p>
-              <img
-                class="fillHeart co-fillHeart displayNone"
-                src="image/fillHeart.svg"
-                alt=""
-              />
-              <img class="heart co-heart" src="image/heart.svg" alt="" />
-            </div>
-            <div class="comment">
-              <div class="commentEmoji"></div>
-              <p>힘내렴</p>
-              <p class="re-comment">답글쓰기</p>
-              <img
-                class="fillHeart co-fillHeart displayNone"
-                src="image/fillHeart.svg"
-                alt=""
-              />
-              <img class="heart co-heart" src="image/heart.svg" alt="" />
-            </div>
-            <div class="comment">
-              <div class="commentEmoji"></div>
-              <p>ㅅㄱ</p>
-              <p class="re-comment">답글쓰기</p>
-              <img
-                class="fillHeart co-fillHeart displayNone"
-                src="image/fillHeart.svg"
-                alt=""
-              />
-              <img class="heart co-heart" src="image/heart.svg" alt="" />
-            </div>
-            <div class="comment">
-              <div class="commentEmoji"></div>
-              <p>우리 조금은 찬란하게 심적으로 가난해보자고</p>
-              <p class="re-comment">답글쓰기</p>
-              <img
-                class="fillHeart co-fillHeart displayNone"
-                src="image/fillHeart.svg"
-                alt=""
-              />
-              <img class="heart co-heart" src="image/heart.svg" alt="" />
-            </div>
-            <div class="comment">
-              <div class="commentEmoji"></div>
-              <p>
-                때론 혼자이길 바라면서도 누군가 잡아주면 좋겠다는 이기적인 생각
-              </p>
-              <p class="re-comment">답글쓰기</p>
-              <img
-                class="fillHeart co-fillHeart displayNone"
-                src="image/fillHeart.svg"
-                alt=""
-              />
-              <img class="heart co-heart" src="image/heart.svg" alt="" />
-            </div>
-            <div class="comment">
-              <div class="commentEmoji"></div>
-              <p>
-                때론 혼자이길 바라면서도 누군가 잡아주면 좋겠다는 이기적인 생각
-              </p>
-              <p class="re-comment">답글쓰기</p>
-              <img
-                class="fillHeart co-fillHeart displayNone"
-                src="image/fillHeart.svg"
-                alt=""
-              />
-              <img class="heart co-heart" src="image/heart.svg" alt="" />
-            </div>
-            <div class="comment">
-              <div class="commentEmoji"></div>
-              <p>
-                때론 혼자이길 바라면서도 누군가 잡아주면 좋겠다는 이기적인 생각
-              </p>
-              <p class="re-comment">답글쓰기</p>
-              <img
-                class="fillHeart co-fillHeart displayNone"
-                src="image/fillHeart.svg"
-                alt=""
-              />
-              <img class="heart co-heart" src="image/heart.svg" alt="" />
-            </div>
-            <div class="comment">
-              <div class="commentEmoji"></div>
-              <p>
-                때론 혼자이길 바라면서도 누군가 잡아주면 좋겠다는 이기적인 생각
-              </p>
-              <p class="re-comment">답글쓰기</p>
-              <img
-                class="fillHeart co-fillHeart displayNone"
-                src="image/fillHeart.svg"
-                alt=""
-              />
-              <img class="heart co-heart" src="image/heart.svg" alt="" />
-            </div>
-            <div class="comment">
-              <div class="commentEmoji"></div>
-              <p>
-                때론 혼자이길 바라면서도 누군가 잡아주면 좋겠다는 이기적인 생각
-              </p>
-              <p class="re-comment">답글쓰기</p>
-              <img
-                class="fillHeart co-fillHeart displayNone"
-                src="image/fillHeart.svg"
-                alt=""
-              />
-              <img class="heart co-heart" src="image/heart.svg" alt="" />
-            </div>
-            <div class="comment">
-              <div class="commentEmoji"></div>
-              <p>
-                때론 혼자이길 바라면서도 누군가 잡아주면 좋겠다는 이기적인 생각
-              </p>
-              <p class="re-comment">답글쓰기</p>
-              <img
-                class="fillHeart co-fillHeart displayNone"
-                src="image/fillHeart.svg"
-                alt=""
-              />
-              <img class="heart co-heart" src="image/heart.svg" alt="" />
-            </div>
-            <div class="comment">
-              <div class="commentEmoji"></div>
-              <p>
-                때론 혼자이길 바라면서도 누군가 잡아주면 좋겠다는 이기적인 생각
-              </p>
-              <p class="re-comment">답글쓰기</p>
-              <img
-                class="fillHeart co-fillHeart displayNone"
-                src="image/fillHeart.svg"
-                alt=""
-              />
-              <img class="heart co-heart" src="image/heart.svg" alt="" />
-            </div>
           </div>
-        </div>
-        <div class="commentInput">
+          <div class="m-Section2">
+          <p>댓글 34개</p>
+          </div>
+          <div class="inputClose displayNone"></div>
+          
+          <div class="m-Section4 displayNone">
           <div>
+          <div class="comment">
+          <div class="commentEmoji"></div>
+          <p>잘 했고, 잘 하고 있고, 잘 할거야.</p>
+          <p class="re-comment">답글쓰기</p>
+          <img
+          class="fillHeart co-fillHeart displayNone"
+          src="image/fillHeart.svg"
+          alt=""
+          />
+          <img class="heart co-heart" src="image/heart.svg" alt="" />
+          </div>
+          <div class="comment">
+          <div class="commentEmoji"></div>
+          <p>힘내렴</p>
+          <p class="re-comment">답글쓰기</p>
+          <img
+          class="fillHeart co-fillHeart displayNone"
+          src="image/fillHeart.svg"
+          alt=""
+          />
+          <img class="heart co-heart" src="image/heart.svg" alt="" />
+          </div>
+          <div class="comment">
+          <div class="commentEmoji"></div>
+          <p>ㅅㄱ</p>
+          <p class="re-comment">답글쓰기</p>
+          <img
+          class="fillHeart co-fillHeart displayNone"
+          src="image/fillHeart.svg"
+          alt=""
+          />
+          <img class="heart co-heart" src="image/heart.svg" alt="" />
+          </div>
+          <div class="comment">
+          <div class="commentEmoji"></div>
+          <p>우리 조금은 찬란하게 심적으로 가난해보자고</p>
+          <p class="re-comment">답글쓰기</p>
+          <img
+          class="fillHeart co-fillHeart displayNone"
+          src="image/fillHeart.svg"
+          alt=""
+          />
+          <img class="heart co-heart" src="image/heart.svg" alt="" />
+          </div>
+          <div class="comment">
+          <div class="commentEmoji"></div>
+          <p>
+          때론 혼자이길 바라면서도 누군가 잡아주면 좋겠다는 이기적인 생각
+          </p>
+          <p class="re-comment">답글쓰기</p>
+          <img
+          class="fillHeart co-fillHeart displayNone"
+          src="image/fillHeart.svg"
+          alt=""
+          />
+          <img class="heart co-heart" src="image/heart.svg" alt="" />
+          </div>
+          <div class="comment">
+          <div class="commentEmoji"></div>
+          <p>
+          때론 혼자이길 바라면서도 누군가 잡아주면 좋겠다는 이기적인 생각
+          </p>
+          <p class="re-comment">답글쓰기</p>
+          <img
+          class="fillHeart co-fillHeart displayNone"
+          src="image/fillHeart.svg"
+          alt=""
+          />
+          <img class="heart co-heart" src="image/heart.svg" alt="" />
+          </div>
+          <div class="comment">
+          <div class="commentEmoji"></div>
+          <p>
+          때론 혼자이길 바라면서도 누군가 잡아주면 좋겠다는 이기적인 생각
+          </p>
+          <p class="re-comment">답글쓰기</p>
+          <img
+          class="fillHeart co-fillHeart displayNone"
+          src="image/fillHeart.svg"
+          alt=""
+          />
+          <img class="heart co-heart" src="image/heart.svg" alt="" />
+          </div>
+          <div class="comment">
+          <div class="commentEmoji"></div>
+          <p>
+          때론 혼자이길 바라면서도 누군가 잡아주면 좋겠다는 이기적인 생각
+          </p>
+          <p class="re-comment">답글쓰기</p>
+          <img
+          class="fillHeart co-fillHeart displayNone"
+          src="image/fillHeart.svg"
+          alt=""
+          />
+          <img class="heart co-heart" src="image/heart.svg" alt="" />
+            </div>
+            <div class="comment">
+            <div class="commentEmoji"></div>
+            <p>
+            때론 혼자이길 바라면서도 누군가 잡아주면 좋겠다는 이기적인 생각
+            </p>
+            <p class="re-comment">답글쓰기</p>
+            <img
+            class="fillHeart co-fillHeart displayNone"
+            src="image/fillHeart.svg"
+            alt=""
+            />
+            <img class="heart co-heart" src="image/heart.svg" alt="" />
+            </div>
+            <div class="comment">
+            <div class="commentEmoji"></div>
+            <p>
+            때론 혼자이길 바라면서도 누군가 잡아주면 좋겠다는 이기적인 생각
+            </p>
+            <p class="re-comment">답글쓰기</p>
+            <img
+            class="fillHeart co-fillHeart displayNone"
+            src="image/fillHeart.svg"
+            alt=""
+            />
+            <img class="heart co-heart" src="image/heart.svg" alt="" />
+            </div>
+            <div class="comment">
+            <div class="commentEmoji"></div>
+            <p>
+            때론 혼자이길 바라면서도 누군가 잡아주면 좋겠다는 이기적인 생각
+            </p>
+            <p class="re-comment">답글쓰기</p>
+            <img
+            class="fillHeart co-fillHeart displayNone"
+            src="image/fillHeart.svg"
+            alt=""
+            />
+            <img class="heart co-heart" src="image/heart.svg" alt="" />
+            </div>
+            </div>
+            </div>
+            <div class="commentInput">
+            <div>
             <ul class="menu">
-              <li class="inputEmoji dropdown dropdown-1">
-                <ul class="dropdown_menu dropdown_menu-1 displayNone">
-                  <li
-                    class="dropdown_item-1"
-                    style="
-                      background-image: URL(image/happy.png);
-                      background-repeat: no-repeat;
+            <li class="inputEmoji dropdown dropdown-1">
+            <ul class="dropdown_menu dropdown_menu-1 displayNone">
+            <li
+            class="dropdown_item-1"
+            style="
+            background-image: URL(../image/happy.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            "
+            ></li>
+            <li
+            class="dropdown_item-2"
+            style="
+            background-image: URL(../image/bored.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            "
+            ></li>
+            <li
+            class="dropdown_item-3"
+            style="
+            background-image: URL(../image/lonely.png);
+            background-repeat: no-repeat;
                       background-size: cover;
                     "
-                  ></li>
-                  <li
-                    class="dropdown_item-2"
-                    style="
-                      background-image: URL(image/bored.png);
-                      background-repeat: no-repeat;
-                      background-size: cover;
-                    "
-                  ></li>
-                  <li
-                    class="dropdown_item-3"
-                    style="
-                      background-image: URL(image/lonely.png);
-                      background-repeat: no-repeat;
-                      background-size: cover;
-                    "
-                  ></li>
-                  <li
+                    ></li>
+                    <li
                     class="dropdown_item-4"
                     style="
-                      background-image: URL(image/nervous.png);
-                      background-repeat: no-repeat;
-                      background-size: cover;
+                    background-image: URL(../image/nervous.png);
+                    background-repeat: no-repeat;
+                    background-size: cover;
                     "
-                  ></li>
-                  <li
+                    ></li>
+                    <li
                     class="dropdown_item-5"
                     style="
-                      background-image: URL(image/angry.png);
-                      background-repeat: no-repeat;
-                      background-size: cover;
+                    background-image: URL(../image/angry.png);
+                    background-repeat: no-repeat;
+                    background-size: cover;
                     "
-                  ></li>
-                  <li
+                    ></li>
+                    <li
                     class="dropdown_item-6"
                     style="
-                      background-image: URL(image/sad.png);
-                      background-repeat: no-repeat;
-                      background-size: cover;
+                    background-image: URL(../image/sad.png);
+                    background-repeat: no-repeat;
+                    background-size: cover;
                     "
-                  ></li>
-                </ul>
-              </li>
-            </ul>
-            <input class="input" placeholder="댓글을 입력하세요.">
-            <p class="save">게시</p>
-          </div>
-        </div>
-  `;
+                    ></li>
+                    </ul>
+                    </li>
+                    </ul>
+                    <input class="input" placeholder="댓글을 입력하세요.">
+                    <p class="save">게시</p>
+                    </div>
+                    </div>
+                    `;
 
     const close = document.querySelector(".close");
     const modalDisplay = document.querySelector(".modalAll");
     close.addEventListener("click", (e) => {
       modalDisplay.classList.toggle("displayNone", true);
+      $wrapper.classList.toggle("fixed", false);
     });
 
+    // 하트토글
     const $heart = document.querySelector(".heart");
     const $fillHeart = document.querySelector(".fillHeart");
 
@@ -497,24 +532,31 @@ background-image: URL(${modalData.img});"></div>
       $heart.classList.toggle("displayNone");
     });
 
+    // 수정
+    const $edit = document.querySelector(".edit");
+    console.log($edit);
+    $edit.addEventListener("click", (e) => {
+      modalDisplay.classList.toggle("displayNone", true);
+      openModal2(modalData);
+    });
+
     // 이모티콘 드롭다운
 
-    const dropdown = document.querySelector(".dropdown");
-    const dropdownMenu = document.querySelector(".dropdown_menu");
-    const dropList = document.querySelectorAll(".dropdown li");
-    dropdown.addEventListener("click", () => {
-      dropdownMenu.classList.toggle("displayNone");
-      dropList.forEach((item) => {
+    const dropdown2 = document.querySelector(".dropdown");
+    const dropdownMenu2 = document.querySelector(".dropdown_menu");
+    const dropList2 = document.querySelectorAll(".dropdown li");
+    console.log(dropdown2);
+    dropdown2.addEventListener("click", (e) => {
+      console.log("aa");
+      dropdownMenu2.classList.toggle("displayNone");
+      dropList2.forEach((item) => {
         item.style.animationName = "slideDown";
         item.style.display = "block";
         item.addEventListener("click", (e) => {
-          dropdown.style.backgroundImage = e.target.style.backgroundImage;
+          dropdown2.style.backgroundImage = e.target.style.backgroundImage;
         });
       });
     });
-    // dropdown.addEventListener('click',()=>{
-    //   dropdownMenu.classList.remove("displayNone");
-    // })
 
     // 댓글창 on / off
     const input = document.querySelector(".input");
@@ -537,6 +579,103 @@ background-image: URL(${modalData.img});"></div>
       inputClose.classList.toggle("displayNone", true);
     });
   }
+  function openModal2(data) {
+    $newModal.classList.remove("displayNone");
+    $wrapper.classList.toggle("fixed");
+    const saveBtn = document.querySelector("#save");
+    const modalDisplay = document.querySelector(".modalAll2");
+    const $textArea = document.querySelector("#textarea");
+    const title2 = document.querySelector(".m-title2");
+    saveBtn.addEventListener("click", (e) => {
+      localStorage.setItem("cate", data.Emoji);
+      if (data.Emoji === "happy") {
+        localStorage.setItem("num", 0);
+      } else if (data.Emoji === "bored") {
+        localStorage.setItem("num", 1);
+      } else if (data.Emoji === "nervous") {
+        localStorage.setItem("num", 2);
+      } else if (data.Emoji === "lonely") {
+        localStorage.setItem("num", 3);
+      } else if (data.Emoji === "sad") {
+        localStorage.setItem("num", 4);
+      } else {
+        localStorage.setItem("num", 5);
+      }
+    });
+    console.dir(saveBtn);
+    console.log(data);
+    console.dir(title2);
+    console.log(saveBtn);
+    console.dir($textArea);
+    $textArea.addEventListener("input", (e) => {
+      if ($textArea.value) {
+        saveBtn.style.color = "#000000";
+      } else {
+        saveBtn.style.color = "#c9c7bb";
+      }
+    });
+    const close2 = document.querySelector(".close2");
+    close2.addEventListener("click", (e) => {
+      modalDisplay.classList.toggle("displayNone", true);
+      $wrapper.classList.toggle("fixed", false);
+      $textArea.value = "";
+      title2.value = "";
+      smallEmoji.style.backgroundImage = `url(image/happy.png)`;
+      dropdown.firstChild.textContent = `#HAPPY`;
+      img.src = "image/addImg.png";
+    });
+
+    //새글 드롭다운
+    const dropdown = document.querySelector(".dropdown2", ".new");
+    const dropdownMenu = document.querySelector(".dropdown_menu2", ".new");
+    const dropList = document.querySelectorAll(".dropdown2 li", ".new");
+    dropdown.addEventListener("click", (e) => {
+      dropdownMenu.classList.toggle("displayNone");
+      dropList.forEach((item) => {
+        item.style.animationName = "slideUp";
+        item.style.display = "block";
+        console.dir(dropdown);
+        item.addEventListener("click", (e) => {
+          dropdown.firstChild.textContent = e.target.textContent;
+        });
+      });
+    });
+
+    // 캐릭터 클릭
+    const newEmoji = document.querySelectorAll(".selectEmoji img");
+    const smallEmoji = document.querySelector(".m-emoji", "new");
+    const img = document.querySelector(".modalContentBox img");
+
+    newEmoji.forEach((img) => {
+      img.addEventListener("click", (e) => {
+        console.dir(smallEmoji.style.backgroundImage);
+        console.log(e.target.src);
+        smallEmoji.style.backgroundImage = `url(${e.target.src})`;
+      });
+    });
+
+    // 수정하기 클릭해서 글쓰기창 켜졌을때 데이터 가져오기
+    if (data) {
+      const str = removeHTML(data.content);
+      console.log(img);
+
+      function removeHTML(text) {
+        text = text.replace(/(<br>|<br\/>|<br \/>)/g, "\r\n");
+        text = text.replace(/<(\/)?([a-zA-Z]*)(\s[a-zA-Z]*=[^>]*)?(\s)*(\/)?>/gi, "");
+        return text;
+      }
+      console.log(str);
+      $textArea.value = str;
+      title2.value = data.title;
+      smallEmoji.style.backgroundImage = `url(image/${data.Emoji}.png)`;
+      img.src = data.img;
+      dropdown.firstChild.textContent = `#${data.Emoji.toUpperCase()}`;
+
+      $wrapper.classList.toggle("fixed", true);
+      saveBtn.style.color = "#000000";
+    }
+    // 저장하기 텍스트 색 변경
+  }
 
   function changeSelected() {
     const pageSpanList = document.querySelectorAll(".page");
@@ -558,7 +697,7 @@ background-image: URL(${modalData.img});"></div>
       span.addEventListener("click", (e) => {
         page = i;
         makeList();
-        window.scrollTo(0, 0);
+        window.scrollTo({ top: 0, behavior: "smooth" });
       });
     }
   }
@@ -620,18 +759,22 @@ background-image: URL(${modalData.img});"></div>
 
   realUpload.addEventListener("change", getImageFiles);
 
-  // let swiper = new Swiper(".swiper", {
-  //   slideToClickedSlide: true,
-  //   spaceBetween: 50,
+  let swiper = new Swiper(".swiper", {
+    slideToClickedSlide: true,
+    spaceBetween: 50,
 
-  //   pagination: { el: ".swiper-pagination" },
+    pagination: { el: ".swiper-pagination" },
 
-  //   scrollbar: { nel: ".swiper-scrollbar" },
-  // });
-  // // 스와이퍼막기
-  // if (window.innerWidth <= 680) {
-  //   swiper.enable();
-  // } else if (window.innerWidth > 680) {
-  //   swiper.disable();
-  // }
+    scrollbar: { nel: ".swiper-scrollbar" },
+  });
+  // 스와이퍼막기
+  if (window.innerWidth <= 680) {
+    swiper.enable();
+  } else if (window.innerWidth > 680) {
+    swiper.disable();
+  }
+
+  let indexA = localStorage.getItem("num");
+  swiper.slideTo(indexA);
+  localStorage.removeItem("num");
 })();

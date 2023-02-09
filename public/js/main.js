@@ -131,6 +131,12 @@ function makeList(data) {
         <p class="item_price_${item.id}">${item.price.toLocaleString("ko-KR")}원</p>
       </div>
     </div>`;
+    $link = document.querySelectorAll(".swiper-slide");
+    $link.forEach((e) => {
+      e.addEventListener('click', () => {
+        location.pathname = "/productDetail";
+      })
+    })
     $swiperWrapper.appendChild($div);
 
     //img hover 시 이름, 가격, 어둡게
