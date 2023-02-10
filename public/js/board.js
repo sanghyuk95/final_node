@@ -59,7 +59,7 @@
     if (window.innerWidth <= 680) {
       swiper.enable();
     } else if (window.innerWidth > 680) {
-      swiper.slideTo(0);
+      // swiper.slideTo(0);
       swiper.disable();
     }
   });
@@ -586,22 +586,22 @@
     const modalDisplay = document.querySelector(".modalAll2");
     const $textArea = document.querySelector("#textarea");
     const title2 = document.querySelector(".m-title2");
-    saveBtn.addEventListener("click", (e) => {
-      localStorage.setItem("cate", data.Emoji);
-      if (data.Emoji === "happy") {
-        localStorage.setItem("num", 0);
-      } else if (data.Emoji === "bored") {
-        localStorage.setItem("num", 1);
-      } else if (data.Emoji === "nervous") {
-        localStorage.setItem("num", 2);
-      } else if (data.Emoji === "lonely") {
-        localStorage.setItem("num", 3);
-      } else if (data.Emoji === "sad") {
-        localStorage.setItem("num", 4);
-      } else {
-        localStorage.setItem("num", 5);
-      }
-    });
+    // saveBtn.addEventListener("click", (e) => {
+    //   localStorage.setItem("cate", data.Emoji);
+    //   if (data.Emoji === "happy") {
+    //     localStorage.setItem("num", 0);
+    //   } else if (data.Emoji === "bored") {
+    //     localStorage.setItem("num", 1);
+    //   } else if (data.Emoji === "nervous") {
+    //     localStorage.setItem("num", 2);
+    //   } else if (data.Emoji === "lonely") {
+    //     localStorage.setItem("num", 3);
+    //   } else if (data.Emoji === "sad") {
+    //     localStorage.setItem("num", 4);
+    //   } else {
+    //     localStorage.setItem("num", 5);
+    //   }
+    // });
     console.dir(saveBtn);
     console.log(data);
     console.dir(title2);
@@ -740,7 +740,7 @@
         const reader = new FileReader();
         reader.onload = (e) => {
           const preview = createElement(e, file);
-          imagePreview.appendChild(preview);
+          // imagePreview.appendChild(preview);
         };
         reader.readAsDataURL(file);
       }
@@ -775,6 +775,6 @@
   }
 
   let indexA = localStorage.getItem("num");
-  swiper.slideTo(indexA);
+  // swiper.slideTo(indexA);
   localStorage.removeItem("num");
 })();

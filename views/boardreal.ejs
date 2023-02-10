@@ -4,10 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1" />
     <link rel="stylesheet" href="css/boardreal2.css" />
     <link
       rel="stylesheet"
@@ -18,14 +15,8 @@
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <!-- 파비콘 -->
     <link rel="icon" href="./icon/pavi.ico" />
     <title>HYFT ˘◡˘</title>
@@ -108,48 +99,28 @@
     </div>
     <!-- 헤더 끝 -->
     <!-- 새글쓰기 -->
-    <form action="">
+    <form action="/write" method="POST" enctype="multipart/form-data">
       <div class="modalAll2 new displayNone">
         <div class="bg new"></div>
         <div class="modal2 new">
           <div class="close2"></div>
           <div class="modalSection1 new">
             <div class="modalTitleBox new">
-              <input
-                type="text"
-                class="m-title2 new"
-                placeholder="제목을 입력하세요."
-              />
-              <div
-                class="m-emoji new"
-                style="background-image: url('image/happy.png')"
-              ></div>
+              <input type="text" class="m-title2 new" placeholder="제목을 입력하세요." name="title" />
+              <div class="m-emoji new" style="background-image: url('image/happy.png')"></div>
             </div>
             <div class="modalContentBox new">
               <img class="modalMainImg upload new" src="image/addImg.png" />
-              <input
-                type="file"
-                class="real-upload new"
-                accept="image/*"
-                style="display: none"
-              />
+              <input type="file" class="real-upload new" accept="image/*" style="display: none" name="photo" />
               <div class="m-content new">
-                <textarea
-                  name=""
-                  id="textarea"
-                  cols="30"
-                  rows="10"
-                  placeholder="내용을 입력하세요."
-                ></textarea>
+                <textarea id="textarea" cols="30" rows="10" placeholder="내용을 입력하세요." name="detail"></textarea>
                 <!-- <input type="text" placeholder="내용을 입력하세요." /> -->
                 <div>
                   <div class="m-hashtag new">
                     <ul class="menu2 new">
-                      <li class="zigzag dropdown2 dropdown-1 new">
+                      <li class="zigzag dropdown2 dropdown-1 new" name="emotion">
                         #HAPPY
-                        <ul
-                          class="dropdown_menu2 dropdown_menu-1 new displayNone"
-                        >
+                        <ul class="dropdown_menu2 dropdown_menu-1 new displayNone">
                           <li class="zigzag dropdown_item-1 new">#HAPPY</li>
                           <li class="zigzag dropdown_item-1 new">#BORED</li>
                           <li class="zigzag dropdown_item-1 new">#NERVOUS</li>
@@ -175,7 +146,7 @@
               <img src="image/angry.png" alt="" />
             </div>
           </div>
-          <input type="submit" name="save" value="저장하기" id="save" />
+          <input type="submit" value="저장하기" id="save" />
         </div>
       </div>
     </form>
@@ -193,9 +164,7 @@
         <div id="cardBox">
           <div class="swiper">
             <div id="category" class="swiper-wrapper">
-              <div class="hashtag tagClick swiper-slide" tag="happy">
-                #HAPPY
-              </div>
+              <div class="hashtag tagClick swiper-slide" tag="happy">#HAPPY</div>
               <div class="hashtag swiper-slide" tag="bored">#BORED</div>
               <div class="hashtag swiper-slide" tag="nervous">#NERVOUS</div>
               <div class="hashtag swiper-slide" tag="lonely">#LONELY</div>

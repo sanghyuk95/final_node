@@ -121,7 +121,7 @@ function loggedIn(req, res, next) {
   if (req.user) {
     next();
   } else {
-    res.redirect('/login')
+    res.redirect("/login");
   }
 }
 
@@ -161,7 +161,17 @@ app.get("/magazineDetail", function (req, res) {
   res.sendFile(__dirname + "/views/magazineDetail.html");
 });
 app.get("/board", function (req, res) {
-  res.sendFile(__dirname + "/views/boardreal.html");
+  res.render("boardreal.ejs");
+});
+
+app.post("/write", upload.single("photo"), function (req, res) {
+  let sql = `insert into community (title,detail,emotion,writer,photo) values ('${req.body.title}','${req.body.detail}','emotion','id','${req.file.originalname}')`;
+  connection.query(sql, function (err, result) {
+    if (err) {
+      console.log(err);
+    }
+  });
+  res.redirect("/board");
 });
 app.get("/main", function (req, res) {
   res.sendFile(__dirname + "/views/main.html");
