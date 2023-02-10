@@ -1003,7 +1003,7 @@ body {
 .inputEmoji {
   width: 25px;
   height: 25px;
-  background: url("../image/HAPPY.png") no-repeat;
+  background: url("../image/happy.png") no-repeat;
   background-size: cover;
 }
 
@@ -1697,7 +1697,7 @@ dropdown_item-1 {
   .m-emoji {
     width: 30px;
     height: 30px;
-    background: url("../image/HAPPY.png") no-repeat;
+    background: url("../image/happy.png") no-repeat;
     background-size: cover;
   }
   .modalMainImg {
