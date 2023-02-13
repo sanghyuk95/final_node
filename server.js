@@ -160,17 +160,19 @@ app.get("/magazine", function (req, res) {
 app.get("/magazineDetail", function (req, res) {
   res.sendFile(__dirname + "/views/magazineDetail.html");
 });
-app.get("/board", function (req, res) {
-  res.render("boardreal.ejs");
-});
 
-app.post("/write", upload.single("photo"), function (req, res) {
-  let sql = `insert into community (title,detail,emotion,writer,photo) values ('${req.body.title}','${req.body.detail}','emotion','id','${req.file.originalname}')`;
+app.get("/board", function (req, res) {
+  const sql = `select * from community`;
   connection.query(sql, function (err, result) {
+    console.log(result);
     if (err) {
       console.log(err);
     }
+    res.render("boardreal.ejs", { data: result });
   });
+});
+
+app.post("/write", function (req, res) {
   res.redirect("/board");
 });
 app.get("/main", function (req, res) {
