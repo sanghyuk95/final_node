@@ -233,7 +233,7 @@
   });
 
   function makeModal(item) {
-    console.log(item)
+    console.log(item);
     modalData = item;
     // modalData = JSON.parse(localStorage.getItem("list"));
     const $modal = document.querySelector(".modal");
@@ -244,252 +244,138 @@
     $modal.innerHTML = `
     <div class="close"></div>
     <div class="modalSection1">
-    <div class="modalTitleBox">
-    <p class="m-title">${item.querySelector('.title').textContent}</p>
-    <div class="m-emoji" style="
-    background-image: URL(../image/${modalData.Emoji}.png);"></div>
-    </div>
-    <div class="modalContentBox">
-    <div class="modalMainImg" style="
-    background-image: URL(${modalData.img});"></div>
-    <div class="m-content">
-    <p>
-    ${modalData.content}
-    </p>
-    <div>
-    <div class="m-hashtag">
-    <div class="zigzag">
-    <p>#${modalData.Emoji}</p>
-    </div>
-    </div>
-    <img
-    class="fillHeart m-fillHeart displayNone"
-    src="image/fillHeart.svg"
-    alt=""
-    />
-    <img class="heart m-heart" src="image/heart.svg" alt="" />
-    </div>
-    </div>
-    </div>
+      <div class="modalTitleBox">
+        <p class="m-title">${item.querySelector(".title").textContent}</p>
+        <div class="m-emoji" 
+        style="background-image: url(../image/${item.querySelector(".cardEmoji").src.substr(28)});">
+        </div>
+      </div>
+      <div class="modalContentBox">
+        <div class="modalMainImg" style="
+          background-image: URL(../imageupload/${item.querySelector("#photo").textContent});">
+        </div>
+        <div class="m-content">
+          <p>${item.querySelector(".contentBox").textContent}</p>
+        <div>
+        <div class="m-hashtag">
+        <div class="zigzag">
+        <p>#${item.querySelector(".cardEmoji").src.substr(28).split(".")[0]}</p>
+        </div>
+        </div>
+        <img class="fillHeart m-fillHeart displayNone" src="image/fillHeart.svg" alt="" />
+        <img class="heart m-heart" src="image/heart.svg" alt="" />
+        </div>
+        </div>
+      </div>
     </div>
     <div class="m-Section5">
     <p class="edit">수정</p>
-          <p>삭제</p>
-          </div>
-          <div class="m-Section3">
-          <p class="section3-title">RECOMMENDED ITEM</p>
-          <ul class="itemList">
-          <li class="item"></li>
-          <li class="item"></li>
-          <li class="item"></li>
-          <li class="item"></li>
-          </ul>
-          </div>
-          <div class="m-Section2">
-          <p>댓글 34개</p>
-          </div>
-          <div class="inputClose displayNone"></div>
-          
-          <div class="m-Section4 displayNone">
-          <div>
-          <div class="comment">
-          <div class="commentEmoji"></div>
-          <p>잘 했고, 잘 하고 있고, 잘 할거야.</p>
-          <p class="re-comment">답글쓰기</p>
-          <img
-          class="fillHeart co-fillHeart displayNone"
-          src="image/fillHeart.svg"
-          alt=""
-          />
-          <img class="heart co-heart" src="image/heart.svg" alt="" />
-          </div>
-          <div class="comment">
-          <div class="commentEmoji"></div>
-          <p>힘내렴</p>
-          <p class="re-comment">답글쓰기</p>
-          <img
-          class="fillHeart co-fillHeart displayNone"
-          src="image/fillHeart.svg"
-          alt=""
-          />
-          <img class="heart co-heart" src="image/heart.svg" alt="" />
-          </div>
-          <div class="comment">
-          <div class="commentEmoji"></div>
-          <p>ㅅㄱ</p>
-          <p class="re-comment">답글쓰기</p>
-          <img
-          class="fillHeart co-fillHeart displayNone"
-          src="image/fillHeart.svg"
-          alt=""
-          />
-          <img class="heart co-heart" src="image/heart.svg" alt="" />
-          </div>
-          <div class="comment">
-          <div class="commentEmoji"></div>
-          <p>우리 조금은 찬란하게 심적으로 가난해보자고</p>
-          <p class="re-comment">답글쓰기</p>
-          <img
-          class="fillHeart co-fillHeart displayNone"
-          src="image/fillHeart.svg"
-          alt=""
-          />
-          <img class="heart co-heart" src="image/heart.svg" alt="" />
-          </div>
-          <div class="comment">
-          <div class="commentEmoji"></div>
-          <p>
-          때론 혼자이길 바라면서도 누군가 잡아주면 좋겠다는 이기적인 생각
-          </p>
-          <p class="re-comment">답글쓰기</p>
-          <img
-          class="fillHeart co-fillHeart displayNone"
-          src="image/fillHeart.svg"
-          alt=""
-          />
-          <img class="heart co-heart" src="image/heart.svg" alt="" />
-          </div>
-          <div class="comment">
-          <div class="commentEmoji"></div>
-          <p>
-          때론 혼자이길 바라면서도 누군가 잡아주면 좋겠다는 이기적인 생각
-          </p>
-          <p class="re-comment">답글쓰기</p>
-          <img
-          class="fillHeart co-fillHeart displayNone"
-          src="image/fillHeart.svg"
-          alt=""
-          />
-          <img class="heart co-heart" src="image/heart.svg" alt="" />
-          </div>
-          <div class="comment">
-          <div class="commentEmoji"></div>
-          <p>
-          때론 혼자이길 바라면서도 누군가 잡아주면 좋겠다는 이기적인 생각
-          </p>
-          <p class="re-comment">답글쓰기</p>
-          <img
-          class="fillHeart co-fillHeart displayNone"
-          src="image/fillHeart.svg"
-          alt=""
-          />
-          <img class="heart co-heart" src="image/heart.svg" alt="" />
-          </div>
-          <div class="comment">
-          <div class="commentEmoji"></div>
-          <p>
-          때론 혼자이길 바라면서도 누군가 잡아주면 좋겠다는 이기적인 생각
-          </p>
-          <p class="re-comment">답글쓰기</p>
-          <img
-          class="fillHeart co-fillHeart displayNone"
-          src="image/fillHeart.svg"
-          alt=""
-          />
-          <img class="heart co-heart" src="image/heart.svg" alt="" />
-            </div>
-            <div class="comment">
-            <div class="commentEmoji"></div>
-            <p>
-            때론 혼자이길 바라면서도 누군가 잡아주면 좋겠다는 이기적인 생각
-            </p>
-            <p class="re-comment">답글쓰기</p>
-            <img
-            class="fillHeart co-fillHeart displayNone"
-            src="image/fillHeart.svg"
-            alt=""
-            />
-            <img class="heart co-heart" src="image/heart.svg" alt="" />
-            </div>
-            <div class="comment">
-            <div class="commentEmoji"></div>
-            <p>
-            때론 혼자이길 바라면서도 누군가 잡아주면 좋겠다는 이기적인 생각
-            </p>
-            <p class="re-comment">답글쓰기</p>
-            <img
-            class="fillHeart co-fillHeart displayNone"
-            src="image/fillHeart.svg"
-            alt=""
-            />
-            <img class="heart co-heart" src="image/heart.svg" alt="" />
-            </div>
-            <div class="comment">
-            <div class="commentEmoji"></div>
-            <p>
-            때론 혼자이길 바라면서도 누군가 잡아주면 좋겠다는 이기적인 생각
-            </p>
-            <p class="re-comment">답글쓰기</p>
-            <img
-            class="fillHeart co-fillHeart displayNone"
-            src="image/fillHeart.svg"
-            alt=""
-            />
-            <img class="heart co-heart" src="image/heart.svg" alt="" />
-            </div>
-            </div>
-            </div>
-            <div class="commentInput">
-            <div>
-            <ul class="menu">
-            <li class="inputEmoji dropdown dropdown-1">
-            <ul class="dropdown_menu dropdown_menu-1 displayNone">
-            <li
-            class="dropdown_item-1"
-            style="
-            background-image: URL(../image/happy.png);
-            background-repeat: no-repeat;
-            background-size: cover;
-            "
-            ></li>
-            <li
-            class="dropdown_item-2"
-            style="
-            background-image: URL(../image/bored.png);
-            background-repeat: no-repeat;
-            background-size: cover;
-            "
-            ></li>
-            <li
-            class="dropdown_item-3"
-            style="
-            background-image: URL(../image/lonely.png);
-            background-repeat: no-repeat;
-                      background-size: cover;
-                    "
-                    ></li>
-                    <li
-                    class="dropdown_item-4"
-                    style="
-                    background-image: URL(../image/nervous.png);
-                    background-repeat: no-repeat;
-                    background-size: cover;
-                    "
-                    ></li>
-                    <li
-                    class="dropdown_item-5"
-                    style="
-                    background-image: URL(../image/angry.png);
-                    background-repeat: no-repeat;
-                    background-size: cover;
-                    "
-                    ></li>
-                    <li
-                    class="dropdown_item-6"
-                    style="
-                    background-image: URL(../image/sad.png);
-                    background-repeat: no-repeat;
-                    background-size: cover;
-                    "
-                    ></li>
-                    </ul>
-                    </li>
-                    </ul>
-                    <input class="input" placeholder="댓글을 입력하세요.">
-                    <p class="save">게시</p>
-                    </div>
-                    </div>
-                    `;
+    <p>삭제</p>
+    </div>
+    <div class="m-Section3">
+    <p class="section3-title">RECOMMENDED ITEM</p>
+    <ul class="itemList">
+    <li class="item"></li>
+    <li class="item"></li>
+    <li class="item"></li>
+    <li class="item"></li>
+    </ul>
+    </div>
+    <div class="m-Section2">
+    <p>댓글 34개</p>
+    </div>
+    <div class="inputClose displayNone"></div>
+    
+    <div class="m-Section4 displayNone">
+    <div>
+    
+    <div class="comment">
+    <div class="commentEmoji"></div>
+    <p>ㅅㄱ</p>
+    <p class="re-comment">답글쓰기</p>
+    <img
+    class="fillHeart co-fillHeart displayNone"
+    src="image/fillHeart.svg"
+    alt=""
+    />
+    <img class="heart co-heart" src="image/heart.svg" alt="" />
+    </div>
+    <div class="comment">
+    <div class="commentEmoji"></div>
+    <p>
+    때론 혼자이길 바라면서도 누군가 잡아주면 좋겠다는 이기적인 생각
+    </p>
+    <p class="re-comment">답글쓰기</p>
+    <img
+    class="fillHeart co-fillHeart displayNone"
+    src="image/fillHeart.svg"
+    alt=""
+    />
+    <img class="heart co-heart" src="image/heart.svg" alt="" />
+    </div>
+    </div>
+    </div>
+    <div class="commentInput">
+    <div>
+    <ul class="menu">
+    <li class="inputEmoji dropdown dropdown-1">
+    <ul class="dropdown_menu dropdown_menu-1 displayNone">
+    <li
+    class="dropdown_item-1"
+    style="
+    background-image: URL(../image/happy.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    "
+    ></li>
+    <li
+    class="dropdown_item-2"
+    style="
+    background-image: URL(../image/bored.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    "
+    ></li>
+    <li
+    class="dropdown_item-3"
+    style="
+    background-image: URL(../image/lonely.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    "
+    ></li>
+    <li
+    class="dropdown_item-4"
+    style="
+    background-image: URL(../image/nervous.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    "
+    ></li>
+    <li
+    class="dropdown_item-5"
+    style="
+    background-image: URL(../image/angry.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    "
+    ></li>
+    <li
+    class="dropdown_item-6"
+    style="
+    background-image: URL(../image/sad.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    "
+    ></li>
+    </ul>
+    </li>
+    </ul>
+    <input class="input" placeholder="댓글을 입력하세요.">
+    <p class="save">게시</p>
+    </div>
+    </div>
+    `;
 
     const close = document.querySelector(".close");
     const modalDisplay = document.querySelector(".modalAll");
