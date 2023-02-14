@@ -83,114 +83,95 @@
     }
   }
 
-  let clicktag = "";
-  let data = "";
-  let page = 1;
-  const rowCnt = 10;
+  // let clicktag = "";
+  // let data = "";
+  // let page = 1;
+  // const rowCnt = 10;
 
   // json 가져오기
-  $tag.forEach((e) => {
-    if (e.classList.contains("tagClick")) {
-      clicktag = e.attributes.tag.value;
-    }
-  });
-  window.addEventListener("onbeforeunload", getData());
+  // $tag.forEach((e) => {
+  //   if (e.classList.contains("tagClick")) {
+  //     clicktag = e.attributes.tag.value;
+  //   }
+  // });
+  // window.addEventListener("onbeforeunload", getData());
 
-  function getData() {
-    let url = `https://baepippi.github.io/finalProject/${clicktag}.json`;
-    if (localStorage.getItem("cate")) {
-      let $cate = localStorage.getItem("cate");
-      url = `https://baepippi.github.io/finalProject/${$cate}.json`;
-      $tag.forEach((e) => {
-        if ($cate === e.attributes.tag.value) {
-          e.classList.toggle("tagClick", true);
-        } else {
-          e.classList.toggle("tagClick", false);
-        }
-        localStorage.removeItem("cate");
-      });
-    }
-    fetch(`${url}`)
-      .then((res) => res.json())
-      .then((res) => {
-        makeDisplay(res);
-        getData2(res);
-      });
-    data = clicktag;
-    console.log(data);
-    // makeDisplay(data);
-  }
+  // function getData() {
+  //   let url = `https://baepippi.github.io/finalProject/${clicktag}.json`;
+  //   if (localStorage.getItem("cate")) {
+  //     let $cate = localStorage.getItem("cate");
+  //     url = `https://baepippi.github.io/finalProject/${$cate}.json`;
+  //     $tag.forEach((e) => {
+  //       if ($cate === e.attributes.tag.value) {
+  //         e.classList.toggle("tagClick", true);
+  //       } else {
+  //         e.classList.toggle("tagClick", false);
+  //       }
+  //       localStorage.removeItem("cate");
+  //     });
+  //   }
+  //   fetch(`${url}`)
+  //     .then((res) => res.json())
+  //     .then((res) => {
+  //       makeDisplay(res);
+  //       getData2(res);
+  //     });
+  //   data = clicktag;
+  //   console.log(data);
+  //   // makeDisplay(data);
+  // }
 
   // 카테고리 클릭
   //for문 두번 돌려야하는걸 왜 까먹었을까....
-  function getData2(json) {
-    $tag.forEach((e) => {
-      e.addEventListener("click", (e) => {
-        e.target.classList.toggle("tagClick", true);
-        clicktag = e.target.attributes.tag.value;
+  // function getData2(json) {
+  //   $tag.forEach((e) => {
+  //     e.addEventListener("click", (e) => {
+  //       e.target.classList.toggle("tagClick", true);
+  //       clicktag = e.target.attributes.tag.value;
 
-        page = 1;
-        for (let i = 0; i < $tag.length; i++) {
-          if (e.target != $tag[i]) {
-            $tag[i].classList.toggle("textHover", false);
-            $tag[i].classList.toggle("tagClick", false);
-          }
-        }
-        getData();
-      });
-    });
-  }
+  //       page = 1;
+  //       for (let i = 0; i < $tag.length; i++) {
+  //         if (e.target != $tag[i]) {
+  //           $tag[i].classList.toggle("textHover", false);
+  //           $tag[i].classList.toggle("tagClick", false);
+  //         }
+  //       }
+  //       getData();
+  //     });
+  //   });
+  // }
 
-  function makeDisplay(jsonlist) {
-    $paging.innerHTML = "";
-    data = jsonlist;
-    const itemLen = data.length;
-    console.log(itemLen);
-    const maxPage = Math.ceil(itemLen / rowCnt);
-    makePaging(maxPage);
-    makeList();
-  }
+  // function makeDisplay(jsonlist) {
+  //   $paging.innerHTML = "";
+  //   data = jsonlist;
+  //   const itemLen = data.length;
+  //   console.log(itemLen);
+  //   const maxPage = Math.ceil(itemLen / rowCnt);
+  //   makePaging(maxPage);
+  //   makeList();
+  // }
 
-  function makeList() {
-    // 클릭하면 카드없애기
-    const del = document.querySelectorAll(".del");
-    console.log(del);
-    for (let i = 0; i < del.length; i++) {
-      $cardBox.removeChild(del[i]);
-    }
+  // function makeList() {
+  //   // 클릭하면 카드없애기
+  //   const del = document.querySelectorAll(".del");
+  //   console.log(del);
+  //   for (let i = 0; i < del.length; i++) {
+  //     $cardBox.removeChild(del[i]);
+  //   }
 
-    const sIdx = (page - 1) * rowCnt;
-    const eResult = page * rowCnt;
-    const eIdx = eResult > data.length ? data.length : eResult;
+  //   const sIdx = (page - 1) * rowCnt;
+  //   const eResult = page * rowCnt;
+  //   const eIdx = eResult > data.length ? data.length : eResult;
 
-    for (let i = sIdx; i < eIdx; i++) {
-      const item = data[i];
-      makeItem(item);
-    }
-    changeSelected();
-  }
+  //   for (let i = sIdx; i < eIdx; i++) {
+  //     const item = data[i];
+  //     // makeItem(item);
+  //   }
+  //   changeSelected();
+  // }
 
-  function makeItem(item) {
-    const $card = document.createElement("div");
-
-    $card.classList.add("card", "del");
-    $card.id = item.id;
-    $card.innerHTML = `
-    <img class="tape" src="image/tape.svg" alt="" />
-    <div class="box">
-    <div class="titleBox">
-    <div class="title">${item.title}</div>
-    <img class="cardEmoji" src="..//image/${item.Emoji}.png" alt="" />
-    </div>
-    <div class="contentBox">
-    <p>
-    ${item.content}
-    </p>
-    </div>
-    `;
-    $cardBox.appendChild($card);
-
-    // 좋아요 버튼 만들기
+  const $card = document.querySelectorAll(".card");
+  $card.forEach((item) => {
     const $fillHeart = document.createElement("img");
     const $heart = document.createElement("img");
     const $aa = document.createElement("div");
@@ -202,14 +183,13 @@
 
     $heart.classList.add("heart");
     $heart.src = "image/heart.svg";
-    const $box = $card.querySelector(".box");
+    const $box = item.querySelector(".box");
 
     $aa.appendChild($fillHeart);
     $aa.appendChild($heart);
     $box.appendChild($aa);
     $box.appendChild($aa);
 
-    // 좋아요 토글
     $heart.addEventListener("click", (e) => {
       e.target.classList.toggle("displayNone");
       $fillHeart.classList.toggle("displayNone");
@@ -219,21 +199,21 @@
       $heart.classList.toggle("displayNone");
     });
 
-    // for (let i = 0; i < $heart.length; i++) {
-    //   $heart[i].addEventListener("click", (e) => {
-    //     e.target.classList.toggle("displayNone");
-    //     $fillHeart[i].classList.toggle("displayNone");
-    //   });
-    // }
-    // for (let i = 0; i < $fillHeart.length; i++) {
-    //   $fillHeart[i].addEventListener("click", (e) => {
-    //     e.target.classList.toggle("displayNone");
-    //     $heart[i].classList.toggle("displayNone");
-    //   });
-    // }
+    for (let i = 0; i < $heart.length; i++) {
+      $heart[i].addEventListener("click", (e) => {
+        e.target.classList.toggle("displayNone");
+        $fillHeart[i].classList.toggle("displayNone");
+      });
+    }
+    for (let i = 0; i < $fillHeart.length; i++) {
+      $fillHeart[i].addEventListener("click", (e) => {
+        e.target.classList.toggle("displayNone");
+        $heart[i].classList.toggle("displayNone");
+      });
+    }
 
     const $modalDisplay = document.querySelector(".modalAll");
-    $card.addEventListener("click", (e) => {
+    item.addEventListener("click", (e) => {
       if (e.target !== $heart && e.target !== $fillHeart) {
         // localStorage.setItem("list", JSON.stringify(item));
         $modalDisplay.classList.toggle("displayNone", false);
@@ -242,19 +222,18 @@
       }
     });
     let modalData = "";
-  }
+  });
 
   // 새글쓰기
   const $addCard = document.querySelector(".addCard");
   const $newModal = document.querySelector(".modalAll2");
-
-  console.log($newModal);
   $addCard.addEventListener("click", (e) => {
     openModal2(null);
     // $newModal.classList.remove("displayNone");
   });
 
   function makeModal(item) {
+    console.log(item)
     modalData = item;
     // modalData = JSON.parse(localStorage.getItem("list"));
     const $modal = document.querySelector(".modal");
@@ -266,7 +245,7 @@
     <div class="close"></div>
     <div class="modalSection1">
     <div class="modalTitleBox">
-    <p class="m-title">${modalData.title}</p>
+    <p class="m-title">${item.querySelector('.title').textContent}</p>
     <div class="m-emoji" style="
     background-image: URL(../image/${modalData.Emoji}.png);"></div>
     </div>
@@ -280,7 +259,7 @@
     <div>
     <div class="m-hashtag">
     <div class="zigzag">
-    <p>#${modalData.Emoji.toUpperCase()}</p>
+    <p>#${modalData.Emoji}</p>
     </div>
     </div>
     <img
@@ -648,9 +627,14 @@
 
     newEmoji.forEach((img) => {
       img.addEventListener("click", (e) => {
-        console.dir(smallEmoji.style.backgroundImage);
-        console.log(e.target.src);
+        console.log(e.target.src.substr(28).split(".")[0]);
+        let emo = e.target.src.substr(28).split(".")[0];
+
         smallEmoji.style.backgroundImage = `url(${e.target.src})`;
+        const $emotion = document.querySelector(".dropdown-1");
+        const $emoinput = document.querySelector("#emotion");
+        $emoinput.value = emo;
+        console.log($emoinput.value);
       });
     });
 

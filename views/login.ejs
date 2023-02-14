@@ -105,6 +105,7 @@
       <h1 class="login-title">Log in</h1>
       <div class="login-inp">
         <form action="/login" method="POST">
+          <input type="hidden" name="referer" value="<%=referer %>" />
           <label>
             <p>ID</p>
             <input type="text" class="form-control" name="id" />

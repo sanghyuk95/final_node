@@ -635,6 +635,13 @@ body {
   height: 350px;
   cursor: pointer;
 }
+.card2 {
+  display: flex;
+  justify-content: center;
+  width: 280px;
+  height: 350px;
+  cursor: pointer;
+}
 
 .tape {
   position: absolute;
@@ -1449,7 +1456,8 @@ dropdown_item-1 {
 }
 @media (max-width: 834px) {
   #category,
-  .card {
+  .card,
+  .card2 {
     width: 33.57vw;
     height: 41.97vw;
   }
@@ -1492,7 +1500,7 @@ dropdown_item-1 {
     flex-direction: column;
     margin-bottom: 90px;
   }
-  .card {
+  .card,.card2 {
     width: 408px;
     height: 210px;
   }
@@ -1569,7 +1577,7 @@ dropdown_item-1 {
     flex-direction: column;
     margin-bottom: 18.04vw;
   }
-  .card {
+  .card,.card2 {
     width: 81.76vw;
     height: 42.08vw;
   }

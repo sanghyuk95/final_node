@@ -109,6 +109,7 @@
               <input type="text" class="m-title2 new" placeholder="제목을 입력하세요." name="title" />
               <div class="m-emoji new" style="background-image: url('image/happy.png')"></div>
             </div>
+            <input type="hidden" value="happy" name="emotion" id="emotion">
             <div class="modalContentBox new">
               <img class="modalMainImg upload new" src="image/addImg.png" />
               <input type="file" class="real-upload new" accept="image/*" style="display: none" name="photo" />
@@ -118,7 +119,7 @@
                 <div>
                   <div class="m-hashtag new">
                     <ul class="menu2 new">
-                      <li class="zigzag dropdown2 dropdown-1 new" name="emotion">
+                      <li class="zigzag dropdown2 dropdown-1 new">
                         #HAPPY
                         <ul class="dropdown_menu2 dropdown_menu-1 new displayNone">
                           <li class="zigzag dropdown_item-1 new">#HAPPY</li>
@@ -154,12 +155,12 @@
     <!-- 포스트잇 모달 -->
     <div class="modalAll displayNone">
       <div class="bg"></div>
-      <div class="modal"></div>
+      <div class="modal">
+        
+      </div>
     </div>
     <!-- 포스트잇 모달 끝-->
     <div id="wrapper">
-      <!-- <div id="top-bar">topbar</div>
-      <div id="header">header</div> -->
       <div id="container">
         <div id="cardBox">
           <div class="swiper">
@@ -172,12 +173,26 @@
               <div class="hashtag swiper-slide" tag="angry">#ANGRY</div>
             </div>
           </div>
-          <div class="card addCard">
+          <div class="card2 addCard">
             <img class="tape" src="image/tape.svg" alt="" />
             <div class="box add">
               <img class="plus" src="image/add.png" alt="" />
             </div>
           </div>
+          <!-- <img class="tape" src="image/tape.svg" alt="" /> -->
+          <% data.forEach((e)=>{ %>
+            <div class="card">
+              <div class="box">
+              <div class="titleBox">
+                <div class="title"><%= e.title %></div>
+                <img class="cardEmoji" src="image/<%=e.emotion%>.png" alt="" />
+              </div>
+              <div class="contentBox">
+                <p><%= e.detail %></p>
+              </div>
+            </div>
+          </div>
+          <% }) %>
         </div>
         <div id="paging"></div>
       </div>

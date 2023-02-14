@@ -40,7 +40,7 @@ app.get("/", function (req, res) {
   res.sendFile(__dirname + "/views/index.html");
 });
 app.get("/login", goMyPage, function (req, res) {
-  res.render("login.ejs");
+  res.render("login.ejs", { referer: req.headers.referer });
 });
 
 function goMyPage(req, res, next) {
@@ -54,16 +54,18 @@ function goMyPage(req, res, next) {
 app.post(
   "/login",
   passport.authenticate("local", {
-    failureRedirect: "/fail",
+    failureRedirect: "/login",
   }),
   function (req, res) {
-    res.redirect("/myPage");
+    if (req.body.referer && req.body.referer !== undefined && req.body.referer.slice(-6) === "signUp") {
+      res.redirect("/myPage");
+    } else if (req.body.referer && req.body.referer !== undefined && req.body.referer.slice(-6) !== "/login") {
+      res.redirect(req.body.referer);
+    } else {
+      res.redirect("/");
+    }
   }
 );
-
-app.get("/fail", function (req, res) {
-  res.redirect("/login");
-});
 
 passport.use(
   new LocalStrategy(
@@ -131,7 +133,8 @@ var storage = multer.diskStorage({
     cb(null, __dirname + "/public/imageupload");
   },
   filename: function (req, file, cb) {
-    cb(null, file.originalname);
+    const ext = file.originalname.split(".");
+    cb(null, ext[0] + Date.now() + "." + ext[1]);
   },
 });
 var upload = multer({ storage: storage });
@@ -139,7 +142,7 @@ var upload = multer({ storage: storage });
 app.post("/upload", upload.single("profile"), function (req, res) {
   const sql = `
   update login
-  set profile = '${req.file.originalname}'
+  set profile = '${req.file.filename}'
   where id='${req.user.id}'
   `;
   connection.query(sql, function (err, result, field) {
@@ -164,7 +167,6 @@ app.get("/magazineDetail", function (req, res) {
 app.get("/board", function (req, res) {
   const sql = `select * from community`;
   connection.query(sql, function (err, result) {
-    console.log(result);
     if (err) {
       console.log(err);
     }
@@ -172,7 +174,19 @@ app.get("/board", function (req, res) {
   });
 });
 
-app.post("/write", function (req, res) {
+// ,${req.file.originalname}
+app.post("/write", upload.single("photo"), function (req, res) {
+  let sql = ''
+  if (req.file) {
+    sql = `insert into community (title,detail,emotion,writer,photo) values ('${req.body.title}','${req.body.detail}','${req.body.emotion}','id','${req.file.filename}')`;
+  } else {
+    sql = `insert into community (title,detail,emotion,writer,photo) values ('${req.body.title}','${req.body.detail}','${req.body.emotion}','id','photo')`;
+  }
+  connection.query(sql, function (err, result) {
+    if (err) {
+      console.log(err);
+    }
+  });
   res.redirect("/board");
 });
 app.get("/main", function (req, res) {
