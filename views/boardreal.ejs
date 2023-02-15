@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1" />
+    <link rel="stylesheet" href="css/common.css" />
     <link rel="stylesheet" href="css/boardreal2.css" />
     <link
       rel="stylesheet"
@@ -22,7 +23,7 @@
     <title>HYFT ˘◡˘</title>
   </head>
   <body>
-    <!--헤더 시작 -->
+    <!-- 헤더시작 -->
     <header>
       <div class="header-container">
         <div class="header-left">
@@ -37,6 +38,13 @@
         </div>
       </div>
     </header>
+    <div class="header-under">
+      <ul class="header-under-ul">
+        <li><a href="/product">shop</a></li>
+        <li><a href="/board">Community</a></li>
+        <li><a href="/magazine">magazine</a></li>
+      </ul>
+    </div>
     <div class="bar-menu hidden">
       <div class="bar-left">
         <div class="bar-img"></div>
@@ -109,7 +117,7 @@
               <input type="text" class="m-title2 new" placeholder="제목을 입력하세요." name="title" />
               <div class="m-emoji new" style="background-image: url('image/happy.png')"></div>
             </div>
-            <input type="hidden" value="happy" name="emotion" id="emotion">
+            <input type="hidden" value="happy" name="emotion" id="emotion" />
             <div class="modalContentBox new">
               <img class="modalMainImg upload new" src="image/addImg.png" />
               <input type="file" class="real-upload new" accept="image/*" style="display: none" name="photo" />
@@ -139,12 +147,12 @@
           <div class="m-Section3 new">
             <p class="section3-title new">오늘의 기분은 어떤가요?</p>
             <div class="selectEmoji">
-              <img src="image/happy.png" alt="" />
-              <img src="image/bored.png" alt="" />
-              <img src="image/nervous.png" alt="" />
-              <img src="image/lonely.png" alt="" />
-              <img src="image/sad.png" alt="" />
-              <img src="image/angry.png" alt="" />
+              <img src="image/happy.png" alt="happy" />
+              <img src="image/bored.png" alt="bored" />
+              <img src="image/nervous.png" alt="nervous" />
+              <img src="image/lonely.png" alt="lonely" />
+              <img src="image/sad.png" alt="sad" />
+              <img src="image/angry.png" alt="angry" />
             </div>
           </div>
           <input type="submit" value="저장하기" id="save" />
@@ -155,9 +163,7 @@
     <!-- 포스트잇 모달 -->
     <div class="modalAll displayNone">
       <div class="bg"></div>
-      <div class="modal">
-        
-      </div>
+      <div class="modal"></div>
     </div>
     <!-- 포스트잇 모달 끝-->
     <div id="wrapper">
@@ -181,17 +187,17 @@
           </div>
           <!-- <img class="tape" src="image/tape.svg" alt="" /> -->
           <% data.forEach((e)=>{ %>
-            <div class="card">
-              <div class="box">
+          <div class="card">
+            <div class="box">
               <div class="titleBox">
                 <div class="title"><%= e.title %></div>
-                <img class="cardEmoji" src="image/<%=e.emotion%>.png" alt="" />
+                <img class="cardEmoji" src="image/<%=e.emotion%>.png" alt="<%=e.emotion%>" />
               </div>
               <div class="contentBox">
                 <p><%= e.detail %></p>
               </div>
             </div>
-            <p style="display: none;" id="photo"><%= e.photo%></p>
+            <p style="display: none" id="photo"><%= e.photo%></p>
           </div>
           <% }) %>
         </div>
@@ -220,6 +226,7 @@
       <!-- 푸터끝 -->
     </div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="js/common.js"></script>
     <script src="js/board.js"></script>
   </body>
 </html>

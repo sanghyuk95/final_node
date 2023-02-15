@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- css 연결 -->
+    <link rel="stylesheet" href="css/common.css" />
     <link rel="stylesheet" href="css/list.css" />
 
     <!-- 애니메이션 -->
@@ -48,7 +49,7 @@
   <body>
     <!-- 마우스 커서 -->
     <div class="cursor" id="cursor"></div>
-    <!--헤더 시작 -->
+    <!-- 헤더시작 -->
     <header>
       <div class="header-container">
         <div class="header-left">
@@ -63,6 +64,13 @@
         </div>
       </div>
     </header>
+    <div class="header-under">
+      <ul class="header-under-ul">
+        <li><a href="/product">shop</a></li>
+        <li><a href="/board">Community</a></li>
+        <li><a href="/magazine">magazine</a></li>
+      </ul>
+    </div>
     <div class="bar-menu hidden">
       <div class="bar-left">
         <div class="bar-img"></div>
@@ -124,7 +132,6 @@
       </div>
     </div>
     <!-- 헤더 끝 -->
-
     <!-- 본문시작-->
     <div class="container">
       <!-- 상단 노출 페이지 좌-감정리스트 / 우-신상품 더보기 -->
@@ -228,6 +235,7 @@
     </footer>
     <!-- 푸터끝 -->
   </body>
+  <script src="js/common.js"></script>
   <script src="js/list.js"></script>
   <script>
     AOS.init();

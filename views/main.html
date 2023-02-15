@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- css 연결 -->
+    <link rel="stylesheet" href="css/common.css" />
     <link rel="stylesheet" href="css/indexWeb.css" />
     <link rel="stylesheet" href="css/indexQuery.css" />
     <!-- 폰트 -->
@@ -65,12 +66,8 @@
     <title>HYFT ˘◡˘</title>
   </head>
   <body>
-    <!--헤더 시작 -->
+    <!-- 헤더시작 -->
     <header>
-      <div class="header-up">
-        <p>첫 쇼핑 시 20% 할인 쿠폰 지급</p>
-        <i class="fa-solid fa-xmark"></i>
-      </div>
       <div class="header-container">
         <div class="header-left">
           <i class="fa-solid fa-bars"></i>
@@ -84,6 +81,13 @@
         </div>
       </div>
     </header>
+    <div class="header-under">
+      <ul class="header-under-ul">
+        <li><a href="/product">shop</a></li>
+        <li><a href="/board">Community</a></li>
+        <li><a href="/magazine">magazine</a></li>
+      </ul>
+    </div>
     <div class="bar-menu hidden">
       <div class="bar-left">
         <div class="bar-img"></div>
@@ -261,7 +265,7 @@
         <div class="commu_text"></div>
         <div class="commu_move">
           <img src="img/memo.png" alt="" class="memo_img" />
-          <a href="/board" style="text-decoration: none; color:black;">
+          <a href="/board" style="text-decoration: none; color: black">
             <div class="memo_text">
               write now!
               <pre></pre>
@@ -307,6 +311,7 @@
   </body>
 
   <!-- js 연결 -->
+  <script src="js/common.js"></script>
   <script src="js/main.js"></script>
   <!-- Swiper -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
