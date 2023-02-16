@@ -64,6 +64,7 @@ header.active {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  width: 250px;
 }
 .header-container .header-right {
   position: absolute;

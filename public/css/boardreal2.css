@@ -141,6 +141,30 @@ body {
 } */
 
 /* 카테고리 */
+.swiper1 {
+  margin: 0;
+}
+.banner {
+  width: 100%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+}
+.bannerInner {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.swiper-slide .bannerItem {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 #category {
   width: 280px;
   height: 350px;
@@ -216,8 +240,41 @@ body {
   width: 100%;
   height: 100%;
   background-color: #fff;
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: -7px -7px 7px rgba(0, 0, 0, 0.15);
   padding: 60px 20px 20px;
+}
+.box::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  background-color: white;
+  transition: all 0.5s;
+  border-bottom: 0px solid #fbf9f7;
+  border-left: 0px solid transparent;
+}
+.box:hover::after {
+  border-bottom-width: 80px;
+  border-left-width: 80px;
+}
+.box::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  background-color: white;
+  transition: all 0.5s;
+}
+.box:hover::before {
+  border-bottom: 80px solid transparent;
+  border-left: 80px solid #f6f6f6;
+  -webkit-box-shadow: -7px -7px 7px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: -7px -7px 7px rgba(0, 0, 0, 0.3);
+  box-shadow: -7px -7px 7px rgba(0, 0, 0, 0.15);
 }
 
 .plus {
@@ -411,6 +468,9 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.m-emoji.new {
+  cursor: pointer;
+}
 .modalMainImg {
   width: 174px;
   height: 169px;
@@ -473,6 +533,9 @@ body {
   font-size: 12px;
   color: #c9c7bb;
 }
+.m-Section2 p {
+  cursor: pointer;
+}
 
 .m-heart,
 .m-fillHeart {
@@ -509,6 +572,7 @@ body {
   height: 80px;
   background: url("../image/productImg/bear1-7.jpg") no-repeat;
   background-size: cover;
+  cursor: pointer;
 }
 
 .m-Section4 {
@@ -767,6 +831,7 @@ dropdown_item-1 {
   /* text-align: center; */
   padding-top: 14px;
   /* margin-right: 10px; */
+  cursor: pointer;
 }
 
 .m-Section5 {
@@ -781,6 +846,7 @@ dropdown_item-1 {
   text-align: end;
   font-size: 12px;
   color: #c9c7bb;
+  cursor: pointer;
 }
 #save {
   width: 60px;
@@ -1012,7 +1078,7 @@ dropdown_item-1 {
     height: 5.16vw;
   }
   .box {
-    box-shadow: 1.2vw 1.2vw 2.4vw rgba(0, 0, 0, 0.15);
+    box-shadow: -1.2vw -1.2vw -2.4vw rgba(0, 0, 0, 0.15);
     padding: 7.19vw 2.4vw 2.4vw;
   }
   .contentBox {
@@ -1022,6 +1088,12 @@ dropdown_item-1 {
   }
   .aa {
     height: 11.99vw;
+  }
+  .banner1 {
+    content: url(../image/mobilebanner1.png);
+  }
+  .banner2 {
+    content: url(../image/mobilebanner2.png);
   }
 }
 
@@ -1045,7 +1117,8 @@ dropdown_item-1 {
     flex-direction: column;
     margin-bottom: 90px;
   }
-  .card,.card2 {
+  .card,
+  .card2 {
     width: 408px;
     height: 210px;
   }
@@ -1110,10 +1183,11 @@ dropdown_item-1 {
     width: 100%;
     padding-right: 200px;
   }
-  .swiper {
+  .swiper1 {
     width: 300px;
     display: flex;
     justify-content: flex-start;
+    overflow: inherit;
   }
 }
 
@@ -1122,7 +1196,8 @@ dropdown_item-1 {
     flex-direction: column;
     margin-bottom: 18.04vw;
   }
-  .card,.card2 {
+  .card,
+  .card2 {
     width: 81.76vw;
     height: 42.08vw;
   }
@@ -1187,7 +1262,7 @@ dropdown_item-1 {
     width: 100%;
     padding-right: 40.08vw;
   }
-  .swiper {
+  .swiper1 {
     width: 60.12vw;
     display: flex;
     justify-content: flex-start;
@@ -1428,4 +1503,3 @@ dropdown_item-1 {
     left: -3px;
   }
 }
-

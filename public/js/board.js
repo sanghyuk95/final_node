@@ -466,8 +466,8 @@
 
     newEmoji.forEach((img) => {
       img.addEventListener("click", (e) => {
-        let emo = e.target.alt
-        console.log(emo)
+        let emo = e.target.alt;
+        console.log(emo);
         smallEmoji.style.backgroundImage = `url(${e.target.src})`;
         const $emoinput = document.querySelector("#emotion");
         $emoinput.value = emo;
@@ -579,13 +579,33 @@
 
   realUpload.addEventListener("change", getImageFiles);
 
-  let swiper = new Swiper(".swiper", {
+  let swiper = new Swiper(".swiper1", {
     slideToClickedSlide: true,
     spaceBetween: 50,
 
     pagination: { el: ".swiper-pagination" },
 
     scrollbar: { nel: ".swiper-scrollbar" },
+  });
+  let swiper2 = new Swiper(".banner.swiper", {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    speed: 1000,
+    autoplay: {
+      //자동슬라이드 (false-비활성화)
+      delay: 2000, // 시간 설정
+      disableOnInteraction: false, // false-스와이프 후 자동 재생
+    },
+    effect: "fade",
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
   });
   // 스와이퍼막기
   if (window.innerWidth <= 680) {
@@ -594,6 +614,17 @@
     swiper.disable();
   }
 
+  // 배너 마우스오버시 swiper 자동재생 멈춤
+  const banner = document.querySelectorAll(".banner");
+  console.log(banner);
+  banner.forEach((item) => {
+    item.addEventListener("mouseover", function () {
+      swiper2.autoplay.stop();
+    });
+    item.addEventListener("mouseout", function () {
+      swiper2.autoplay.start();
+    });
+  });
   let indexA = localStorage.getItem("num");
   // swiper.slideTo(indexA);
   localStorage.removeItem("num");
