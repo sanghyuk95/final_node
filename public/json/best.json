@@ -1,19 +1,19 @@
 [
   {
-    "img_picture": "./img/best1.jpg",
-    "img_overEffect": "./img/hovers/hover-1.png",
-    "product_number": "circus boy band_013",
+    "img_picture": "./imgnew/mushroom.jpg",
+    "img_overEffect": "./imgnew/movemushroom.png",
+    "product_number": "Made by Me_013",
     "product_feel": "lonley",
-    "product_name": "Bear Hug Boy",
-    "price": "25,000",
+    "product_name": "my friend mushroom",
+    "price": "9,000",
     "href": "list.html"
   },
   {
-    "img_picture": "./img/duck2.jpg",
-    "img_overEffect": "./img/hovers/hover-6.png",
-    "product_number": "CBB duck_no.03",
+    "img_picture": "./imgnew/posterbest.png",
+    "img_overEffect": "./imgnew/poster.png",
+    "product_number": "see poster no.03",
     "product_feel": "lonley",
-    "product_name": "CBB duck Figure",
+    "product_name": "내방 풍경 poster",
     "price": "10,000",
     "href": "list.html"
   },

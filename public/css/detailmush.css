@@ -20,7 +20,8 @@ button {
 .cursor {
   width: 3rem;
   height: 3rem;
-  background: url("../SVG/LONELY.svg");
+  background: url('../SVG/LONELY.svg');
+  border-radius: 100%;
   position: absolute;
   z-index: 1000;
   transform: translate(-50%, -50%);
@@ -30,51 +31,51 @@ button {
   transform-origin: 100% 100%;
   backdrop-filter: sepia(20%);
   background-size: cover;
-  background-color: none;
+  background-color: transparent;
 }
 
 @font-face {
-  font-family: "Pretendard-Regular";
-  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff") format("woff");
+  font-family: 'Pretendard-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
   font-weight: 200;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "KIMM_Bold";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KIMM_Bold.woff2") format("woff2");
+  font-family: 'KIMM_Bold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KIMM_Bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "SBAggroB";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff") format("woff");
+  font-family: 'SBAggroB';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "MonoplexKR-Regular";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_Monoplex-kr@1.0/MonoplexKR-Regular.woff2") format("woff2");
+  font-family: 'MonoplexKR-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_Monoplex-kr@1.0/MonoplexKR-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap');
 @font-face {
-  font-family: "Pretendard-Regular";
-  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff") format("woff");
+  font-family: 'Pretendard-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
   font-weight: 400;
   font-style: normal;
 }
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&display=swap');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Pretendard-Regular";
+  font-family: 'Pretendard-Regular';
 }
 
 html {
@@ -92,28 +93,28 @@ body {
   height: 0 auto;
 }
 p {
-  font-family: "Pretendard-Regular";
+  font-family: 'Pretendard-Regular';
   font-size: 0.9vw;
 }
 
 span {
-  font-family: "MonoplexKR-Regular";
+  font-family: 'MonoplexKR-Regular';
   font-size: 0.9vw;
   font-weight: bold;
 }
 
 h2 {
-  font-family: "MonoplexKR-Regular";
+  font-family: 'MonoplexKR-Regular';
   font-size: 1.7vw;
 }
 
 h3 {
-  font-family: "Pretendard-Regular";
+  font-family: 'Pretendard-Regular';
   font-size: 1.5vw;
 }
 
 h4 {
-  font-family: "Pretendard-Regular";
+  font-family: 'Pretendard-Regular';
   font-size: 1.2vw;
 }
 
@@ -225,7 +226,7 @@ h4 {
 
 .box2 {
   align-items: center;
-  background-color: #d9d9d9;
+  background-color: #f2f1ee;
   height: 8vw;
   width: 24vw;
 }
@@ -258,7 +259,7 @@ h4 {
 
 .box3 {
   align-self: center;
-  background-color: #d9d9d9;
+  background-color: #f2f1ee;
   height: 8vw;
   width: 24vw;
 }
@@ -285,6 +286,7 @@ h4 {
 
 .box3_box > h2 {
   align-self: center;
+  color: #333;
   text-align: end;
   vertical-align: middle;
 }
@@ -330,9 +332,9 @@ h4 {
 /* 디테일 컨테이너 */
 .detailList1 {
   width: 100%;
-  z-index: 100;
+  z-index: 80;
   position: sticky;
-  top: 50px;
+  top: 60px;
   height: 5vw;
   background-color: white;
 }
@@ -349,7 +351,6 @@ h4 {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   text-align: center;
-
   justify-content: space-evenly;
   padding: 2vw;
   border-bottom: 0.8px solid black;
@@ -363,7 +364,7 @@ h4 {
 .detailList1 > ul > a > li {
   color: black;
   font-weight: bold;
-  font-size: 1.6vw;
+  font-size: 1.2vw;
 }
 .detailList1 ul a li:hover {
   /* font-size: 1.7vw; */
@@ -374,7 +375,7 @@ h4 {
 }
 
 .detailCnt1_2 {
-  background-color: rgba(0, 0, 0, 21%);
+  background-color: rgba(196, 178, 163, 0.664);
   height: 86vw;
   width: 100%;
   z-index: 3;
@@ -401,8 +402,7 @@ h4 {
   width: 100%;
   height: 30vw;
   z-index: -1;
-
-  background: url(../img/detail1.jpg) fixed no-repeat;
+  background: url(../imgnew/mush4.JPG) fixed no-repeat;
   background-size: cover;
   background-position: bottom;
 }
@@ -430,7 +430,7 @@ h2 {
 }
 
 #d_img_2 div:first-child {
-  background: url("../img/detail1.jpg") no-repeat center;
+  background: url(../imgnew/mushroom.jpg) no-repeat center;
   background-size: cover;
   position: relative;
   margin-top: 6vw;
@@ -466,7 +466,7 @@ h2 {
   z-index: -6;
   width: 30vw;
   height: 32vw;
-  background: url("../img/detail1.jpg") no-repeat;
+  background: url(../imgnew/mushroom.jpg) no-repeat;
   background-position: top;
   background-size: cover;
   text-align: center;
@@ -489,12 +489,12 @@ h2 {
 }
 
 .detailLeft {
-  font-family: "Pretendard-Regular";
+  font-family: 'Pretendard-Regular';
   text-align: end;
 }
 
 .detailRight {
-  font-family: "Pretendard-Regular";
+  font-family: 'Pretendard-Regular';
   text-align: start;
 }
 
@@ -510,7 +510,7 @@ h2 {
 .cover {
   overflow-x: hidden;
   width: 100%;
-  font-family: "MonoplexKR-Regular";
+  font-family: 'MonoplexKR-Regular';
   font-weight: 800;
   font-weight: bolder;
   margin-bottom: 1.4vw;
@@ -520,11 +520,11 @@ h2 {
 
 .cover:nth-child(1) {
   margin-top: 24vh;
-  background-color: #9b9b9b;
+  background-color: #e9ddd4;
 }
 
 .cover:nth-child(2) {
-  background-color: #d9d9d9;
+  background-color: #d4c8bf;
   justify-content: flex-end;
 }
 
@@ -536,7 +536,7 @@ h2 {
 
 .detail_aria3 {
   margin-top: 10vw;
-  background-color: rgba(0, 0, 0, 20%);
+  background-color: rgba(196, 178, 163, 0.664);
   height: 30vw;
   width: 100%;
   z-index: 3;
@@ -544,7 +544,7 @@ h2 {
 }
 
 .detail_aria3 > div:first-child {
-  background: url("../img/dog1-6.jpg") no-repeat fixed;
+  background: url('../imgnew/mushroom.jpg') no-repeat fixed;
   background-size: contain;
   background-position: center left;
   position: absolute;
@@ -555,7 +555,7 @@ h2 {
 }
 
 .detail_aria3 > div:nth-child(2) {
-  font-family: "MonoplexKR-Regular";
+  font-family: 'MonoplexKR-Regular';
   font-weight: 900;
   position: absolute;
   z-index: 3;
@@ -628,7 +628,7 @@ h2 {
 }
 
 .d_box1 > button {
-  font-family: "Pretendard-Regular";
+  font-family: 'Pretendard-Regular';
   font-size: 0.6vw;
   border: none;
   background-color: #dbd8d9;
@@ -636,7 +636,7 @@ h2 {
 
 .d_box1 > button,
 input {
-  font-family: "Pretendard-Regular";
+  font-family: 'Pretendard-Regular';
   font-size: 0.7vw;
   padding: 0.8vw 4vw;
   border-radius: 6vw;
@@ -731,7 +731,7 @@ input {
   margin-top: 2vw;
   width: 90%;
   height: 90%;
-  background: url("../img/add.png") no-repeat;
+  background: url('../img/add.png') no-repeat;
   background-size: contain;
   justify-content: center;
   justify-self: center;
@@ -746,6 +746,7 @@ input {
 }
 
 .title {
+  font-family: 'Pretendard';
   font-style: normal;
   font-weight: 500;
   font-size: 1.2vw;
@@ -776,7 +777,7 @@ input {
 }
 /* Top 탑 버튼 & 감정 버튼 imoticon 픽스드 */
 #btnScrollToTop {
-  z-index: 101;
+  z-index: 90;
   overflow: hidden;
   position: fixed;
   right: 20px;
@@ -794,11 +795,11 @@ input {
 }
 
 #btnScrollToImotion {
-  z-index: 101;
+  z-index: 90;
 }
 
 #btnScrollToImotion img {
-  z-index: 101;
+  z-index: 90;
   overflow: hidden;
   width: 40px;
   height: 40px;
@@ -934,9 +935,9 @@ input {
   .box1_text {
     margin-top: 14vw;
   }
-  /* .detailList1 {
-    margin-top: 18vw;
-  } */
+  .detailList1 {
+    top: 38px;
+  }
   .detailList1 > ul {
     margin-top: 28vw;
   }
@@ -1033,7 +1034,7 @@ input {
   }
 
   .detail_aria3 > div:first-child {
-    background: url("../img/dog1-6.jpg") no-repeat fixed;
+    background: url('../img/dog1-6.jpg') no-repeat fixed;
     background-size: cover;
     background-position: center center;
     position: absolute;
@@ -1078,7 +1079,7 @@ input {
     /* margin-top: 2vw; */
     width: 100%;
     height: 100%;
-    background: url("../img/add.png") no-repeat;
+    background: url('../img/add.png') no-repeat;
     background-size: contain;
     background-position: center;
   }
@@ -1255,7 +1256,7 @@ input {
   }
 
   .detail_aria3 > div:first-child {
-    background: url("../img/dog1-6.jpg") no-repeat center;
+    background: url('../img/dog1-6.jpg') no-repeat center;
     background-size: cover;
   }
 
@@ -1271,4 +1272,3 @@ input {
     font-size: 0.2vw;
   }
 }
-

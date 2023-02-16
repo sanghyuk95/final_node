@@ -7,58 +7,6 @@
 }
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  box-sizing: border-box;
-  text-decoration: none;
-  scroll-behavior: smooth;
-  /* 드래그 방지 */
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  font-family: 'Pretendard-Regular';
-}
-
-a {
-  list-style: none;
-  color: #000;
-}
-
-/* 
-button {
-    cursor: pointer;
-} */
-
-.thumbnail > div,
-img {
-  cursor: pointer;
-}
-
-.cursor {
-  width: 3rem;
-  height: 3rem;
-  background: url('../SVG/LONELY.svg');
-  position: absolute;
-  z-index: 1000;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  transition: all 0.3s ease;
-  transition-property: transform;
-  transform-origin: 100% 100%;
-  backdrop-filter: sepia(20%);
-  background-size: cover;
-  background-color: none;
-  border-radius: 100%;
-}
-
-/* .cursor:first-child {
-
-    box-shadow: 10px 0px rgba(197, 194, 194, 0.25);
-} */
-
 /* 프리텐다드 폰트 */
 @font-face {
   font-family: 'Pretendard-Regular';
@@ -88,6 +36,49 @@ img {
   font-style: normal;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+  text-decoration: none;
+  scroll-behavior: smooth;
+  /* 드래그 방지 */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-family: 'Pretendard-Regular';
+}
+
+a {
+  list-style: none;
+  color: #000;
+}
+
+.thumbnail > div,
+img {
+  cursor: pointer;
+}
+
+.cursor {
+  width: 3rem;
+  height: 3rem;
+  background: url('../SVG/LONELY.svg');
+  position: absolute;
+  z-index: 1000;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: all 0.3s ease;
+  transition-property: transform;
+  transform-origin: 100% 100%;
+  backdrop-filter: sepia(20%);
+  background-size: cover;
+  background-color: none;
+  border-radius: 100%;
+  background-color: transparent;
+}
+
 html,
 body {
   scroll-behavior: smooth;
@@ -101,7 +92,7 @@ h2 {
   font-size: 1.8vw;
   font-weight: 900;
   text-align: start;
-  line-height: 1.4vw;
+  line-height: 1.9vw;
 }
 
 h3 {
@@ -121,7 +112,7 @@ h4 {
 span {
   font-family: 'Pretendard-Regular';
   /* text-align: left; */
-  line-height: 1.6vw;
+  line-height: 1.9vw;
   font-size: 1vw;
 }
 
@@ -134,7 +125,7 @@ p {
 .selected {
   transition: 0.1s ease-out;
   transform: scale(1.1);
-  color: #000;
+  color: #000 !important;
 }
 /* .ff:hover {
   transition: all 0.3s ease-in-out;
@@ -146,7 +137,9 @@ p {
 
 /* 컨테이너 */
 /* 감정리스트 */
-
+.cnt1-2 {
+  padding-top: 12vw !important;
+}
 .cnt1-2,
 .cnt1-3 {
   padding: 2vw 18vw;
@@ -167,7 +160,7 @@ p {
 .cnt1-2 div p {
   align-items: center;
   text-align: end;
-  line-height: 2vw;
+  line-height: 2.8vw;
   cursor: pointer;
   color: #c9c7bb;
 }
@@ -179,106 +172,120 @@ p {
 .cnt1-3 div p {
   align-items: center;
   text-align: end;
-  line-height: 2vw;
+  line-height: 2.8vw;
   cursor: pointer;
   color: #c9c7bb;
 }
 .cnt1-1 {
+  /* background: url('./imgnew/mush5-1.png') no-repeat;
+  background-color: #c7c7c7; */
   width: 100%;
-  height: max-content;
-  padding: 2vw 22vw;
-  padding-top: 120px;
-  display: flex;
+  justify-content: center;
+  height: 25vw;
+  position: relative;
+  top: 5.8vw;
+  background-size: contain;
+  background-position: right;
+  display: block;
 }
 
-.feelList li {
-  font-size: 2.6vw;
-  color: #e9ddd4;
+.feelList {
+  z-index: 2;
+  position: absolute;
+  left: 14vw;
+  top: 5vw;
+}
+.clickE {
+  font-size: 2.1vw;
+  color: #f2f1ee;
   font-family: 'Noto Sans', sans-serif;
   font-weight: 900;
   font-style: italic;
 }
-.feelList li:hover {
-  color: black;
+.clickE:hover {
+  color: rgb(27, 27, 27);
   cursor: pointer;
   transition: 0.2s ease-out;
 }
 .selected {
   color: #000;
 }
-
-/*  New Arrival */
-
-.newArr {
+/* newTop 신상품 소개 배너 */
+.newTop {
+  display: inline-block;
+  top: 0;
+  right: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.bg-1 {
   position: relative;
-  display: flex;
-  flex-wrap: nowrap;
-  left: 9vw;
-  align-items: center;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url('../imgnew/mush19.JPG') no-repeat center;
+  background-color: #e7c7a5;
+  background-position: 80%;
+  background-size: contain;
 }
 
-.newArr > a {
-  background: url(../img/cat1-5.jpg) no-repeat;
+.bg-2 {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url('../imgnew/posterbest.jpg') no-repeat;
+  background-color: #d1d0cd;
+  background-position: 85%;
+  background-size: contain;
+}
+.newtop-txt {
+  z-index: 22;
+  text-align: left;
+  line-height: 2vw;
   position: absolute;
-  background-size: cover;
-  align-self: center;
-  width: 16vw;
-  height: 16vw;
-  overflow: hidden;
+  top: 16vw;
+  left: 43%;
+  color: white;
+}
+.newtxt {
+  color: white;
 }
 
-.newArr > a:hover {
-  background: url(../img/hovers/hover-4.png);
-  align-self: center;
-  background-size: cover;
-  width: 16vw;
-  height: 16vw;
-  overflow: hidden;
-  transition: 0.5s ease-in-out;
-}
-.newArr > .description {
-  width: 16vw;
-  height: 16vw;
-}
-.newArr > .description > div {
-  left: 14vw;
-  position: absolute;
-  text-align: end;
-  justify-self: start;
-  border: 1px solid #ccc;
-  border-left: none;
-  width: 16vw;
-  height: 16vw;
-  padding: 1vw;
+.newTop div:nth-child(2) a span {
+  font-family: 'Cormorant SC';
+  font-style: italic;
+  font-size: 2vw;
   line-height: 2vw;
 }
-.newArr > .description > div h2 {
-  line-height: 2.6vw;
-  font-size: 1.7vw;
-  /* margin-right: 2vw; */
-  text-align: end;
-  font-style: italic;
+.newTop div:nth-child(2) a p {
+  font-family: 'Pretendard-Regular';
+
+  font-size: 1.4vw;
+  line-height: 2vw;
 }
-.newSpan2 {
-  display: none;
-}
-.moreBtn {
-  cursor: pointer;
-  bottom: 2vw;
-  right: 2vw;
+.newtop-txt a div {
+  transform: rotate(45deg);
   position: absolute;
-  color: #c9c7bb;
+  left: 10vw;
+}
+.fi-ts-arrow-up-right {
+  font-size: 2.6vw;
+  /* transform: rotate(-45deg); */
+  color: white;
+  width: 30vw;
+  height: 30vw;
   text-align: end;
-  display: flex;
-  flex-direction: column;
+  cursor: pointer;
 }
-.moreBtn:hover {
-  color: #000;
-}
+
 .theBtn:hover {
   color: #000;
 }
-
+.bestList {
+  position: relative;
+}
 .bestList li {
   display: flex;
   justify-content: space-evenly;
@@ -290,7 +297,7 @@ p {
   width: 15vw;
   height: 16vw;
   overflow: hidden;
-  margin-top: 0.6vw;
+  margin-top: 0.8vw;
 }
 
 .bestList .imti {
@@ -307,7 +314,7 @@ p {
   justify-content: space-evenly;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(23%, auto));
-  gap: 0.6vw;
+  gap: 0.8vw;
   align-items: center;
 }
 
@@ -316,7 +323,7 @@ p {
   border-top: 1px solid black;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(23%, auto));
-  gap: 0.6vw;
+  gap: 0.8vw;
   align-self: center;
   justify-content: space-evenly;
 }
@@ -333,19 +340,15 @@ p {
   width: 15vw;
   height: 16vw;
   overflow: hidden;
-  margin-top: 0.6vw;
+  margin-top: 0.8vw;
 }
 
 .productList .imti {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  /* align-items: flex-end; */
   justify-content: end;
   padding: 8px;
-  /* margin-right: 6px;
-  width: 18vw;
-  height: 4vw; */
 }
 
 .imti li {
@@ -415,6 +418,19 @@ p {
 }
 
 /* 태블릿 사이즈 */
+@media screen and (max-width: 1200px) {
+  .feelList {
+    top: 7vw;
+  }
+}
+@media screen and (max-width: 950px) {
+  .feelList {
+    top: 8vw;
+  }
+  .clickE {
+    font-size: 1.7vw;
+  }
+}
 
 @media screen and (max-width: 834px) {
   .cursor {
@@ -432,61 +448,90 @@ p {
     padding: 6vw 12vw;
   }
   .cnt1-2 {
-    padding-top: 8vw;
-  }
-  .cnt1-1 {
-    height: 40vw;
-    padding: 10vw;
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    justify-content: center;
+    padding-top: 22vw !important;
   }
 
-  .feelList {
+  .cnt1-1 {
+    top: 100px;
+    height: 40vw;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-size: contain;
+    background-position: right;
+    /* background-color: #dddcd8d0; */
+  }
+
+  /* .feelList { */
+    /* display: none; */
+    /* top: 100px;
     justify-content: center;
+    height: 40px;
     width: 100%;
     padding: 0;
     display: flex;
     position: sticky;
-    top: 100px;
     flex-direction: row;
-    background-color: #e9ddd486;
-    position: absolute;
-  }
+    background-color: #fff; */
+  /* } */
 
   .feelList li {
-    justify-content: space-evenly;
-    text-align: center;
-    padding: 1vw;
-    color: #c2b1a5;
+    left: 2vw;
+    text-align: left;
+    padding: 2px;
+    color: #f7f5f4;
     font-size: 2.4vw;
     align-items: center;
   }
+  .feelList li:hover {
+    color: #524b4b;
+  }
+  .newTop {
+    width: 100%;
+    height: 100%;
+    background: none;
+    background-size: contain;
+  }
+  .bg-1 {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: url('../imgnew/mush19.JPG') no-repeat center;
+    background-color: #e7c7a5;
+    background-position: 70%;
+    background-size: contain;
+  }
 
-  .newArr {
-    left: -9vw;
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    top: 80px;
+  .bg-2 {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: url('../imgnew/posterbest.jpg') no-repeat;
+    background-color: #d1d0cd;
+    background-position: 80%;
+    background-size: contain;
   }
-  .newArr > a {
-    background: url(../img/cat1-5.jpg) no-repeat;
-    background-size: cover;
-    align-self: center;
-    width: 20vw;
-    height: 20vw;
-    overflow: hidden;
+  .newtop-txt {
+    top: 20vw;
+    left: 43%;
   }
-  .newArr a:hover {
-    width: 20vw;
-    height: 20vw;
+  .newtop-txt span {
+    font-size: 34px !important;
+    line-height: 10px;
   }
-  .newArr > .description,
-  .newArr > .description > div {
-    width: 20vw;
-    height: 20vw;
+  .newtop-txt p {
+    font-size: 20px !important;
+  }
+  .newTop div:nth-child(2) a span {
+    line-height: 30px;
+  }
+  .newTop div:nth-child(2) a p {
+    line-height: 30px;
+  }
+  .fi-ts-arrow-up-right {
+    display: none;
   }
 
   .detail_animation {
@@ -595,12 +640,9 @@ p {
   }
 }
 @media (max-width: 750px) {
-  /* .cnt1-1 {
-    padding-top: 90px;
-  }
   .cnt1-2 {
-    padding-top: 60px;
-  } */
+    padding-top: 23vw !important;
+  }
   .newSpan {
     display: none;
   }
@@ -609,48 +651,24 @@ p {
   }
 }
 @media (max-width: 680px) {
-  .cnt1-1 {
-    padding-top: 110px;
-  }
   .cnt1-2 {
-    margin: 0 0vw;
-    padding-top: 90px;
+    padding-top: 29vw !important;
   }
 }
 @media (max-width: 499px) {
   .cnt1-1 {
-    margin-bottom: 14vw;
+    top: 100px;
   }
   .cnt1-2 {
     margin: 0 7vw;
-    margin-top: 10vw;
+  }
+  .cnt1-2 {
+    padding-top: 29vw !important;
   }
   .cnt1-3 {
     margin: 0 7vw;
   }
 
-  .newArr {
-    top: 22vw;
-    left: -14vw;
-  }
-  .newArr > a {
-    width: 28vw;
-    height: 28vw;
-  }
-  .newArr a:hover {
-    width: 28vw;
-    height: 28vw;
-  }
-  .newArr > .description,
-  .newArr > .description > div {
-    left: 28vw;
-    width: 30vw;
-    height: 28vw;
-  }
-  .newArr > .description > div h2 {
-    padding: 5px;
-    font-size: 15px;
-  }
   .bestList {
     border-top: 1px solid black;
     justify-content: space-evenly;
@@ -740,10 +758,10 @@ p {
   .cnt1-2,
   .cnt1-3 {
     padding: 0 40px;
-    padding-top: 40px;
+    padding-top: 60px;
   }
   .cnt1-2 {
-    padding-top: 100px;
+    padding-top: 35vw !important;
   }
   .cnt1-2 > h2 {
     text-align: center;
@@ -756,45 +774,16 @@ p {
   .cnt1-1 {
     justify-content: center;
   }
-
-  .newArr > a {
-    width: 28vw;
-    height: 28vw;
+  .newTop div:nth-child(2) a span {
+    font-size: 20px !important;
   }
-
-  .newArr > a:hover {
-    width: 28vw;
-    height: 28vw;
-  }
-  .newArr > .description {
-    position: relative;
-  }
-  .newArr > .description,
-  .newArr > .description > div {
-    width: 32vw;
-    height: 28vw;
-    left: 14vw;
-  }
-
-  .newArr > .description > div h2 {
-    padding: 5px;
-    font-size: 14px;
+  .newTop div:nth-child(2) a p {
+    font-size: 14px !important;
   }
   .bestList {
     border-top: 1px solid black;
     justify-content: space-evenly;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-  }
-  .mdescription > span {
-    line-height: 20px;
-  }
-  .newSpan2 {
-    display: none;
-  }
-  .newSpan {
-    padding: 2px;
-    line-height: 10px;
-    display: block;
   }
 }

@@ -193,8 +193,8 @@ app.get("/main", function (req, res) {
   res.sendFile(__dirname + "/views/main.html");
 });
 app.get("/product", function (req, res) {
-  res.sendFile(__dirname + "/views/LIST.html");
+  res.sendFile(__dirname + "/views/list2.html");
 });
 app.get("/productDetail", function (req, res) {
-  res.sendFile(__dirname + "/views/detailEnd.html");
+  res.sendFile(__dirname + "/views/detailmush.html");
 });

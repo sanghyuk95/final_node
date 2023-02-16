@@ -63,27 +63,25 @@ $btnScrollToImotion.forEach((img, idx) => {
   });
 });
 
-// console.log(getComputedStyle(mouseCursor).backgroundImage)
+// Swiper 배경 스와이퍼 처리
 
-//상혁씨 코드
-// $imgList.forEach((img) => {
-//             img.addEventListener("click", (e) => {
-//                 const imgIn = getComputedStyle(img).backgroundImage;
-//                 const changeUrl = imgIn.substring(4).replace(")", "").replaceAll('"', "");
-//                 $myimage.src = changeUrl;
-//                 $imgList.forEach((e) => {
-//                     e.classList.toggle("border", $myimage.src === getComputedStyle(e).backgroundImage.substring(4).replace(")", "").replaceAll('"', ""));
-//                 });
-//             });
-//         });
+let swVisual = new Swiper(".swvisual", {
+  effect: "fade",
+  loop: true,
+  speed: 1000,
+  autoplay: {
+    delay: 1000,
+    disableOnInteraction: false,
+  },
+  navigation: {
+    prevEl: ".swvisual-prev",
+    nextEl: ".swvisual-next",
+  },
+});
 
 // 반응형 리사이즈 사이즈 변경 태블릿 사이즈
 function tabResize() {
   if (matchMedia("screen and (max-width: 834px)").matches) {
-    //마우스 커서 삭제
-    // const $cursor = document.querySelector(".cursor");
-    // $cursor.classList.remove("cursor");
-
     // 834px 태블릿 사이즈 이하  AOS 애니메이션 삭제
     const $ul = document.querySelectorAll("ul");
 
@@ -91,9 +89,6 @@ function tabResize() {
       $ul[i].removeAttribute("data-aos");
     }
   }
-  //   window.onresize = function () {
-  //     document.location.reload();
-  //   };
 }
 tabResize();
 
@@ -136,16 +131,12 @@ function makeList(items) {
             </div>
         </div>
       `;
-    // const wwhover = document.querySelectorAll('.ww');
-    // wwhover.forEach(item => {
-    //   item.style.transition = 'all 0.2s ';
-    // });
+
     $bestList.appendChild($li);
   });
-  // hoverEvent(items);
+
   const $ww = document.querySelectorAll(".ww");
   $ww.forEach((item, idx) => {
-    // setTimeout($ww, 1300);
     item.addEventListener("mouseover", () => {
       item.src = `${items[idx].img_overEffect}`;
     });
@@ -175,10 +166,7 @@ function listList(items) {
               <h4>${item.price}</h4>
           </div>
       </div>`;
-    // const ffhover = document.querySelectorAll('.ff');
-    // ffhover.forEach(item => {
-    //   item.style.transition = 'all 0.2s ';
-    // });
+
     $productList.appendChild($li);
   });
 
@@ -193,9 +181,6 @@ function listList(items) {
     });
   });
 
-  //   function startAnimation() {
-  //     window.setTimeout($ww, 1000);
-  //   }
   //heart 좋아요 버튼 클릭 토글 이벤트 하트 버튼 색깔
   const $heartBtn = document.querySelectorAll(".heartBtn");
   const $heart = document.querySelectorAll(".heartBtn i");
@@ -208,133 +193,3 @@ function listList(items) {
     });
   });
 }
-
-// const $thumImg = new Image();
-// $thumImg.src='./img/cat1-6.jpg'
-
-// $bestList.forEach((item, idx) => {
-
-// item.addEventListener('mouseover', function () {
-//      item.style.background = "url('./img/cat1-6.jpg')";
-//     item.style.backgroundSize="cover";
-//      console.log('되나염?')
-
-//   });
-// });
-
-//NEW 상품이미지 스와이프
-// const img = document.querySelector(".newArr>a>img");
-// let imgArray = new Array();
-// imgArray[0] = "./img/cat1-5.jpg";
-// imgArray[1] = "./img/cat1-2.jpg";
-// imgArray[2] = "./img/cat1-3.jpg";
-// imgArray[3] = "./img/cat1-4.jpg";
-// imgArray[4] = "./img/cat1-1.jpg";
-
-// var imgCnt = 0;
-
-// function changeImage() {
-//   imgCnt++;
-//   if (imgCnt < imgArray.length) {
-//     img.src = imgArray[imgCnt];
-//     setTimeout(changeImage, 800);
-//   } else {
-//     imgCnt = 0; // loop
-//     changeImage();
-//   }
-// }
-// function startAnimation() {
-//   window.setTimeout(changeImage, 100);
-// }
-
-//BEST 상품이미지 스와이프
-// const img1 = document.querySelector(".bestImg1>img");
-// let imgArray1 = new Array();
-// imgArray1[0] = "./img/bear1-1.jpg";
-// imgArray1[1] = "./img/bear1-2.jpg";
-// imgArray1[2] = "./img/bear1-3.jpg";
-// imgArray1[3] = "./img/bear1-4.jpg";
-// imgArray1[4] = "./img/bear1-5.jpg";
-
-// var imgCnt1 = 0;
-
-// function changeImage1() {
-//   imgCnt1++;
-//   if (imgCnt1 < imgArray1.length) {
-//     img1.src = imgArray1[imgCnt1];
-//     setTimeout("changeImage1()", 600);
-//   } else {
-//     imgCnt1 = 0; // loop
-//     changeImage1();
-//   }
-// }
-// function startAnimation1() {
-//   window.setTimeout(changeImage1, 100);
-// }
-
-// window.onload = function () {
-//     startAnimation()
-//   startAnimation1()
-//  };
-
-//리스트 제이슨
-// let bestItem = null;
-// let listList = null;
-
-//  function getData() {
-//   fetch('./best.json')
-//   .then(res => res.json())
-//   .then(result2 => {
-//     bestItem = result2;
-//   });
-// }
-
-// function makeBest(item) {
-//     const div = document.createElement('div');
-//     div.innerHTML = `console.log('여긴가')
-//       <a href="">
-//           <div class="best_img">
-//               <img src="${item.img_picture}" alt="">
-//           </div></a>
-//           <div class="best_text">
-//               <p>${item.product_number}</p>
-//               <span>${item.product_name}</span>
-//               <p>${item.price}</p>
-//           </div>
-//       `;
-//     $thumbnail.appendChild(div);
-// }
-
-//
-//      function makeBest(item) {
-// const div = document.createElement('div');
-//       div.classList.add('best')
-//       div.innerHTML = `
-//           <a href="">
-//               <div class="best_img">
-//                   <img src="${img_picture}" alt="">
-//               </div>
-//               <div class="best_text">
-//                   <p>${item.product_number}</p>
-//                   <span>${best.product_name}</span>
-//                   <p>${best.text_3}</p>
-//               </div>
-//           </a>
-//       `;
-//       return div;
-//     }
-// function makeItem(item) {
-//       const div = document.createElement('div');
-//       div.classList.add('item');
-
-//       let divImageClass = 'image';
-//       let divProductClass = 'product';
-//       let imgClass = 'img_picture';
-//       let imgClassHover = 'img_overEffect';
-
-//       return div;
-//     }
-
-//     getData();
-
-//     const $bestContainer = document.querySelector('.bestList');
