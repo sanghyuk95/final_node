@@ -4,6 +4,7 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const session = require("express-session");
 const flash = require("connect-flash");
+const mysql = require("mysql2");
 
 app.use(session({ secret: "비밀코드", resave: true, saveUninitialized: false }));
 app.use(passport.initialize());
@@ -19,8 +20,6 @@ app.listen(8080, function () {
   console.log("listening on 8080");
 });
 
-const mysql = require("mysql2");
-
 const connection = mysql.createConnection({
   host: "database-1.cixoxvhojmog.ap-northeast-2.rds.amazonaws.com",
   user: "shskse5",
@@ -33,6 +32,10 @@ connection.connect(function (err) {
     console.error("연결실패 :" + err.stack);
     return;
   }
+
+  setInterval(function () {
+    connection.query("SELECT 1");
+  }, 3600000);
   console.log("연결된듯");
 });
 
@@ -176,7 +179,7 @@ app.get("/board", function (req, res) {
 
 // ,${req.file.originalname}
 app.post("/write", upload.single("photo"), function (req, res) {
-  let sql = ''
+  let sql = "";
   if (req.file) {
     sql = `insert into community (title,detail,emotion,writer,photo) values ('${req.body.title}','${req.body.detail}','${req.body.emotion}','id','${req.file.filename}')`;
   } else {
@@ -197,4 +200,7 @@ app.get("/product", function (req, res) {
 });
 app.get("/productDetail", function (req, res) {
   res.sendFile(__dirname + "/views/detailmush.html");
+});
+app.get((req, res) => {
+  res.status(404).send("not found");
 });
